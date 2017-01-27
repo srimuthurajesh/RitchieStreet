@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow  http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
+
+<!-- 	<var name="shippingAddress" class="com.niit.kafon.model.ShippingAddress" /> -->
+<!-- 	<var name="billingAddress" class="com.niit.kafon.model.BillingAddress" /> -->
+<!-- 	<var name="cart" class="com.niit.kafon.model.Cart" /> -->
+<!-- 	<var name="cartItem" class="com.niit.kafon.model.CartItem" /> -->
+<!--   <var name="order" class="com.niit.kafon.model.UserOrder" /> -->
+
+	<action-state id="orderProcess">
+        <evaluate expression="FlowController.validate(requestParameters.cartId)" result="order.cart" />
+        <transition to="invalidProcess" on-exception="java.io.IOException" />
+        <transition to="userInfoDisplay" />
+    </action-state>
+
+	<view-state id="userInfoDisplay" view="shippingAddDisplay" model="shippingAddress">
+		<transition on="submitShippingAddress" to="shippingDetails" />
+	</view-state>
+
+	<action-state id="shippingDetails">
+		<evaluate
+			expression="flowController.addShippingAddress(shippingAddress)"></evaluate>
+		<transition on="success" to="viewBillingDetails" />
+	</action-state>
+
+	<view-state id="viewBillingDetails" view="billingAddress"
+		model="billingAddress">
+		<transition on="submitBillingAddress" to="billingDetails" />
+	</view-state>
+
+	<action-state id="billingDetails">
+		<evaluate
+			expression="flowController.addBillingAddress(billingAddress)"></evaluate>
+		<transition on="success" to="viewCardDetail" />
+	</action-state>
+
+	<view-state id="viewCardDetail" view="cardDetail"
+		model="cardDetail">
+		<transition on="confirmCheckout" to="paymentDetails" />
+	</view-state>
+
+	<action-state id="paymentDetails">
+		<evaluate
+			expression="flowController.addCardDetails(cardDetail)"></evaluate>
+		<transition on="success" to="orderConfirm" />
+	</action-state>
+
+
+	<view-state id="orderConfirm" view="cart/orderConfirmed">
+		<transition on="finalHome" to="toHome" />
+	</view-state>
+
+
+<!-- 
+	<end-state id="orderConfirm" view="cart/orderConfirmed"/> -->	
+	<end-state id="toCartView" view="externalRedirect:contextRelative:/user/cart/" />
+	<end-state id="toHome" view="externalRedirect:contextRelative:/" />
+
+	<global-transitions>
+		<transition on="cancel" to="toCartView" />
+		<!-- <transition on="finalHome" to="toHome" /> -->
+	</global-transitions>
+
+</flow>	

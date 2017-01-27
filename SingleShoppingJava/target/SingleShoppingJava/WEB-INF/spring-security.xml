@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd 
+ http://www.springframework.org/schema/mvc
+  http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/tx 
+    http://www.springframework.org/schema/tx/spring-tx.xsd 
+    http://www.springframework.org/schema/security 
+    http://www.springframework.org/schema/security/spring-security.xsd" 
+    xmlns:beans="http://www.springframework.org/schema/beans" 
+    xmlns:security="http://www.springframework.org/schema/security"
+     xmlns:tx="http://www.springframework.org/schema/tx" 
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xmlns:context="http://www.springframework.org/schema/context" 
+     xmlns:mvc="http://www.springframework.org/schema/mvc" 
+     xmlns="http://www.springframework.org/schema/security">
+     
+<security:http use-expressions="true" auto-config="true">
+<security:intercept-url access="hasRole('ROLE_ADMIN')" pattern="/admin"/>
+<security:intercept-url access="hasRole('ROLE_ADMIN')" pattern="/categories"/>
+<security:intercept-url access="hasRole('ROLE_ADMIN')" pattern="/product"/>
+<security:intercept-url access="hasRole('ROLE_ADMIN')" pattern="/supplier"/>
+
+<security:intercept-url pattern="/" access="hasRole('ROLE_USER')"/>	
+<security:intercept-url access="permitAll" pattern="/"/>
+<security:intercept-url access="permitAll" pattern="/login"/>
+<security:intercept-url access="permitAll" pattern="/register"/>
+<security:form-login authentication-success-forward-url="/loginsuccess" authentication-failure-url="/Login" login-processing-url="/perform_login" default-target-url="/Login"/>
+<security:logout logout-success-url="/" invalidate-session="true" logout-url="/Logout"/>
+<security:csrf disabled="true"/>
+</security:http>
+<security:authentication-manager>
+<security:authentication-provider>
+<security:jdbc-user-service
+				data-source-ref="dataSource" 
+				users-by-username-query="select username,password,enabled from UserDetails where username=?" 
+				authorities-by-username-query="select username, role from UserDetails where username =?" />
+
+<!-- <security:jdbc-user-service authorities-by-username-query="select username, Role from UserDetails where username =?" users-by-username-query="select username,password,enabled from UserDetails where username=?" data-source-ref="dataSource"/> -->
+</security:authentication-provider>
+</security:authentication-manager>
+</beans:beans>
