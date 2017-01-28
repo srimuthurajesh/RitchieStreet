@@ -34,7 +34,7 @@
 <h2>Welcome RajeshShopping</h2>
 
  <%@ include file="WEB-INF/jsp_pages/header_common.jsp"%>   <!-- sir this page is detected but bootstrap, css files not detected, only html content is displayed-->
-   <img src="images/1.jpg" />   <!--sir this image is inside "resource/images/1.jpg", what src=" " i have to put? -->
+   <img src="images/1.jpg" />   <!--sir this image is inside "resource/images/1.jpg", image is not displayed, what img src=" " i have to put? -->
 <a href="loginpage"><h4>Login</h4></a>
 <a href="register"><h4>Register</h4></a>
 
