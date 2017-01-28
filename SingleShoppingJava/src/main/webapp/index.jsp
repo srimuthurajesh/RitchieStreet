@@ -33,7 +33,8 @@
 <body>
 <h2>Welcome RajeshShopping</h2>
 
-<%-- <%@ include file="WEB-INF/jsp_pages/header_common.jsp"%> --%>
+ <%@ include file="WEB-INF/jsp_pages/header_common.jsp"%>
+    <img src="images/1.jpg" /> 
 <a href="loginpage"><h4>Login</h4></a>
 <a href="register"><h4>Register</h4></a>
 
