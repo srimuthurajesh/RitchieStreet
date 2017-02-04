@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.entityModel.SupplierModel;
 
@@ -69,6 +70,27 @@ public class SupplierDAOImpl implements SupplierDAO {
 		return list;
 
 	}
+
+    //---------------------------------------------SaveOrUpdate-------------------------------------------------------
+    @Transactional
+    public void saveOrUpdate(SupplierModel supplierModel) {
+	sessionFactory.getCurrentSession().saveOrUpdate(supplierModel);
+
+    }
+
+    //--------------------------------------------get by Name-------------------------------------------------------------
+    @SuppressWarnings("deprecation")
+    @Transactional
+    public SupplierModel getByName(String name) {
+	String hql = "from Supplier where name =" + "'" + name + "'";
+	Query query = sessionFactory.getCurrentSession().createQuery(hql);
+	@SuppressWarnings("unchecked")
+	List<SupplierModel> list = (List<SupplierModel>) query.list();
+	if (list != null && !list.isEmpty()) {
+	    return list.get(0);
+	}
+	return null;
+    }
 
 
 }

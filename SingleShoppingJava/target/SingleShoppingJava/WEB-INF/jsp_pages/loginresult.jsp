@@ -11,13 +11,13 @@
 <title>Rajeshshopping</title>
 </head>
 <body>
-
-<c:if test="${isAdmin==true}">
-<%@ include file="./admin.jsp" %>>
+Hiiiii login result
+<c:if test="${LoggedIn==true}">
+<%@ include file="/admin.jsp" %>>
 </c:if>
 
-<c:if test="${isAdmin==false}">
-<%@ include file="./loginsuccess.jsp" %>
+<c:if test="${UserLoggedIn==false}">
+<%@ include file="/loginsuccess.jsp" %>
 </c:if>
 
 </body>

@@ -13,11 +13,11 @@
 <body>
 Hiiiii login result
 <c:if test="${LoggedIn==true}">
-<%@ include file="./admin.jsp" %>>
+<%@ include file="/admin.jsp" %>>
 </c:if>
 
 <c:if test="${UserLoggedIn==false}">
-<%@ include file="./loginsuccess.jsp" %>
+<%@ include file="/loginsuccess.jsp" %>
 </c:if>
 
 </body>

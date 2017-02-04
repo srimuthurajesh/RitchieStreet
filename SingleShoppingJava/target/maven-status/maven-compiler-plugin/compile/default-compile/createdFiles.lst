@@ -10,8 +10,10 @@ com\niit\Controller\HomeController.class
 com\niit\Controller\SupplierController.class
 com\niit\entityModel\ProductModel.class
 com\niit\DAO\UserDAOImpl.class
+com\niit\util\FileUtil.class
 com\niit\DAO\SupplierDAOImpl.class
 com\niit\config\AppplicationContextConfig.class
 com\niit\DAO\CategoryDAO.class
 com\niit\entityModel\CategoryModel.class
 com\niit\Controller\CategoryController.class
+com\niit\util\Util.class

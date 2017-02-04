@@ -14,15 +14,24 @@ public class User implements Serializable { //Serializable is a markup interface
 	@Id
 	@Column(name = "username")
 	private String username;
+
+    @Column(name = "firstname")
+    private String firstname;
+
+    @Column(name = "lastname")
+    private String lastname;
+
 	@Column(name = "emailid")
 	private String emailid;
 
 	@Column(name = "password")
 	private String password;
-	@Column(name = "dob")
-	private String dob;
 	@Column(name = "mobile")
 	private String mobile;
+
+    @Column(name = "address")
+    private String address;
+
 	@Column(name = "streetname")
 	private String streetname;
 	@Column(name = "cityname")
@@ -32,7 +41,7 @@ public class User implements Serializable { //Serializable is a markup interface
     @Column(name = "role")
     private String role = "ROLE_USER";
     @Column
-    private boolean enabled;
+    private boolean enabled=true;
 
     //-------------------------getter setter for userName------------------------------
 	public String getUsername() {
@@ -60,13 +69,6 @@ public class User implements Serializable { //Serializable is a markup interface
 		this.password = password;
 	}
 
-    //-------------------------getter setter for Dob-----------------------------------
-	public String getDob() {
-		return dob;
-	}
-	public void setDob(String dob) {
-		this.dob = dob;
-	}
 
     //-------------------------getter setter for mobile----------------------------------
 	public String getMobile() {
@@ -121,4 +123,35 @@ public class User implements Serializable { //Serializable is a markup interface
     public void setEnabled(boolean enabled) {
 	this.enabled = enabled;
     }
+    //-------------------------getter setter for Firstname-------------------------------------
+
+    public void setFirstname(String firstname) {
+	this.firstname = firstname;
+    }
+
+    public String getFirstname() {
+	return firstname;
+    }
+
+    //-------------------------getter setter for Secondname-------------------------------------
+
+    public String getLastname() {
+	return lastname;
+    }
+
+    public void setLastname(String lastname) {
+	this.lastname = lastname;
+    }
+
+    //-------------------------getter setter for Address-------------------------------------
+
+    public String getAddress() {
+	return address;
+    }
+
+
+    public void setAddress(String address) {
+	this.address = address;
+    }
+
 }

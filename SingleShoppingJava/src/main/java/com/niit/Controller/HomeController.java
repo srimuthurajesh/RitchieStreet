@@ -31,13 +31,19 @@ Logger log=LoggerFactory.getLogger(HomeController.class);
 	@RequestMapping(value = "/admin")							 //mapping for "/admin"
 	public ModelAndView hello6() {
 	    log.debug("inside controller for /admin");
-		ModelAndView model = new ModelAndView("admin");
+		ModelAndView model = new ModelAndView("admin_home");
 		return model;
 	}
 
 
+	@RequestMapping(value="/")
+	public String indexpage(){
+		return "index";
+	}
+	
+	
 	@RequestMapping(value = "/register")							//mapping for "/register"
-	public ModelAndView registerPage(Model m) {
+    public ModelAndView registerPage() {
 	    log.debug("insdie controller for /register");
 	ModelAndView model = new ModelAndView("register", "userModel", new User());
 		return model;
@@ -72,7 +78,6 @@ Logger log=LoggerFactory.getLogger(HomeController.class);
 	@RequestMapping(value = "/registersuccess", method = RequestMethod.POST)				//mapping for "/registersuccess"
     public ModelAndView hello(@ModelAttribute("userModel") User userModel) {
 	    log.debug("inside controller for /registersuccess");
-	//UserDAO userDAO = new UserDAOImpl();
 
 	if (userDAO.validationRegistration(userModel)) { //chekcing registration process
 		    log.debug("inside if registration is true");
@@ -100,65 +105,39 @@ Logger log=LoggerFactory.getLogger(HomeController.class);
 
     @SuppressWarnings("unchecked")
     @RequestMapping(value = "/loginresult", method = RequestMethod.POST)
-    public String login_session_attributes(HttpSession session, Model model) {
+    public String login_session_attributes(@RequestParam("username") String username,@RequestParam("password") String password, HttpSession session, Model model) {
 	String userid = SecurityContextHolder.getContext().getAuthentication().getName();
 
 	Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>) SecurityContextHolder.getContext()
 		.getAuthentication().getAuthorities();
 	String page = "";
-
+System.out.println("hi am insed method");
 	String role = "ROLE_USER";
 	for (GrantedAuthority authority : authorities) {
 	    System.out.println(authority.getAuthority());
 	    if (authority.getAuthority().equals(role)) {
-
-		session.setAttribute("UserLoggedIn", "true");
-		session.setAttribute("Username", userid);
-		page = "loginsuccess";
+		session.setAttribute("Loggedin", "true");
+		session.setAttribute("isUser", "true");
+		session.setAttribute("User", userid);
+		page = "index";
+		System.out.println("am inside role user");
 
 		break;
 	    } else {
-		session.setAttribute("LoggedIn", "true");
-		session.setAttribute("Administrator", "true");
-		page = "admin";
+System.out.println("iam inside the role sadmin");
+		session.setAttribute("Loggedin", "true");
+		session.setAttribute("isAdmin", "true");
+		session.setAttribute("User", userid);
+		page = "admin_home";
 		break;
 	    }
 	}
 	return page;
     }
 
-    //	// ---------------------------------login-----------------------------------------
-    //	@RequestMapping(value = "/loginresult", method = RequestMethod.POST)					//mapping for "/loginresult"
-    //	public ModelAndView hello4(@RequestParam("username") String username, @RequestParam("password") String password,
-    //			Model m, HttpSession session) {
-    //	    log.debug("inside controller for loginresult");
-    //	//UserDAO userDAO = new UserDAOImpl();
-    //
-    //	if (userDAO.validationLogin(username, password)) { //username password validation
-    //		    log.debug("inside if login is valid ");
-    //	    ModelAndView model = new ModelAndView("loginresult", "userModel", new User()); //if yes adding loginresult page
-    //			session.setAttribute("userModel", userDAO.getbyId(username));
-    //
-    //			if (userDAO.getbyId(username).getRole().equals("ROLE_ADMIN")) {				//checking ROLE
-    //			    log.debug("inside if login is ROLE_ADMIN");
-    //				model.addObject("isAdmin", true);
-    //
-    //			} else {										//if not valid user
-    //			    log.debug("inside if login is ROLE_USER");
-    //				model.addObject("isAdmin", false);
-    //			}
-    //			return model;
-    //		} else {
-    //		    log.debug("inside if login is not valid, try again");
-    //	    ModelAndView model = new ModelAndView("login", "userModel", new User());
-    //			model.addObject("msg", "check your password and username");
-    //		return model;
-    //		}
-    //	}
-
     @RequestMapping("/logout")
     public ModelAndView logout(HttpServletRequest request, HttpSession session) {
-	ModelAndView mv = new ModelAndView("index");
+	ModelAndView mv = new ModelAndView("/");
 	session.invalidate();
 	session = request.getSession(true);
 	mv.addObject("logoutMessage", "you are successfully logged out");

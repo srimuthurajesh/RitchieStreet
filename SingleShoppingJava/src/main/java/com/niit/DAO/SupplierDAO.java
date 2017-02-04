@@ -14,4 +14,7 @@ public interface SupplierDAO {
 
 	public List<SupplierModel> getSupplierList();
 
+    public void saveOrUpdate(SupplierModel supplierModel);
+
+    public SupplierModel getByName(String name);
 }

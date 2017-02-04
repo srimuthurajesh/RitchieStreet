@@ -5,6 +5,8 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp/WEB-INF/resources"/>
         <property name="context-root" value="SingleShoppingJava"/>
         <property name="java-output-path" value="/SingleShoppingJava/target/classes"/>
     </wb-module>

@@ -20,12 +20,15 @@ public class CategoryController {
 
     Logger log = LoggerFactory.getLogger(CategoryController.class); //logger and loogerfactory class declared for this Class
 
+//    ----------------------------------------------------ADMIN----------------------------------------------
+    
 	// ---------------------------------category-------------------------------
 	@RequestMapping(value = "/category", method = RequestMethod.GET)	//mapping for "/category"
 	public ModelAndView categoryPage() {
 log.debug("inside category controller");		//performing a logger debug
-	ModelAndView model = new ModelAndView("category", "categoryModel", new CategoryModel()); //adding a page to ModelAndView with empty constructor
+	ModelAndView model = new ModelAndView("admin_category", "categoryModel", new CategoryModel()); //adding a page to ModelAndView with empty constructor
 		model.addObject("list", categoryDAO.getCategoryList());						//adding a Object to value "list"
+	model.addObject("page_name", "Category");
 		return model;
 		}
 
@@ -35,7 +38,7 @@ log.debug("inside category controller");		//performing a logger debug
 	public String addCategory(CategoryModel categoryModel) {
 		log.debug("inside addcategory Controller");
 		categoryDAO.addCategory(categoryModel);
-		return "redirect:/category";
+	return "redirect:/category";
 	}
 
 	// ---------------------------------delete---------------------------------
@@ -59,6 +62,5 @@ log.debug("inside category controller");		//performing a logger debug
 		return model;
 	}
 
-
-
+//	-------------------------------------------------------USER COMMON--------------------------------------
 }

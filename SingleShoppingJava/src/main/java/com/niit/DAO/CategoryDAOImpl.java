@@ -5,8 +5,10 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.entityModel.CategoryModel;
 
@@ -50,18 +52,35 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 		List<CategoryModel> list = (List<CategoryModel>) session.createCriteria(CategoryModel.class)
 				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
-
 		return list;
 
 	}
 
-	public CategoryModel getById(String username) {
+    public CategoryModel getById(String categoryId) {
 
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 
-		return session.get(CategoryModel.class, username);
+	return session.get(CategoryModel.class, categoryId);
 
 	}
+
+    @Transactional
+    public CategoryModel getByName(String name) {
+	String hql = "from Category where name =" + "'" + name + "'";
+	Query query = sessionFactory.getCurrentSession().createQuery(hql);
+	@SuppressWarnings("unchecked")
+	List<CategoryModel> list = (List<CategoryModel>) query.list();
+	if (list != null && !list.isEmpty()) {
+	    return list.get(0);
+	}
+	return null;
+    }
+
+    @Transactional
+    public void saveOrUpdate(CategoryModel categoryModel) {
+	sessionFactory.getCurrentSession().saveOrUpdate(categoryModel);
+
+    }
 
 }

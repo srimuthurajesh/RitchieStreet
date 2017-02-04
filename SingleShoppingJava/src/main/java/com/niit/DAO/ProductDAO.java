@@ -13,4 +13,8 @@ public interface ProductDAO {
 	public List<ProductModel> getProductList();
 
     public ProductModel getById(String productId);
+
+    public void saveOrUpdate(ProductModel productModel);
+
+    public List<ProductModel> getProductListbycategory(String categoryId);
 }

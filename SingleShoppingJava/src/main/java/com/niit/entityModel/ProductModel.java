@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "PRODUCT_TABLE")
@@ -38,6 +41,19 @@ public class ProductModel implements Serializable { //Serializable is a markup i
     @ManyToOne
     @JoinColumn(name = "supplierid", updatable = false, insertable = false, nullable = false)
     private SupplierModel supplierModel;
+
+    @Transient
+    private MultipartFile image;
+
+    //-------------------------getter setter for images------------------------------
+
+    public MultipartFile getImage() {
+	return image;
+    }
+
+    public void setImage(MultipartFile image) {
+	this.image = image;
+    }
 
     //-------------------------getter setter for productDescription------------------------------
     public String getProductDescription() {

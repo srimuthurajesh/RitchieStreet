@@ -24,17 +24,11 @@
 <td>Your Email-id is </td> <td>: ${userModel.emailid}</td>
 </tr>
 
-<tr>
-<td>Your password is </td> <td>: ${userModel.password}</td>
-</tr>
 
 <tr>
 <td>Your Mobile number is </td> <td>: ${userModel.mobile}</td>
 </tr>
 
-<tr>
-<td>Your DOB is </td> <td>: ${userModel.dob}</td>
-</tr>
 
 <tr>
 <td>Your Address is </td> <td><br><br>${userModel.streetname}<br> ${userModel.cityname}<br> ${userModel.pincode}</td>

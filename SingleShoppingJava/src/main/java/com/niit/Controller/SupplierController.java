@@ -17,13 +17,16 @@ import com.niit.entityModel.SupplierModel;
 public class SupplierController {
 Logger log= LoggerFactory.getLogger(SupplierController.class);
 
+
+//------------------------------------------------ADMIN--------------------------------------------------
     @Autowired
     SupplierDAO supplierDAO;
     // ---------------------------------supplier---------------------------------
 	@RequestMapping(value = "/supplier", method = RequestMethod.GET)			//mapping for "/supplier"
 	public ModelAndView supplierPage(Model m) {
-		ModelAndView model = new ModelAndView("supplier", "supplierModel", new SupplierModel());
+		ModelAndView model = new ModelAndView("admin_supplier", "supplierModel", new SupplierModel());
 		model.addObject("list", supplierDAO.getSupplierList());
+	model.addObject("page_name", "Supplier");
 		return model;
 	}
 
@@ -53,7 +56,10 @@ Logger log= LoggerFactory.getLogger(SupplierController.class);
 	model.addObject("list", supplierDAO.getSupplierList());
 
 	model.addObject("values", supplierDAO.getbyId(supplierId));
+	model.addObject("page_name", "Supplier");
 	return model;
     }
 
+//    -----------------------------------------------USER & COMMON---------------------------------------
+    
 }

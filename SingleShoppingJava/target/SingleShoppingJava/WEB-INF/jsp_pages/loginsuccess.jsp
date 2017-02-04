@@ -14,7 +14,7 @@
 <body>
 <h2>Welcome RajeshShopping</h2>
 
-<h4> Hello ${userModel.username} You have been Successfully Logged in</h4>
+<h4> Hello ${userid} You have been Successfully Logged in</h4>
 <ul>
 			<li>Your email: ${userModel.emailid}</li>
 			<li>Your Dob: ${userModel.dob}</li>
@@ -24,6 +24,6 @@
 			<li>Pincode: ${userModel.pincode}</li>
 			</ul>
 
-<a href="login">logout</a>
+<a href="logout">logout</a>
 </body>
 </html>

@@ -11,20 +11,20 @@
      <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>4.3.2.RELEASE</version>
+			<version>4.3.5.RELEASE</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>4.3.2.RELEASE</version>
+			<version>4.3.5.RELEASE</version>
 		</dependency>
 		
 		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.3.2.RELEASE</version>
+			<version>4.3.5.RELEASE</version>
 		</dependency>
 		
     	<dependency>
@@ -33,11 +33,6 @@
             <version>1.2</version>
 		</dependency>
 		
-		<dependency>
-        	<groupId>commons-dbcp</groupId>
-        	<artifactId>commons-dbcp</artifactId>
-        	<version>1.4</version>
-        </dependency>
         
          <dependency>
 	    	<groupId>javax.servlet</groupId>
@@ -109,11 +104,6 @@
 </dependency>
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 
-		<dependency>
-        	<groupId>commons-dbcp</groupId>
-        	<artifactId>commons-dbcp</artifactId>
-        	<version>1.4</version>
-        </dependency>
             <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
 <dependency>
     <groupId>org.slf4j</groupId>
@@ -127,11 +117,6 @@
 </dependency>
 
             <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
-<dependency>
-    <groupId>commons-fileupload</groupId>
-    <artifactId>commons-fileupload</artifactId>
-    <version>1.3.2</version>
-</dependency>
             <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
 <dependency>
     <groupId>org.springframework</groupId>
@@ -139,11 +124,6 @@
     <version>4.3.5.RELEASE</version>
 </dependency>
             <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
-<dependency>
-    <groupId>commons-io</groupId>
-    <artifactId>commons-io</artifactId>
-    <version>2.4</version>
-</dependency>
             <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
 <dependency>
     <groupId>javax.validation</groupId>
@@ -177,6 +157,24 @@
     <groupId>org.springframework.security</groupId>
     <artifactId>spring-security-web</artifactId>
     <version>4.2.1.RELEASE</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.3.2</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.5</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-dbcp2</artifactId>
+    <version>2.0</version>
 </dependency>
 
   </dependencies>
