@@ -3,6 +3,7 @@ package com.niit.Controller;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,14 +18,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.niit.DAO.OrderDAO;
 import com.niit.DAO.CategoryDAO;
 import com.niit.DAO.ProductDAO;
 import com.niit.DAO.SupplierDAO;
+import com.niit.DAO.UserDAO;
 import com.niit.entityModel.CategoryModel;
+import com.niit.entityModel.OrderModel;
 import com.niit.entityModel.ProductModel;
 import com.niit.entityModel.SupplierModel;
+import com.niit.entityModel.User;
 
 @Controller
 public class ProductController {
@@ -37,6 +43,17 @@ public class ProductController {
 
     @Autowired
     private SupplierDAO supplierDAO;
+    
+
+    @Autowired
+    private UserDAO userDAO;
+
+    @Autowired
+    private OrderDAO cartDAO;
+    
+
+    @Autowired
+    private OrderDAO orderDAO;
     
 //    ---------------------------------------------------ADMIN-------------------------------------------------
 
@@ -138,24 +155,43 @@ public class ProductController {
     
     
 //    -------------------------------------------------USER COMMMON----------------------------------------------
-
-    // ---------------------------------product---------------------------------
-    @RequestMapping(value = "/categorypage", method = RequestMethod.GET) //mapping for "/product"
-    public String productPageUser(Model model, @RequestParam("categoryId") String categoryId) {
-
+      @RequestMapping(value = "/categorypage", method = RequestMethod.GET) //mapping for "/product"
+    public String categoryPageUser(Model model, @RequestParam("categoryId") String categoryId) {
 	model.addAttribute("values", productDAO.getProductListbycategory(categoryId));
-	model.addAttribute("categoryId", "categoryId");
-
-	//	model.addAttribute("productModel", new ProductModel());
-	//	model.addAttribute("supplierModel", new SupplierModel());
-	//	model.addAttribute("categoryModel", new CategoryModel());
-
-	//	model.addAttribute("productlist", productDAO.getProductList()); //object for productList
-	//	model.addAttribute("categorylist", categoryDAO.getCategoryList()); //object for categoryList
-	//	model.addAttribute("supplierlist", supplierDAO.getSupplierList()); //object for supplierList
-	//	model.addAttribute("page_name", "Product");
+	model.addAttribute("categoryList", categoryDAO.getCategoryList());
+	
 	return "categorypage";
 
     }
 
+       
+    
+    @RequestMapping(value = "/productpage", method = RequestMethod.GET) //mapping for "/product"
+    public String productPageUser(Model model, @RequestParam("productId") String productId) {
+
+	model.addAttribute("productbyId", productDAO.getById(productId));
+	model.addAttribute("productId", "productId");
+	model.addAttribute("categoryList", categoryDAO.getCategoryList());
+	model.addAttribute("productList", productDAO.getProductListbycategory(productDAO.getById(productId).getCategoryId()));
+	
+	if(productDAO.getById(productId).getProductQuantity()!=0){
+	model.addAttribute( "stock","in-Stock" );
+	}else{
+		model.addAttribute( "stock","out of Stock" );	
+	}
+	return "productpage";
+    }
+    
+    @RequestMapping(value="/addtocart",method=RequestMethod.GET)
+    public String addtocart(@RequestParam("username")String username, @RequestParam("productId")String productId, Model model){
+//    	CartModel cartModel=userDAO.getbyId(username).getCartModel();
+//    	ProductModel productModel= productDAO.getById(productId);
+//    	
+//    	orderDAO.add(productModel);
+//    	
+//    	List<Order> order= cartModel.getOrder();
+//    	
+//    	
+    	return "cartpage";
+    }
 }

@@ -50,11 +50,138 @@
 
  <%@ include file="header.jsp"%>
 
+               
 <%@ include file="carousel.jsp"%>
   
 <%@ include file="index_promo.jsp"%>
 <%@ include file="index_productlist.jsp"%>
 
+<!-- banner section -->
+  <section id="aa-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">        
+          <div class="row">
+            <div class="aa-banner-area">
+            <a href="#"><img src="<c:url value="/resources/img/fashion-banner.png"/>" alt="fashion banner img"></a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  
+  <!-- Support section -->
+  <section id="aa-support">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-support-area">
+            <!-- single support -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="aa-support-single">
+                <span class="fa fa-truck"></span>
+                <h4>FREE SHIPPING</h4>
+                <P>Delivered within 3-4 working days, one day delivery for Premium Customers</P>
+              </div>
+            </div>
+            <!-- single support -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="aa-support-single">
+                <span class="fa fa-clock-o"></span>
+                <h4>30 DAYS MONEY BACK</h4>
+                <P>
+If u cancel within 30 days and you're not completely satisfied. Money Back Guarantee</P>
+              </div>
+            </div>
+            <!-- single support -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="aa-support-single">
+                <span class="fa fa-phone"></span>
+                <h4>SUPPORT 24/7</h4>
+                <P>
+We are available to service 24/7,Our promise is to delight customers</P>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / Support section -->
+  <!-- Testimonial -->
+  <section id="aa-testimonial">  
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-testimonial-area">
+            <ul class="aa-testimonial-slider">
+              <!-- single slide -->
+              <li>
+                <div class="aa-testimonial-single">
+                <img class="aa-testimonial-img" src="img/testimonial-img-2.jpg" alt="testimonial img">
+                  <span class="fa fa-quote-left aa-testimonial-quote"></span>
+                  <p>This site makes the customer to feel like experience a real shopping environment, I specially like it, because this site is for geeks, am a Geek</p>
+                  <div class="aa-testimonial-info">
+                    <p>Linus Torvalds</p>
+                    <span>Founder</span>
+                    <a href="#">Linux kernel</a>
+                  </div>
+                </div>
+              </li>
+              <!-- single slide -->
+              <li>
+                <div class="aa-testimonial-single">
+                <img class="aa-testimonial-img" src="img/testimonial-img-1.jpg" alt="testimonial img">
+                  <span class="fa fa-quote-left aa-testimonial-quote"></span>
+                  <p>Lot of improvements needed, i hope the team will work on that in future. Besides that i love this site.</p>
+                  <div class="aa-testimonial-info">
+                    <p>Elon Musk</p>
+                    <span>CEO</span>
+                    <a href="#">Tesla, SpaceX</a>
+                  </div>
+                </div>
+              </li>
+               <!-- single slide -->
+              <li>
+                <div class="aa-testimonial-single">
+                <img class="aa-testimonial-img" src="img/testimonial-img-3.jpg" alt="testimonial img">
+                  <span class="fa fa-quote-left aa-testimonial-quote"></span>
+                  <p>Great works does born from scratch works, My delighted wishes to the team for developing this site and for Hilarious works which gonna done in future.  </p>
+                  <div class="aa-testimonial-info">
+                    <p>Steve wozniak</p>
+                    <span>Co-Founder</span>
+                    <a href="#">Apple.Inc</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / Testimonial -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
   <%@ include file="footer.jsp"%>
 
  

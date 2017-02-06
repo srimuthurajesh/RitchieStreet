@@ -64,7 +64,6 @@ public class ProductDAOImpl implements ProductDAO {
 	Session session = sessionFactory.openSession();
 	session.beginTransaction();
 	log.debug("before query");
-	System.out.println("am inside before query getbyid");
 	return session.get(ProductModel.class, productId);
 
     }

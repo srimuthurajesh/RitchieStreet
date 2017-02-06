@@ -65,15 +65,16 @@
             <div class="aa-product-catg-body">
               <ul class="aa-product-catg">
                 <!-- start single product item -->
+                
                  <c:forEach var="productList" items="${values}">
-                   
+                 
                 <li>
-                  <figure>
-                    <a class="aa-product-img" href="page"><img src="<c:url value="/resources/product/${productList.productId }.png"/>" style="height:250px;width:250px" alt="${productList.productId }"></a>
+                  <figure> 
+                    <a class="aa-product-img" href="productpage?productId=${productList.productId}"><img src="<c:url value="/resources/product/${productList.productId }.png"/>" style="height:250px;width:250px" alt="${productList.productId }"></a>
                     <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                     <figcaption>
                       <h4 class="aa-product-title"><a href="#">${productList.productName }</a></h4>
-                      <span class="aa-product-price">Rs.${productList.productPrice }-/</span>
+                      <span class="aa-product-price"><i class="fa fa-inr"></i> ${productList.productPrice }-/</span>
                       <p class="aa-product-descrip">${productList.productDescription }</p>
                     </figcaption>
                   </figure>                         
@@ -209,8 +210,8 @@
                   <li>
                     <a href="#" class="aa-cartbox-img"><img alt="img" src="img/woman-small-2.jpg"></a>
                     <div class="aa-cartbox-info">
-                      <h4><a href="#">${list.productname}</a></h4>
-                      <p>${list.productprice}</p>
+                      <h4><a href="#">${list.productName}</a></h4>
+                      <p><i class="fa fa-inr"></i>${list.productPrice}</p>
                     </div>                    
                   </li>
                    </ul>

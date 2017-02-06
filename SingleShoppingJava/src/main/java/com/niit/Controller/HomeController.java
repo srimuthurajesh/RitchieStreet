@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.niit.DAO.CategoryDAO;
 import com.niit.DAO.UserDAO;
 import com.niit.entityModel.User;
 
@@ -28,6 +29,11 @@ Logger log=LoggerFactory.getLogger(HomeController.class);
     @Autowired(required = true)
     private UserDAO userDAO;
 
+
+    @Autowired(required = true)
+    private CategoryDAO categoryDAO;;
+
+    
 	@RequestMapping(value = "/admin")							 //mapping for "/admin"
 	public ModelAndView hello6() {
 	    log.debug("inside controller for /admin");
@@ -35,9 +41,11 @@ Logger log=LoggerFactory.getLogger(HomeController.class);
 		return model;
 	}
 
-
+		
+	
 	@RequestMapping(value="/")
-	public String indexpage(){
+	public String indexpage(Model m){
+		m.addAttribute("categoryList", categoryDAO.getCategoryList());
 		return "index";
 	}
 	
@@ -62,14 +70,6 @@ Logger log=LoggerFactory.getLogger(HomeController.class);
 	public ModelAndView hello3() {
 	    log.debug("inside controller for /login");
 	ModelAndView model = new ModelAndView("loginpage", "userModel", new User());
-		return model;
-
-	}
-
-	@RequestMapping(value = "/index")							//mapping for "/index"
-	public ModelAndView hello4() {
-	    log.debug("inside controller for /index");
-		ModelAndView model = new ModelAndView("index");
 		return model;
 
 	}
@@ -120,11 +120,10 @@ System.out.println("hi am insed method");
 		session.setAttribute("isUser", "true");
 		session.setAttribute("User", userid);
 		page = "index";
-		System.out.println("am inside role user");
+		model.addAttribute("categoryList", categoryDAO.getCategoryList());
 
 		break;
 	    } else {
-System.out.println("iam inside the role sadmin");
 		session.setAttribute("Loggedin", "true");
 		session.setAttribute("isAdmin", "true");
 		session.setAttribute("User", userid);
@@ -137,11 +136,13 @@ System.out.println("iam inside the role sadmin");
 
     @RequestMapping("/logout")
     public ModelAndView logout(HttpServletRequest request, HttpSession session) {
-	ModelAndView mv = new ModelAndView("/");
+	ModelAndView mv = new ModelAndView("index");
 	session.invalidate();
 	session = request.getSession(true);
 	mv.addObject("logoutMessage", "you are successfully logged out");
 	mv.addObject("loggedOut", "true");
+	mv.addObject("categoryList", categoryDAO.getCategoryList());
+
 	return mv;
     }
 	}

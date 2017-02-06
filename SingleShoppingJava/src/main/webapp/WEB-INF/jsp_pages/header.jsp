@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <link rel="icon" type="image/png"  href="<c:url value="/resources/img/close-icon.png"/>" sizes="16x16">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
@@ -123,6 +124,10 @@
                 </a>
                  </div></div>
               <!-- / cart box -->
+              
+              
+              <img src="<c:url value="resources/img/specialoffer.png"/>" style="height:60px;width:90px">
+              
               <!-- search box -->
 			                 <div class="aa-search-box">
                 <form action="">
@@ -155,20 +160,11 @@
           <div class="navbar-collapse collapse">
             <!-- Left nav -->
             <ul class="nav navbar-nav"><c:if test="${ isAdmin != true  }">
-                  
-              <li><a href="categorypage?categoryId=C1">MicroControllers</a></li>
-              <li><a href="page">Robotics </a>
-              </li>
-              <li><a href="#">Embedded Systems </span></a>
-                             </li>
-              <li><a href="#">Electronic Kits </a>
-                 </li>
-              <li><a href="#">Tools&Supplies</a></li>
-             <li><a href="#">Applications </a>
-                </li>
-              <li><a href="#">Wires&Connectors</a></li>            
-              <li><a href="#">Testing&Measurements</a>
-                </li>
+                 <c:forEach var="categoryList" items="${categoryList}">
+                    
+              <li><a href="categorypage?categoryId=${categoryList.categoryId}">${categoryList.categoryName} </a></li>
+    
+                </c:forEach>
                 </c:if>
                 
                 <c:if test="${ isAdmin == true  }">

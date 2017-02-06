@@ -15,10 +15,10 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.entityModel.CategoryModel;
+import com.niit.entityModel.OrderModel;
 import com.niit.entityModel.ProductModel;
 import com.niit.entityModel.SupplierModel;
 import com.niit.entityModel.User;
-
 
 
 @Configuration
@@ -51,9 +51,9 @@ public class AppplicationContextConfig {
 	sessionBuilder.addAnnotatedClasses(User.class);
 	sessionBuilder.addAnnotatedClasses(CategoryModel.class);
 	sessionBuilder.addAnnotatedClasses(SupplierModel.class);
-	sessionBuilder.addAnnotatedClasses(CategoryModel.class);
 	sessionBuilder.addAnnotatedClasses(ProductModel.class);
-
+	sessionBuilder.addAnnotatedClasses(OrderModel.class);
+	
      return sessionBuilder.buildSessionFactory();
 	}
 	@Autowired

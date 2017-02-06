@@ -1,4 +1,6 @@
+com\niit\DAO\OrderDAO.class
 com\niit\Controller\ProductController.class
+com\niit\DAO\OrderDAOImpl.class
 com\niit\DAO\CategoryDAOImpl.class
 com\niit\DAO\UserDAO.class
 com\niit\DAO\ProductDAOImpl.class
@@ -13,6 +15,7 @@ com\niit\DAO\UserDAOImpl.class
 com\niit\util\FileUtil.class
 com\niit\DAO\SupplierDAOImpl.class
 com\niit\config\AppplicationContextConfig.class
+com\niit\entityModel\OrderModel.class
 com\niit\DAO\CategoryDAO.class
 com\niit\entityModel\CategoryModel.class
 com\niit\Controller\CategoryController.class

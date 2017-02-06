@@ -42,16 +42,26 @@
     <![endif]-->
   
 
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $('.seq').aa-slider({
+      interval: 1200
+    })
+  });
+</script>
+
+
   </head>
   <body> 
   <!-- Start slider -->
   <section id="aa-slider">
-    <div class="aa-slider-area">
-      <div id="sequence" class="seq">
-         <ul class="seq-canvas">
+    <div class="aa-slider-area  carousel slide">
+      <div id="sequence" class="seq  carousel slide">
+         <ul class="seq-canvas  carousel slide">
             <!-- single slide item -->
             <li>
-              <div class="seq-model">
+              <div class="seq-model  carousel slide">
                 <img data-seq src="<c:url value="/resources/img/slider/1.jpeg"/>" alt="" />
               </div>
               <div class="seq-title">
@@ -111,12 +121,12 @@
             </li>                   
           </ul>
         <!-- slider navigation btn -->
-<!--
-        <fieldset class="seq-nav" aria-controls="sequence" aria-label="Slider buttons">
+
+        <fieldset class="seq-nav  carousel slide" aria-controls="sequence" aria-label="Slider buttons">
           <a type="button" class="seq-prev" aria-label="Previous"><span class="fa fa-angle-left"></span></a>
           <a type="button" class="seq-next" aria-label="Next"><span class="fa fa-angle-right"></span></a>
         </fieldset>
--->
+
       </div>
     </div>
   </section>

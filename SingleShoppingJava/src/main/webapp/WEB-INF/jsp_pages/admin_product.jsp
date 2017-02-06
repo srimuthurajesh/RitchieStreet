@@ -248,7 +248,7 @@
                        <td>${listValue.productDescription}</td>
 			<td>${listValue.categoryId}</td>
 			<td>${listValue.supplierId}</td>
-			<td>${listValue.productPrice}</td>
+			<td><i class="fa fa-inr"></i> ${listValue.productPrice}</td>
 			<td><a href="#"><img src="<c:url value="/resources/product/${listValue.productId}.png"/>" alt="${listValue.productId}"></a></td>
 			<td style="border-right:white">
 			<form action="deleteproduct"><button name="productId" class="aa-cart-view-btn"  type="submit"  value=${listValue.productId} style="heigth:2px;">Delete</button></form></td>

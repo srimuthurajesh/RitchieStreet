@@ -1,10 +1,15 @@
 package com.niit.entityModel;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -42,8 +47,14 @@ public class User implements Serializable { //Serializable is a markup interface
     private String role = "ROLE_USER";
     @Column
     private boolean enabled=true;
+    
+    @OneToMany
+    @JoinTable(name="User")
+    private List<OrderModel> orders;
+    
 
-    //-------------------------getter setter for userName------------------------------
+    
+	//-------------------------getter setter for userName------------------------------
 	public String getUsername() {
 		return username;
 	}
@@ -149,9 +160,8 @@ public class User implements Serializable { //Serializable is a markup interface
 	return address;
     }
 
-
     public void setAddress(String address) {
 	this.address = address;
     }
-
+	
 }

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -17,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class ProductModel implements Serializable { //Serializable is a markup interface, implemented to make model class persist
 
     @Id
+    @OneToMany
     private String productId;
 
     @Column
@@ -26,8 +28,12 @@ public class ProductModel implements Serializable { //Serializable is a markup i
 	private String productDescription;
 
     @Column(name = "productprice")
-    private String productPrice;
+    private int productPrice;
 
+    @Column(name = "productquantity")
+    private int productQuantity;
+
+    
     @Column(name = "categoryid")
     private String categoryId;
 
@@ -44,6 +50,8 @@ public class ProductModel implements Serializable { //Serializable is a markup i
 
     @Transient
     private MultipartFile image;
+    
+    
 
     //-------------------------getter setter for images------------------------------
 
@@ -83,11 +91,11 @@ public class ProductModel implements Serializable { //Serializable is a markup i
     }
 
     //-------------------------getter setter for ProductPrice------------------------------
-    public String getProductPrice() {
+    public int getProductPrice() {
 	return productPrice;
     }
 
-    public void setProductPrice(String productPrice) {
+    public void setProductPrice(int productPrice) {
 	this.productPrice = productPrice;
     }
 
@@ -127,5 +135,13 @@ public class ProductModel implements Serializable { //Serializable is a markup i
     public void setSupplierModel(SupplierModel supplierModel) {
 	this.supplierModel = supplierModel;
     }
+
+	public int getProductQuantity() {
+		return productQuantity;
+	}
+
+	public void setProductQuantity(int productQuantity) {
+		this.productQuantity = productQuantity;
+	}
 
 }

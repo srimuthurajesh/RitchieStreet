@@ -28,7 +28,7 @@
                             <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                               <figcaption>
                               <h4 class="aa-product-title"><a href="#">$productname</a></h4>
-                              <span class="aa-product-price">$productprice</span>
+                              <span class="aa-product-price"><i class="fa fa-inr"></i> $productprice</span>
                             </figcaption>
                           </figure>                        
                           <div class="aa-product-hvr-content">
@@ -91,7 +91,7 @@
                               <div class="aa-product-view-content">
                                 <h3>$productname</h3>
                                 <div class="aa-price-block">
-                                  <span class="aa-product-view-price">$productprice</span>
+                                  <span class="aa-product-view-price"> <i class="fa fa-inr"></i> $productprice</span>
                                   <p class="aa-product-avilability">Avilability: <span>$stockstatus</span></p>
                                 </div>
                                 <p>$productdecription</p>
