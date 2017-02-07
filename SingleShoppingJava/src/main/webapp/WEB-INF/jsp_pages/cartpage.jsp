@@ -40,9 +40,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  
-
-  </head>
+   </head>
   <body> 
   
   
@@ -88,18 +86,20 @@
 						<th>Remove</th>
 					  </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                            <c:forEach var="cartList" items="${cartlist}">
-                
-                        <td><a href="#"><img src="img/man/polo-shirt-1.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title" href="#">${productname}</a></td>
-                        <td>${productprice}</td>
-                        <td><input class="aa-cart-quantity" type="number" value="${quantity}"></td>
-                        <td>${producttotalprice}</td>
-						<td><button href="#">Remove</button></td>
-						</c:forEach>
-                      </tr>
+                    <tbody >
+                    <c:forEach var="cartList" items="${cartList}">
+                               <tr>			
+                        <td><a href="#"><img src="<c:url value="/resources/product/${cartList.productModel.productId }.png"/>" alt="img"></a></td>
+                        <td><a class="aa-cart-title" href="#">${cartList.productModel.productName}</a></td>
+                        <td><i class="fa fa-inr" ></i> ${cartList.productModel.productPrice} /-</td>
+                        <td><input class="aa-cart-quantity" id="quantity" type="number" value="1"></td>
+                        <td>$cartList.producttotalprice</td>
+						<td><a chref="removeorder?orderId=${cartList.orderId}&username=${cartList.user.username}">Remove</a></td>
+			 </tr>
+	
+				     
+				      
+                		</c:forEach>
                       
                       </tbody>
                   </table>
@@ -112,11 +112,11 @@
                  <tbody>
                    <tr>
                      <th>Grand Total</th>
-                     <td>${grandtotal}</td>
+                     <td><strong id="total"><span id="sum">0.00</span></strong></td>
                    </tr>
                  </tbody>
                </table>
-               <a href="#" class="aa-cart-view-btn">Proced to Checkout</a>
+               <a href="checkout?username=${User}" class="aa-cart-view-btn">Proceed to Checkout</a>
              </div>
            </div>
          </div>
@@ -156,7 +156,10 @@
   
   <!-- Custom js -->
   <script src="<c:url value="/resources/js/custom.js"/>"></script> 
-
+<script src="<c:url value="/resources/angular.min.js"/>"></script> 
+	
+	
+	
   </body>
 </html>
 

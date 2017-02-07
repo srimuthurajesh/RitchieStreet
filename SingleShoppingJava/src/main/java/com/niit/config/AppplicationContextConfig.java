@@ -14,6 +14,8 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.entityModel.AddressModel;
+import com.niit.entityModel.CarddetailModel;
 import com.niit.entityModel.CategoryModel;
 import com.niit.entityModel.OrderModel;
 import com.niit.entityModel.ProductModel;
@@ -53,6 +55,8 @@ public class AppplicationContextConfig {
 	sessionBuilder.addAnnotatedClasses(SupplierModel.class);
 	sessionBuilder.addAnnotatedClasses(ProductModel.class);
 	sessionBuilder.addAnnotatedClasses(OrderModel.class);
+	sessionBuilder.addAnnotatedClasses(AddressModel.class);
+	sessionBuilder.addAnnotatedClasses(CarddetailModel.class);
 	
      return sessionBuilder.buildSessionFactory();
 	}

@@ -2,6 +2,7 @@ package com.niit.entityModel;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,16 +23,31 @@ public class OrderModel implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="username")
-	private String username;
-	
-	@OneToOne
+	private User user;
+		
+	@ManyToOne
 	@JoinColumn(name="productId")
-	private ProductModel productId;
+	private ProductModel productModel;
+	 
+	/*@Column
+	private int quantity=1;
+	
+	public int getQuantity() {
+		return quantity;
+	}
 
-	
-	
-	
-	
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+*/
+	public ProductModel getProductModel() {
+		return productModel;
+	}
+
+	public void setProductModel(ProductModel productModel) {
+		this.productModel = productModel;
+	}
+
 	public int getOrderId() {
 		return OrderId;
 	}
@@ -40,20 +56,12 @@ public class OrderModel implements Serializable {
 		OrderId = orderId;
 	}
 
-	public String getUsername() {
-		return username;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public ProductModel getProductId() {
-		return productId;
-	}
-
-	public void setProductId(ProductModel productId) {
-		productId = productId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 }

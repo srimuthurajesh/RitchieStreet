@@ -182,16 +182,4 @@ public class ProductController {
 	return "productpage";
     }
     
-    @RequestMapping(value="/addtocart",method=RequestMethod.GET)
-    public String addtocart(@RequestParam("username")String username, @RequestParam("productId")String productId, Model model){
-//    	CartModel cartModel=userDAO.getbyId(username).getCartModel();
-//    	ProductModel productModel= productDAO.getById(productId);
-//    	
-//    	orderDAO.add(productModel);
-//    	
-//    	List<Order> order= cartModel.getOrder();
-//    	
-//    	
-    	return "cartpage";
-    }
-}
+   }

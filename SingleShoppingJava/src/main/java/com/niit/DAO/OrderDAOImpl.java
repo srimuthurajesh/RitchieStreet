@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.niit.entityModel.OrderModel;
 import com.niit.entityModel.ProductModel;
+import com.niit.entityModel.User;
 
 @Repository("cartDAO")
 public class OrderDAOImpl implements OrderDAO {
@@ -19,17 +20,15 @@ public class OrderDAOImpl implements OrderDAO {
 	  @Autowired
 	    SessionFactory sessionFactory;
 
-	  public boolean add(ProductModel productModel) {
+	  public boolean add(ProductModel productModel, User user) {
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
+		
+			OrderModel orderModel= new OrderModel();
+		orderModel.setUser(user);
+		orderModel.setProductModel(productModel);
 			
-//			Order order = new Order();
-//			order.setProductModel(productModel);
-//order.setProductName(productModel.getProductName());
-//order.setProductPrice(productModel.getProductPrice());
-//order.setProductQuantity(productModel.getProductQuantity());
-//			
-//			session.saveOrUpdate(order);
+			session.saveOrUpdate(orderModel);
 
 			session.getTransaction().commit();
 			session.close();
@@ -38,18 +37,33 @@ public class OrderDAOImpl implements OrderDAO {
 		}
 
 
-//	    @SuppressWarnings({ "deprecation", "unchecked" })
-//	    public List<CartModel> getCartListbyId(int cartId) {
-//		Session session = sessionFactory.openSession();
-//		session.beginTransaction();
-//
-//		Criteria cr = session.createCriteria(CartModel.class);
-//		cr.add(Restrictions.like("cartId", cartId));
-//
-//		List<CartModel> list = cr.list();
-//
-//		return list;
-//
-//	    }
+	    @SuppressWarnings({ "deprecation", "unchecked" })
+	    public List<OrderModel> getOrderListbyname(String username) {
+	 	Session session = sessionFactory.openSession();
+		session.beginTransaction();
+
+		Criteria cr = session.createCriteria(OrderModel.class);
+		cr.add(Restrictions.like("user.username", username));
+
+		List<OrderModel> list = cr.list();
+
+		return list;
+
+	    }
+	    
+	    public Boolean remove(int orderId){
+	    	
+	    	Session session = sessionFactory.openSession();
+			session.beginTransaction();
+			
+			OrderModel orderModel= new OrderModel();
+			orderModel.setOrderId(orderId);
+			session.delete(orderModel);
+			session.getTransaction().commit();
+			session.close();
+
+			return true;
+
+	    }
 
 }

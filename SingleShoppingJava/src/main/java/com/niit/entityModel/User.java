@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
@@ -48,10 +49,9 @@ public class User implements Serializable { //Serializable is a markup interface
     @Column
     private boolean enabled=true;
     
-    @OneToMany
-    @JoinTable(name="User")
-    private List<OrderModel> orders;
-    
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<OrderModel> OrderModel;
+
 
     
 	//-------------------------getter setter for userName------------------------------
@@ -163,5 +163,15 @@ public class User implements Serializable { //Serializable is a markup interface
     public void setAddress(String address) {
 	this.address = address;
     }
+
+	public List<OrderModel> getOrderModel() {
+		return OrderModel;
+	}
+
+	public void setOrderModel(List<OrderModel> orderModel) {
+		OrderModel = orderModel;
+	}
 	
+    
+    
 }
