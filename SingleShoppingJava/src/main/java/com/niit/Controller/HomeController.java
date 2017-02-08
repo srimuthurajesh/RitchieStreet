@@ -49,6 +49,15 @@ Logger log=LoggerFactory.getLogger(HomeController.class);
 		return "index";
 	}
 	
+
+	@RequestMapping(value="/indexpage")
+	public String index(Model m){
+		m.addAttribute("categoryList", categoryDAO.getCategoryList());
+		return "index";
+	}
+
+	
+	
 	
 	@RequestMapping(value = "/register")							//mapping for "/register"
     public ModelAndView registerPage() {

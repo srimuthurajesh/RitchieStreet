@@ -40,8 +40,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  
-
+     </script>
   </head>
   <body> 
 
@@ -65,10 +64,10 @@
               <div class="col-md-6">
                 <div class="aa-myaccount-register">                 
                  <h4>Enter Your Card Details</h4>
-                 <form:form action="cardpaymentsuccess" class="aa-login-form" commandName="carddetailsModel">
+                 <form:form action="cardpaymentsuccess" class="aa-login-form" commandName="carddetailModel">
                    
                     <label for="">Card Number</label><br>
-                    <form:input type="text" placeholder="First Name" path="cardNumber" />
+                    <form:input type="text" placeholder="First Name" path="cardNumber" value=""/>
                     
                     <label for="">Expiration Month</label>
                     <form:select path="expDate">
@@ -100,17 +99,17 @@
     <option value="2026">2026</option>
  <option value="2027">2027</option>
     <option value="2028">2028</option>
-  </form:select>  
+  </form:select>  <br>
                     
                     <label for="">CVV/CVC</label>
-                    <form:input type="password"  placeholder="cvv" path="cvv"/>
+                    <form:input type="password"  placeholder="cvv" path="cvv" value=""/>
              
                        
                     <label for="">Card Holder's Name:</label>
                     <form:input type="text"  placeholder="Name" path="cardholderName" />    
-                    
-                    <button type="submit" class="aa-browse-btn">Make Payment</button>                    
-                  </form:form>
+                  </form:form>  
+                    <a href="paymentsuccess?username=${User}"><button  class="aa-browse-btn">Make Payment</button></a>                    
+                  
                   <br><br><br>
                   <span style="font-size:14px">* Fields mandatory</span> 
                 </div>

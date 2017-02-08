@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -65,5 +66,22 @@ public class OrderDAOImpl implements OrderDAO {
 			return true;
 
 	    }
+
+	    public void removeorderbycartid(String username){
+
+
+	    	Session session = sessionFactory.openSession();
+			session.beginTransaction();
+			
+			
+	    	@SuppressWarnings("rawtypes")
+			Query q = session.createQuery("delete OrderModel where username = username");
+	    	q.executeUpdate();
+	    	session.getTransaction().commit();
+			session.close();
+
+
+	    }
+
 
 }

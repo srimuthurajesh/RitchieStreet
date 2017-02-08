@@ -1,5 +1,7 @@
 package com.niit.Controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -60,13 +62,27 @@ public class CartController {
 			 }
 	
 	 @RequestMapping(value="/carddetails",method=RequestMethod.GET)
-	    public String paymentbycard( @RequestParam("addressModel")AddressModel addressModel, Model model){
-
-		 model.addAttribute("addressModel", addressModel);
+	    public String paymentbycard( AddressModel addressModel, Model model, HttpSession session){
+		
+		 session.setAttribute("addressModel", addressModel);
 		 model.addAttribute("categoryList", categoryDAO.getCategoryList());
 		 model.addAttribute("carddetailModel",new CarddetailModel());
-	return "carddetails";
-	
+		 
+		 if(addressModel.getPaymentOption().equals("By Card")){		 return "carddetails";}
+	else{
+		return "paymentsuccess";
+
+	}
 		 }
 		 
+	 @RequestMapping(value="paymentsuccess")
+	 public String cardpaymentsuccess(@RequestParam("username") String username, Model model){
+		 model.addAttribute("categoryList", categoryDAO.getCategoryList());
+		 model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
+		
+		 orderDAO.removeorderbycartid(username);
+		 return "paymentsuccess";
+		 
+		 
+	 }
 }

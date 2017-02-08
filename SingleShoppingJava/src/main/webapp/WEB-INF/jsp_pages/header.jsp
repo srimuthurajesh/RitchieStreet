@@ -106,7 +106,7 @@
               <!-- logo  -->
 		 <div class="aa-logo">
                 <!-- Text based logo -->
-                <a href="index">
+                <a href="indexpage">
                   <span class="fa fa-wrench"></span>
                   <p>Ritchie<strong>Street</strong> <span>A Geeky Shopping Experience</span></p>
                 </a> 
