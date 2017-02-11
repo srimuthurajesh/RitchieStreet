@@ -57,7 +57,6 @@ public class ProductController {
     
 //    ---------------------------------------------------ADMIN-------------------------------------------------
 
-    String path = "C:\\Users\\IntelliGEnI\\Documents\\Eclipse Workspace\\SingleShoppingJava\\src\\main\\webapp\\WEB-INF\\images";
 
     // ---------------------------------product---------------------------------
     @RequestMapping(value = "/product", method = RequestMethod.GET) //mapping for "/product"
@@ -77,10 +76,13 @@ public class ProductController {
 
     // ---------------------------------add---------------------------------
     @RequestMapping(value = "/addproduct", method = RequestMethod.GET) //mapping for "/addproduct"
-    public String addProduct(@ModelAttribute("productModel") ProductModel productModel, HttpServletRequest request,
+    public String addProduct(@ModelAttribute("productModel")ProductModel productModel, HttpServletRequest request,
 	    RedirectAttributes attributes, BindingResult result)
 	{
 
+
+        String path = "C:\\Users\\IntelliGEnI\\Documents\\Eclipse Workspace\\SingleShoppingJava\\src\\main\\webapp\\WEB-INF\\resources\\product\\";
+        
 	if (result.hasErrors()) {
 	    System.out.println("Error ::: " + result.toString());
 	} else {
@@ -98,7 +100,7 @@ public class ProductController {
 
 	    productDAO.saveOrUpdate(productModel);
 		
-		path=path+String.valueOf(productModel.getProductId())+".jpg";
+		path=path+String.valueOf(productModel.getProductId())+".jpeg";
 		File f=new File(path);
 	
 		MultipartFile filedet=productModel.getImage();

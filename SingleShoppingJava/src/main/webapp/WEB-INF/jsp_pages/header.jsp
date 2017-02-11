@@ -94,7 +94,7 @@
           </div>
         </div>
       </div>
-    </div>
+    
     <!-- / header top  -->
 
     <!-- start header bottom  -->

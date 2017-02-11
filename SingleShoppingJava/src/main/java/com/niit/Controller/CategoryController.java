@@ -47,9 +47,9 @@ log.debug("inside category controller");		//performing a logger debug
 		log.debug("inside deletecategory Controller");
 		categoryDAO.deleteCategory(categoryId);
 		return "redirect:/category";
-
 	}
 
+	
 	// ---------------------------------edit---------------------------------
 	@RequestMapping(value = "/editcategory", method = RequestMethod.GET)		//mapping for "/editcategory"
 	public ModelAndView editCategory(@RequestParam("categoryId") String categoryId) {

@@ -12,8 +12,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 @Entity
-@Table(name = "USER")// table name
+@Table(name = "USER")
 public class User implements Serializable { //Serializable is a markup interface, implemented to make model class persist
 
 	@Id

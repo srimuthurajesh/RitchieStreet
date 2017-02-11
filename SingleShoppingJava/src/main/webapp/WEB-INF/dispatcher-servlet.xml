@@ -29,7 +29,7 @@
 <webflow-config:flow-registry id="flowRegistry"  base-path="/WEB-INF/jsp_pages">
 
 <!-- here the id is mapped to invoke this flow -->
-<webflow-config:flow-location id="membership" path="/membershipFlow.xml" />
+<webflow-config:flow-location id="webflow" path="/webflow.xml" />
 </webflow-config:flow-registry>
 
 

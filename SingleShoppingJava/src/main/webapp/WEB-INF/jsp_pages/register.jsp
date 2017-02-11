@@ -227,22 +227,22 @@ font-size:smaller;
 <body>
  <%@ include file="header.jsp"%>
  
-   <!-- Cart view section -->
+<!-- Cart view section -->
  <section id="aa-myaccount">
    <div class="container">
      <div class="row">
        <div class="col-md-12">
         <div class="aa-myaccount-area">         
             <div class="row">
-             
+ 
               <div class="col-md-6">
                 <div class="aa-myaccount-register">                 
                  <h4>Register</h4>
-                 <form:form action="registersuccess" class="aa-login-form" commandName="userModel">
+                 <form:form  class="aa-login-form" commandName="userModel"><!-- action="registersuccess" -->
                     <label for="">Enter Your Name</label><br>
                     <form:input type="text" placeholder="First Name" path="firstname" style="width:48%;"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <form:input type="text" placeholder="Last Name" path="lastname" style="width:49%;"/><br>
-                    
+                    <form:input type="text" placeholder="Last Name" path="lastname" style="width:48%;"/><br>
+ 
                     
                     <label for="">Choose Your Username<span>*</span></label>
                     <form:input type="text" id="username" placeholder="Username" path="username" required="true"/><span id="resultusername"></span><br>
@@ -265,7 +265,7 @@ font-size:smaller;
   width: 100%;"/><span id="resultemail"></span><br>
                     
                     <label for="">Mobile No.</label>
-                    <form:input type="text" id="mobile" placeholder="Mobile" path="mobile" pattern="[7|8|9]{10}" /><span id="resultmobile"></span><br>
+<%--                     <form:input type="text" id="mobile" placeholder="Mobile" path="mobile"  pattern="[7|8|9]{10}"/> <span id="resultmobile"></span><br> --%>
                     
                     <label for="">Flat / House No. / Floor / Building </label>
                     <form:input type="text" placeholder="Address 1" path="address" />
@@ -273,13 +273,13 @@ font-size:smaller;
                     <label for="">Colony / Street / Locality </label>
                     <form:input type="text" placeholder="Address 2" path="streetname" />
                     
-                    <label for="" style="width:51%;">Town/City</label><label for="">Pin-Code</label>  <br>
+                    <label for="" style="width:52%;">Town/City</label><label for="">Pin-Code</label>  <br>
                     <form:input type="text" placeholder="City" path="cityname" style="width:47%;"/>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 
-                    <form:input type="text" placeholder="Pincode" path="pincode" style="width:49%;" pattern="[6]{6}" /><br>
+                    <form:input type="text" placeholder="Pincode" path="pincode" style="width:47%;" pattern="[6]{6}" /><br>
                     
                     
-                    <button type="submit" class="aa-browse-btn">Register</button>                    
+                    <button type="submit"  name="_eventId_hui" class="aa-browse-btn">Register</button>                      
                   </form:form>
                   <br><br><br>
                   <span style="font-size:14px">* Fields mandatory</span> 
@@ -299,12 +299,12 @@ font-size:smaller;
 <!-- <input type="submit" value="login"> -->
             <button class="aa-browse-btn" type="submit">Login</button>
             <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
-            </div>
-          </form> </div>
-              </div>
-              
-              
-              
+          
+          </form>
+          <input name="_eventId_register" type="submit" value="Edit" /> 
+                   </div>
+           </div>
+              </div>      
             </div>          
          </div>
        </div>

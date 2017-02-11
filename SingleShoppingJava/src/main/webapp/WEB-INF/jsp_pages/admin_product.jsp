@@ -135,8 +135,8 @@
 		
 				</c:when>
 				<c:otherwise>
-	<c:url var="action" value="/addproduct"></c:url><h4>Add Product</h4>
-	<form:form action="addproduct" method="get"  enctype="multipart/form-data" commandName="productModel">
+	<h4>Add Product</h4>
+	<form:form action="addproduct" method="get"  enctype="multipart/form-data" modelAttribute="productModel">
 	
 						<label for="" style="width:49%">Product Id:</label> <label for="">Product Name:</label><br>
 						<form:input type="text"
@@ -145,7 +145,7 @@
   height: 40px;
   margin-bottom: 15px;
   padding: 10px;
-  width: 47%;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  width: 47%;"/>&nbsp;&nbsp;&nbsp;
                 
 					
 						
@@ -172,7 +172,7 @@
   height: 40px;
   margin-bottom: 15px;
   padding: 10px;
-  width: 47%;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  width: 47%;"/>&nbsp;&nbsp;&nbsp;
 				
 				
 						<form:select path="supplierModel.supplierName" items="${supplierlist}" itemValue="supplierName" itemLabel="supplierName"  style="border: 1px solid #ccc;
@@ -186,7 +186,7 @@
 
 <label for="" style="width:49%">Product Price:</label>   
 						<form:input type="text"
-								placeholder="Enter the ProducPrice"  path="productPrice" style="border: 1px solid #ccc;
+								placeholder="Enter the ProducPrice"  value="" path="productPrice" style="border: 1px solid #ccc;
   font-size: 16px;
   height: 40px;
   margin-bottom: 15px;

@@ -89,7 +89,7 @@
                 <img data-seq src="<c:url value="/resources/img/slider/3.jpg"/>" alt="" />
               </div>
               <div class="seq-title">
-                <span data-seq>Save Up to 75% Off</span>                
+                <--span data-seq>Save Up to 75% Off</span>                
                 <h2 data-seq>Jeans Collection</h2>                
                 <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
                 <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>

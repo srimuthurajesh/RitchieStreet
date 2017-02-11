@@ -61,9 +61,12 @@ Logger log=LoggerFactory.getLogger(HomeController.class);
 	
 	@RequestMapping(value = "/register")							//mapping for "/register"
     public ModelAndView registerPage() {
-	    log.debug("insdie controller for /register");
+		System.out.println("inside register controller");
+	    log.debug("inside controller for /register");
 	ModelAndView model = new ModelAndView("register", "userModel", new User());
-		return model;
+	model.addObject("categoryList", categoryDAO.getCategoryList());
+	
+	return model;
 	}
 
 	@RequestMapping(value = "/delete")							//mapping for "/delete"
@@ -92,8 +95,8 @@ Logger log=LoggerFactory.getLogger(HomeController.class);
 		    log.debug("inside if registration is true");
 			ModelAndView model = new ModelAndView("registersuccess");
 			model.addObject("userModel", userModel);
-
 			return model;
+			
 		} else {
 		    log.debug("inside if registration is false");
 			ModelAndView model = new ModelAndView("login");
