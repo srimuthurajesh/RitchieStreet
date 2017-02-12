@@ -35,8 +35,20 @@ public class CartController {
 	   
 	 @RequestMapping(value="/addtocart",method=RequestMethod.GET)
 	    public String addtocart(@RequestParam("username")String username, @RequestParam("productId")String productId, Model model){
+		 model.addAttribute("categoryList", categoryDAO.getCategoryList());
+			
 		 orderDAO.add(productDAO.getById(productId),userDAO.getbyId(username));
 		 model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
+		model.addAttribute("cartsize", orderDAO.getOrderListbyname(username).size());
+		 return "cartpage";
+	    }
+	
+	 @RequestMapping(value="/cartpage",method=RequestMethod.GET)
+	    public String addtocart(@RequestParam("username")String username,  Model model){
+		 model.addAttribute("categoryList", categoryDAO.getCategoryList());
+			
+		 model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
+		model.addAttribute("cartsize", orderDAO.getOrderListbyname(username).size());
 		 return "cartpage";
 	    }
 	
@@ -44,7 +56,8 @@ public class CartController {
 	 
 	 @RequestMapping(value="/removeorder",method=RequestMethod.GET)
 	    public String removeorder(@RequestParam("orderId")int orderId, @RequestParam("username")String username, Model model){
-	
+		 model.addAttribute("categoryList", categoryDAO.getCategoryList());
+			
 			 orderDAO.remove(orderId);
 			 model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
 			 return "cartpage";

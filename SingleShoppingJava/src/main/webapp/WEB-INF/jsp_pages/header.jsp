@@ -120,8 +120,26 @@
                 <a class="aa-cart-link"  href="" data-toggle="modal" data-target="#login-modal">
                   <span class="fa fa-shopping-basket"></span>
                   <span class="aa-cart-title">Cart</span>
-                  <span class="aa-cart-notify">0</span>
+                  <span class="aa-cart-notify">  &nbsp;${cartsize}</span>
                 </a>
+                  <c:choose><c:when test="${ not empty cartList}">
+                <div class="aa-cartbox-summary">
+                  <ul>
+                    <c:forEach var="cartList" items="${cartList}">
+                    <li>
+                      <a class="aa-cartbox-img" href="#"><img src="<c:url value="resources/product/${cartList.productModel.productId}.png"/>" alt="img"></a>
+                      <div class="aa-cartbox-info">
+                        <h4><a href="#">${cartList.productModel.productName}</a></h4>
+                        <p><i class="fa fa-inr" ></i> ${cartList.productModel.productPrice } /-</p>
+                      </div>
+                     </li>
+                    </c:forEach>
+                      </ul>
+                    
+                  <a class="aa-cartbox-checkout aa-primary-btn" href="checkout?username=${User}">Checkout</a>
+                  
+                  <a class="aa-cartbox-checkout aa-primary-btn" href="cartpage?username=${User}">Cart</a>
+               </div></c:when></c:choose>
                  </div></div>
               <!-- / cart box -->
               

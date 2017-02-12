@@ -279,7 +279,7 @@ font-size:smaller;
                     <form:input type="text" placeholder="Pincode" path="pincode" style="width:47%;" pattern="[6]{6}" /><br>
                     
                     
-                    <button type="submit" name="_cartID_register" class="aa-browse-btn">Register</button>                    
+                    <button type="submit"  name="_eventId_hui" class="aa-browse-btn">Register</button>                      
                   </form:form>
                   <br><br><br>
                   <span style="font-size:14px">* Fields mandatory</span> 
@@ -300,12 +300,11 @@ font-size:smaller;
             <button class="aa-browse-btn" type="submit">Login</button>
             <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
           
-          </form>  </div>
+          </form>
+          <input name="_eventId_register" type="submit" value="Edit" /> 
+                   </div>
            </div>
-              </div>
-              
-              
-              
+              </div>      
             </div>          
          </div>
        </div>

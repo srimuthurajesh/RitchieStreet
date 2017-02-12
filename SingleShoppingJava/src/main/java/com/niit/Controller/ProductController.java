@@ -3,8 +3,6 @@ package com.niit.Controller;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -18,19 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.niit.DAO.OrderDAO;
 import com.niit.DAO.CategoryDAO;
 import com.niit.DAO.ProductDAO;
 import com.niit.DAO.SupplierDAO;
-import com.niit.DAO.UserDAO;
 import com.niit.entityModel.CategoryModel;
-import com.niit.entityModel.OrderModel;
 import com.niit.entityModel.ProductModel;
 import com.niit.entityModel.SupplierModel;
-import com.niit.entityModel.User;
 
 @Controller
 public class ProductController {
@@ -43,20 +36,24 @@ public class ProductController {
 
     @Autowired
     private SupplierDAO supplierDAO;
-    
-
-    @Autowired
-    private UserDAO userDAO;
-
-    @Autowired
-    private OrderDAO cartDAO;
-    
-
-    @Autowired
-    private OrderDAO orderDAO;
-    
+        
 //    ---------------------------------------------------ADMIN-------------------------------------------------
 
+    // ---------------------------------product---------------------------------
+//    @RequestMapping(value = "/productsgg", method = RequestMethod.GET) //mapping for "/product"
+//    public String productPsdage(Model model) {
+//
+//	model.addAttribute("productModel", new ProductModel());
+//	model.addAttribute("supplierModel", new SupplierModel());
+//	model.addAttribute("categoryModel", new CategoryModel());
+//
+//	model.addAttribute("productlist", productDAO.getProductList()); //object for productList
+//	model.addAttribute("categorylist", categoryDAO.getCategoryList()); //object for categoryList
+//	model.addAttribute("supplierlist", supplierDAO.getSupplierList()); //object for supplierList
+//	model.addAttribute("page_name", "Product");
+//	return "productsgg";
+//
+//	}
 
     // ---------------------------------product---------------------------------
     @RequestMapping(value = "/product", method = RequestMethod.GET) //mapping for "/product"
@@ -74,18 +71,75 @@ public class ProductController {
 
 	}
 
+//    // ---------------------------------add---------------------------------
+//    @RequestMapping(value = "/addproduct", method = RequestMethod.GET) //mapping for "/addproduct"
+//    public String addProduct(@RequestParam("productId") String productId,
+//    		@RequestParam("productPrice") int productPrice,
+//    		@RequestParam("productName") String productName,
+//    		@RequestParam("productDescription") String productDescription,
+//    		HttpServletRequest request,
+//	    RedirectAttributes attributes)
+//	{
+//System.out.println("am inside controller");
+//
+//        //String path = "C:\\Users\\IntelliGEnI\\Documents\\Eclipse Workspace\\SingleShoppingJava\\src\\main\\webapp\\WEB-INF\\resources\\product\\";
+//    	String path="D:\\PROJECT1\\";
+////
+////	    CategoryModel categoryModel = categoryDAO.getByName(productModel.getCategoryModel().getCategoryName());
+////	    categoryDAO.saveOrUpdate(categoryModel);
+////	    SupplierModel supplierModel = supplierDAO.getByName(productModel.getSupplierModel().getSupplierName());
+////	    supplierDAO.saveOrUpdate(supplierModel);
+////
+////	    productModel.setCategoryModel(categoryModel);
+////	    productModel.setSupplierModel(supplierModel);
+////
+////	    productModel.setCategoryId(categoryModel.getCategoryId());
+////	    productModel.setSupplierId(supplierModel.getSupplierId());
+////
+//	  //  productDAO.saveOrUpdate(productModel);
+//		
+//
+////	    path=path+String.valueOf(productModel.getProductId())+".png";
+////		File f=new File(path);
+////	
+////		MultipartFile filedet=productModel.getImage();
+////		
+////		if(!filedet.isEmpty())
+////		{
+////			try
+////			{
+////			  byte[] bytes=filedet.getBytes();
+////			  System.out.println(bytes.length);
+////			  FileOutputStream fos=new FileOutputStream(f);
+////          			BufferedOutputStream bs=new BufferedOutputStream(fos);
+////          			bs.write(bytes);
+////          			bs.close();
+////         			 System.out.println("File Uploaded Successfully");
+////			}
+////			catch(Exception e)
+////			{
+////				System.out.println("Exception Arised"+e);
+////			}
+////		}
+////		else
+////		{
+////			System.out.println("File is Empty not Uploaded");
+////			
+////	}
+//	
+//	return "redirect:/product";
+//
+//    }
+
     // ---------------------------------add---------------------------------
     @RequestMapping(value = "/addproduct", method = RequestMethod.GET) //mapping for "/addproduct"
     public String addProduct(@ModelAttribute("productModel")ProductModel productModel, HttpServletRequest request,
-	    RedirectAttributes attributes, BindingResult result)
+	    RedirectAttributes attributes)
 	{
 
 
-        String path = "C:\\Users\\IntelliGEnI\\Documents\\Eclipse Workspace\\SingleShoppingJava\\src\\main\\webapp\\WEB-INF\\resources\\product\\";
-        
-	if (result.hasErrors()) {
-	    System.out.println("Error ::: " + result.toString());
-	} else {
+        //String path = "C:\\Users\\IntelliGEnI\\Documents\\Eclipse Workspace\\SingleShoppingJava\\src\\main\\webapp\\WEB-INF\\resources\\product\\";
+    	String path="D:\\PROJECT1\\";
 
 	    CategoryModel categoryModel = categoryDAO.getByName(productModel.getCategoryModel().getCategoryName());
 	    categoryDAO.saveOrUpdate(categoryModel);
@@ -100,7 +154,8 @@ public class ProductController {
 
 	    productDAO.saveOrUpdate(productModel);
 		
-		path=path+String.valueOf(productModel.getProductId())+".jpeg";
+
+	    path=path+String.valueOf(productModel.getProductId())+".png";
 		File f=new File(path);
 	
 		MultipartFile filedet=productModel.getImage();
@@ -127,7 +182,7 @@ public class ProductController {
 			System.out.println("File is Empty not Uploaded");
 			
 	}
-	}
+	
 	return "redirect:/product";
 
     }
@@ -174,7 +229,7 @@ public class ProductController {
 	model.addAttribute("productbyId", productDAO.getById(productId));
 	model.addAttribute("productId", "productId");
 	model.addAttribute("categoryList", categoryDAO.getCategoryList());
-	model.addAttribute("productList", productDAO.getProductListbycategory(productDAO.getById(productId).getCategoryId()));
+//	model.addAttribute("productList", productDAO.getProductListbycategory(productDAO.getById(productId).getCategoryId()));
 	
 	if(productDAO.getById(productId).getProductQuantity()!=0){
 	model.addAttribute( "stock","in-Stock" );

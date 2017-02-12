@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.DAO.CategoryDAO;
+import com.niit.DAO.OrderDAO;
 import com.niit.DAO.UserDAO;
 import com.niit.entityModel.User;
 
@@ -30,6 +31,10 @@ Logger log=LoggerFactory.getLogger(HomeController.class);
     private UserDAO userDAO;
 
 
+    @Autowired
+    private OrderDAO orderDAO;
+
+    
     @Autowired(required = true)
     private CategoryDAO categoryDAO;;
 
@@ -44,15 +49,27 @@ Logger log=LoggerFactory.getLogger(HomeController.class);
 		
 	
 	@RequestMapping(value="/")
-	public String indexpage(Model m){
+	public String indexpage(Model m, HttpSession session){
 		m.addAttribute("categoryList", categoryDAO.getCategoryList());
+		
+		String User = (String)session.getAttribute("User");
+		m.addAttribute("cartList", orderDAO.getOrderListbyname(User));
+		m.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
+		 
 		return "index";
 	}
 	
 
 	@RequestMapping(value="/indexpage")
-	public String index(Model m){
+	public String index(Model m,HttpSession session){
 		m.addAttribute("categoryList", categoryDAO.getCategoryList());
+		
+
+		String User = (String)session.getAttribute("User");
+		m.addAttribute("cartList", orderDAO.getOrderListbyname(User));
+		m.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
+		
+		
 		return "index";
 	}
 
@@ -131,6 +148,9 @@ System.out.println("hi am insed method");
 		session.setAttribute("Loggedin", "true");
 		session.setAttribute("isUser", "true");
 		session.setAttribute("User", userid);
+		model.addAttribute("cartList", orderDAO.getOrderListbyname(userid));
+		model.addAttribute("cartsize", orderDAO.getOrderListbyname(userid).size());
+		
 		page = "index";
 		model.addAttribute("categoryList", categoryDAO.getCategoryList());
 

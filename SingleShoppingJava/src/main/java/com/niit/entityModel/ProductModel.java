@@ -51,7 +51,7 @@ public class ProductModel implements Serializable { //Serializable is a markup i
     private SupplierModel supplierModel;
 
     @Transient
-    private MultipartFile image;
+     MultipartFile image;
     
 
 
