@@ -78,7 +78,7 @@
 				  <li><a href="register"><span class=""></span> Sign-up</a></li></c:if>
 				  
 				<c:if test="${ Loggedin == true }">
-                  <li><a href="" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-user"></span> ${User}'s account</a></li>
+                  <li><a href="userpage?username=${User }" ><span class="glyphicon glyphicon-user"></span> ${User}'s account</a></li>
 				  <li><a href="logout"><span class=""></span> Log Out</a></li>
 				  </c:if>
 				  
@@ -117,10 +117,15 @@
                <!-- cart box -->
 			    <div class="hidden-xs">
               <div class="aa-cartbox">
-                <a class="aa-cart-link"  href="" data-toggle="modal" data-target="#login-modal">
+                <a class="aa-cart-link"  href=" " >
                   <span class="fa fa-shopping-basket"></span>
                   <span class="aa-cart-title">Cart</span>
-                  <span class="aa-cart-notify">  &nbsp;${cartsize}</span>
+                  <c:choose><c:when test="${  empty cartList}">
+                  <span class="aa-cart-notify">  &nbsp;</span>
+                </c:when></c:choose>
+                <c:choose><c:when test="${ not empty cartList}">  
+                  <span class="aa-cart-notify"> ${cartsize}</span>
+                </c:when></c:choose>
                 </a>
                   <c:choose><c:when test="${ not empty cartList}">
                 <div class="aa-cartbox-summary">
@@ -139,13 +144,16 @@
                   <a class="aa-cartbox-checkout aa-primary-btn" href="checkout?username=${User}">Checkout</a>
                   
                   <a class="aa-cartbox-checkout aa-primary-btn" href="cartpage?username=${User}">Cart</a>
-               </div></c:when></c:choose>
+               </div></c:when>
+               
+               </c:choose>
                  </div></div>
               <!-- / cart box -->
               
               
-              <img src="<c:url value="resources/img/specialoffer.png"/>" style="height:60px;width:90px">
-              
+              <img src="<c:url value="resources/img/specialoffer.png"/>" style="height:60px;width:100px">
+<%-- <img src="<c:url value="resources/img/2.png"/>" style="height:120px;width:120px"> --%>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong> <a> Download our App</a></strong>
               <!-- search box -->
 			                 <div class="aa-search-box">
                 <form action="">

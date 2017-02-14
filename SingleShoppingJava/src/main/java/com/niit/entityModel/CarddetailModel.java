@@ -1,5 +1,7 @@
 package com.niit.entityModel;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -7,7 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "CARDDETAIL_TABLE")
 
-public class CarddetailModel {
+public class CarddetailModel implements Serializable {
 @Id
 	private long cardNumber;
 	private int expDate;

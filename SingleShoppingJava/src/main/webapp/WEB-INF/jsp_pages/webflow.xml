@@ -3,12 +3,45 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow  http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
 
-<view-state id="enterBookingDetails" view="jsp_pages/register.jsp">
-    <transition on="register" to="hellosample" />
+<var name="addressModel" class="com.niit.entityModel.AddressModel"/>
+<var name="orderModel" class="com.niit.entityModel.OrderModel"/>
+<var name="user" class="com.niit.entityModel.User"/>
+<var name="carddetailModel" class="com.niit.entityModel.CarddetailModel"/>
+
+<on-start>
+<evaluate expression="webflowHandler.initFlow()" result="flowScope.addressModel"/>
+<evaluate expression="categoryDAO.getCategoryList()" result="flowScope.categoryList"/> 
+</on-start>
+
+<view-state id="flowExecutor" view="checkout.jsp" model="user">
+<transition on="submit" to="carddetailspage"/>
+<transition on="cancel" to="cancel"/>
 </view-state>
 
-<view-state id="hellosample" view="hellosample.jsp">
+<view-state id="carddetailspage" view="carddetails.jsp" model="carddetailModel">
+<transition on="submit" to="paymentsuccess"/>
+<transition on="back" to="cancel"/>
 </view-state>
+
+<action-state id="paymentsuccess">
+<evaluate expression="webflowHandler.initFlow4(requestParameters.username)" result="flowScope.cartList"/>
+<transition to="paymentsuccess2"/>
+</action-state>
+
+
+<view-state id="paymentsuccess2" view="paymentsuccess.jsp" model="cartList">
+<transition on="submit" to="index"/>
+<transition on="back" to="carddetails"/>
+</view-state>
+
+
+<end-state id="index" view="index.jsp" >
+</end-state>
+
+
+<global-transitions>
+<transition on="cancel" to="index.jsp" />
+</global-transitions>
 
 </flow>
 

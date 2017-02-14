@@ -82,13 +82,13 @@
     		<hr>
     		<div class="row">
     			<div class="col-xs-6">
-    				<address>
-    				<strong>Billed To:</strong><br>
-    					$billingFirstname<br>
-    					$billingAddress<br>
-    					$billingCity<br>
-    					$billingPincode
-    				</address>
+<!--     				<address> -->
+<!--     				<strong>Billed To:</strong><br> -->
+<!--     					$billingFirstname<br> -->
+<!--     					$billingAddress<br> -->
+<!--     					$billingCity<br> -->
+<!--     					$billingPincode -->
+<!--     				</address> -->
     			</div>
     			<div class="col-xs-6 text-right">
     				<address>
@@ -175,7 +175,9 @@
  
  
  
- 
+    <a href="${flowExecutionUrl }&_eventId=submit">submit</a>
+                  <a href="${flowExecutionUrl }&_eventId=back">back</a>
+               
  
  
 

@@ -1,15 +1,15 @@
 package com.niit.entityModel;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "ADDRESS_TABLE")
-public class AddressModel {
+public class AddressModel implements Serializable{
 
 	
 	

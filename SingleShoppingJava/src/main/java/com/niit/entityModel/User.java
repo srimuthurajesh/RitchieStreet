@@ -1,6 +1,7 @@
 package com.niit.entityModel;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -8,7 +9,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -52,8 +55,90 @@ public class User implements Serializable { //Serializable is a markup interface
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<OrderModel> OrderModel;
 
+    @Column(name = "billingFirstname") 
+    private String billingFirstname;
+    @Column(name = "bilingEmail")
+    private String billingEmail;
+    @Column(name = "billingPhone")
+    private String billingPhone;
+    @Column(name = "billingAddress")
+    private String billingAddress;
+    @Column(name = "billingCity")
+    private String billingCity;
+    @Column(name = "billingPincode")
+    private String billingPincode;
+    @Column(name = "paymentOption")
+    private String paymentOption;
+    @Column(name = "billingTime")
+	private Date billingTime=java.util.Calendar.getInstance().getTime();
 
     
+    
+    
+	public String getBillingFirstname() {
+		return billingFirstname;
+	}
+
+	public void setBillingFirstname(String billingFirstname) {
+		this.billingFirstname = billingFirstname;
+	}
+
+	public String getBillingEmail() {
+		return billingEmail;
+	}
+
+	public void setBillingEmail(String billingEmail) {
+		this.billingEmail = billingEmail;
+	}
+
+	public String getBillingPhone() {
+		return billingPhone;
+	}
+
+	public void setBillingPhone(String billingPhone) {
+		this.billingPhone = billingPhone;
+	}
+
+	public String getBillingAddress() {
+		return billingAddress;
+	}
+
+	public void setBillingAddress(String billingAddress) {
+		this.billingAddress = billingAddress;
+	}
+
+	public String getBillingCity() {
+		return billingCity;
+	}
+
+	public void setBillingCity(String billingCity) {
+		this.billingCity = billingCity;
+	}
+
+	public String getBillingPincode() {
+		return billingPincode;
+	}
+
+	public void setBillingPincode(String billingPincode) {
+		this.billingPincode = billingPincode;
+	}
+
+	public String getPaymentOption() {
+		return paymentOption;
+	}
+
+	public void setPaymentOption(String paymentOption) {
+		this.paymentOption = paymentOption;
+	}
+
+	public Date getBillingTime() {
+		return billingTime;
+	}
+
+	public void setBillingTime(Date billingTime) {
+		this.billingTime = billingTime;
+	}
+
 	//-------------------------getter setter for userName------------------------------
 	public String getUsername() {
 		return username;

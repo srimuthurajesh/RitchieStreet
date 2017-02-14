@@ -41,11 +41,9 @@
     <bean id="flowHandlerAdapter" class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
         <property name="flowExecutor" ref="flowExecutor" />
     </bean>
-	
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="10000000"/>
-	</bean>
-
+		<property name="maxUploadSize" value="10000000" />
+</bean>
 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" /> 
 
 </beans>

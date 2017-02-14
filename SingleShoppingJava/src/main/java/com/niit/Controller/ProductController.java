@@ -4,6 +4,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.niit.DAO.CategoryDAO;
+import com.niit.DAO.OrderDAO;
 import com.niit.DAO.ProductDAO;
 import com.niit.DAO.SupplierDAO;
 import com.niit.entityModel.CategoryModel;
@@ -36,7 +38,10 @@ public class ProductController {
 
     @Autowired
     private SupplierDAO supplierDAO;
-        
+   
+    @Autowired
+    private OrderDAO orderDAO;
+   
 //    ---------------------------------------------------ADMIN-------------------------------------------------
 
     // ---------------------------------product---------------------------------
@@ -196,7 +201,7 @@ public class ProductController {
 
     // ---------------------------------edit---------------------------------
     @RequestMapping(value = "/editproduct", method = RequestMethod.GET) //mapping for "/editproduct"
-    public String editProduct(@RequestParam("productId") String productId, Model model) {
+    public String editProduct(@RequestParam("productId") String productId, Model model, HttpSession session) {
 	log.debug("inside editProduct Controller");
 
 	model.addAttribute("values", productDAO.getById(productId));
@@ -206,6 +211,12 @@ public class ProductController {
 	model.addAttribute("productlist", productDAO.getProductList()); //object for productList
 	model.addAttribute("categorylist", categoryDAO.getCategoryList()); //object for categoryList 
 	model.addAttribute("supplierlist", supplierDAO.getSupplierList()); //object for supplierList
+	
+	String User = (String)session.getAttribute("User");
+	model.addAttribute("cartList", orderDAO.getOrderListbyname(User));
+	model.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
+	
+	
 	return "product";
     }
     
@@ -213,9 +224,14 @@ public class ProductController {
     
 //    -------------------------------------------------USER COMMMON----------------------------------------------
       @RequestMapping(value = "/categorypage", method = RequestMethod.GET) //mapping for "/product"
-    public String categoryPageUser(Model model, @RequestParam("categoryId") String categoryId) {
+    public String categoryPageUser(Model model, @RequestParam("categoryId") String categoryId,HttpSession session) {
 	model.addAttribute("values", productDAO.getProductListbycategory(categoryId));
 	model.addAttribute("categoryList", categoryDAO.getCategoryList());
+	
+	String User = (String)session.getAttribute("User");
+	model.addAttribute("cartList", orderDAO.getOrderListbyname(User));
+	model.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
+	
 	
 	return "categorypage";
 
@@ -224,12 +240,18 @@ public class ProductController {
        
     
     @RequestMapping(value = "/productpage", method = RequestMethod.GET) //mapping for "/product"
-    public String productPageUser(Model model, @RequestParam("productId") String productId) {
+    public String productPageUser(Model model, @RequestParam("productId") String productId,HttpSession session) {
 
 	model.addAttribute("productbyId", productDAO.getById(productId));
 	model.addAttribute("productId", "productId");
 	model.addAttribute("categoryList", categoryDAO.getCategoryList());
-//	model.addAttribute("productList", productDAO.getProductListbycategory(productDAO.getById(productId).getCategoryId()));
+	model.addAttribute("productList", productDAO.getProductListbycategory(productDAO.getById(productId).getCategoryId()));
+	model.addAttribute("category", categoryDAO.getById(productDAO.getById(productId).getCategoryId()));
+	
+	String User = (String)session.getAttribute("User");
+	model.addAttribute("cartList", orderDAO.getOrderListbyname(User));
+	model.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
+	
 	
 	if(productDAO.getById(productId).getProductQuantity()!=0){
 	model.addAttribute( "stock","in-Stock" );

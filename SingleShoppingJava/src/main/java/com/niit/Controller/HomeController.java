@@ -46,16 +46,13 @@ Logger log=LoggerFactory.getLogger(HomeController.class);
 		return model;
 	}
 
-		
 	
 	@RequestMapping(value="/")
-	public String indexpage(Model m, HttpSession session){
-		m.addAttribute("categoryList", categoryDAO.getCategoryList());
+	public String indexpage(Model m,HttpServletRequest request, HttpSession session ){
+		session.invalidate();
+		session = request.getSession(true);
 		
-		String User = (String)session.getAttribute("User");
-		m.addAttribute("cartList", orderDAO.getOrderListbyname(User));
-		m.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
-		 
+		m.addAttribute("categoryList", categoryDAO.getCategoryList());
 		return "index";
 	}
 	
@@ -63,13 +60,11 @@ Logger log=LoggerFactory.getLogger(HomeController.class);
 	@RequestMapping(value="/indexpage")
 	public String index(Model m,HttpSession session){
 		m.addAttribute("categoryList", categoryDAO.getCategoryList());
-		
 
+System.out.println("am inside indexpage controller");
 		String User = (String)session.getAttribute("User");
 		m.addAttribute("cartList", orderDAO.getOrderListbyname(User));
 		m.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
-		
-		
 		return "index";
 	}
 
@@ -81,17 +76,16 @@ Logger log=LoggerFactory.getLogger(HomeController.class);
 		System.out.println("inside register controller");
 	    log.debug("inside controller for /register");
 	ModelAndView model = new ModelAndView("register", "userModel", new User());
-	model.addObject("categoryList", categoryDAO.getCategoryList());
-	
+	model.addObject("categoryList", categoryDAO.getCategoryList());	
 	return model;
 	}
 
+	
 	@RequestMapping(value = "/delete")							//mapping for "/delete"
 	public ModelAndView hello5() {
 	    log.debug("inside controller for delete");
 	ModelAndView model = new ModelAndView("delete", "userModel", new User());
 		return model;
-
 	}
 
 	
@@ -100,8 +94,15 @@ Logger log=LoggerFactory.getLogger(HomeController.class);
 	    log.debug("inside controller for /login");
 	ModelAndView model = new ModelAndView("loginpage", "userModel", new User());
 		return model;
-
 	}
+    
+    @RequestMapping(value="/userpage")
+    public ModelAndView userr(@RequestParam("username") String username){
+    	ModelAndView model= new ModelAndView("userpage");
+    	model.addObject("categoryList", categoryDAO.getCategoryList());
+    	model.addObject("userDetails", userDAO.getbyId(username));
+		return model;
+    }
 
 	// ---------------------------------registration------------------------------------
 	@RequestMapping(value = "/registersuccess", method = RequestMethod.POST)				//mapping for "/registersuccess"
@@ -110,7 +111,9 @@ Logger log=LoggerFactory.getLogger(HomeController.class);
 
 	if (userDAO.validationRegistration(userModel)) { //chekcing registration process
 		    log.debug("inside if registration is true");
-			ModelAndView model = new ModelAndView("registersuccess");
+			ModelAndView model = new ModelAndView("userpage");
+			model.addObject("categoryList", categoryDAO.getCategoryList());
+			model.addObject("userDetails", userDAO.getbyId(userModel.getUsername()));
 			model.addObject("userModel", userModel);
 			return model;
 			
@@ -166,6 +169,7 @@ System.out.println("hi am insed method");
 	return page;
     }
 
+    
     @RequestMapping("/logout")
     public ModelAndView logout(HttpServletRequest request, HttpSession session) {
 	ModelAndView mv = new ModelAndView("index");

@@ -87,15 +87,24 @@
                     </div>
                     <p>${productbyId.productDescription}</p>
                     <div class="aa-prod-quantity">
-                     
-<!--                       <p class="aa-prod-category"> -->
-<%--                         Category: <a href="#">${categoryname}</a> --%>
-<!--                       </p> -->
+      
+<form action="addtocart">
+  Quantity:
+  <input type="number" name="quantity" value="1" min="1" max="5"><br>
+<input type="hidden" name="username" value="${User}">
+<input type="hidden" name="productId" value="${productbyId.productId }">      
+    <p class="aa-prod-category">
+                        Category: <a href="categorypage?categoryId=${category.categoryId}">${category.categoryName }</a>
+                      </p>
                     </div>
+
                     <div class="aa-prod-view-bottom">
-                      <a class="aa-add-to-cart-btn" href="addtocart?username=${User}&productId=${productbyId.productId}">Add To Cart</a>
-                      <a class="aa-add-to-cart-btn" href="buynow">Buy Now</a>
-                    </div>
+<%--                       <a class="aa-add-to-cart-btn" href="addtocart?username=${User}&productId=${productbyId.productId}&quantity="quantity">Add To Cart</a> --%>
+                   
+  <input class="aa-add-to-cart-btn" type="submit" value="Add to cart">
+</form>
+<!--                       <a class="aa-add-to-cart-btn" href="buynow">Buy Now</a> -->
+                   </div> </div></div>
                   </div>
                 </div>
               </div>
@@ -121,7 +130,7 @@
                     </figcaption>
                   </figure>                     
                   <div class="aa-product-hvr-content">
-                    <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>                            
+<!--                     <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>                             -->
                   </div>
                 </li> </c:forEach>
                              </ul>
@@ -141,59 +150,58 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">                              
                           <div class="aa-product-view-slider">                                
                             <div class="simpleLens-gallery-container" id="demo-1">
-                              <div class="simpleLens-container">
-                                  <div class="simpleLens-big-image-container">
-                                      <a class="simpleLens-lens-image" data-lens-image="img/view-slider/large/polo-shirt-1.png">
-                                          <img src="img/view-slider/medium/polo-shirt-1.png" class="simpleLens-big-image">
-                                      </a>
-                                  </div>
-                              </div>
-                              <div class="simpleLens-thumbnails-container">
-                                  <a href="#" class="simpleLens-thumbnail-wrapper"
-                                     data-lens-image="img/view-slider/large/polo-shirt-1.png"
-                                     data-big-image="img/view-slider/medium/polo-shirt-1.png">
-                                      <img src="img/view-slider/thumbnail/polo-shirt-1.png">
-                                  </a>                                    
-                                  <a href="#" class="simpleLens-thumbnail-wrapper"
-                                     data-lens-image="img/view-slider/large/polo-shirt-3.png"
-                                     data-big-image="img/view-slider/medium/polo-shirt-3.png">
-                                      <img src="img/view-slider/thumbnail/polo-shirt-3.png">
-                                  </a>
+<!--                               <div class="simpleLens-container"> -->
+<!--                                   <div class="simpleLens-big-image-container"> -->
+<!--                                       <a class="simpleLens-lens-image"> -->
+<!--                                           <img src="img/view-slider/medium/polo-shirt-1.png" class="simpleLens-big-image"> -->
+<!--                                       </a> -->
+<!--                                   </div> -->
+<!--                               </div> -->
+<!--                               <div class="simpleLens-thumbnails-container"> -->
+<!--                                   <a href="#" class="simpleLens-thumbnail-wrapper" -->
+<%--                                      data-big-image="<c:url value="/resources/product/${productList.productId }.png"/>"> --%>
+<%--                                       <img src="<c:url value="/resources/product/${productList.productId }.png"/>"> --%>
+<!--                                   </a>                                     -->
+<!--                                   <a href="#" class="simpleLens-thumbnail-wrapper" -->
+<!--                                      data-lens-image="img/view-slider/large/polo-shirt-3.png" -->
+<!--                                      data-big-image="img/view-slider/medium/polo-shirt-3.png"> -->
+<!--                                       <img src="img/view-slider/thumbnail/polo-shirt-3.png"> -->
+<!--                                   </a> -->
 
-                                  <a href="#" class="simpleLens-thumbnail-wrapper"
-                                     data-lens-image="img/view-slider/large/polo-shirt-4.png"
-                                     data-big-image="img/view-slider/medium/polo-shirt-4.png">
-                                      <img src="img/view-slider/thumbnail/polo-shirt-4.png">
-                                  </a>
+<!--                                   <a href="#" class="simpleLens-thumbnail-wrapper" -->
+<!--                                      data-lens-image="img/view-slider/large/polo-shirt-4.png" -->
+<!--                                      data-big-image="img/view-slider/medium/polo-shirt-4.png"> -->
+<!--                                       <img src="img/view-slider/thumbnail/polo-shirt-4.png"> -->
+<!--                                   </a> -->
                               </div>
                             </div>
                           </div>
                         </div>
-                        <!-- Modal view content -->
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <div class="aa-product-view-content">
-                            <h3>T-Shirt</h3>
-                            <div class="aa-price-block">
-                              <span class="aa-product-view-price">$34.99</span>
-                              <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis animi, veritatis quae repudiandae quod nulla porro quidem, itaque quis quaerat!</p>
+<!--                         Modal view content -->
+<!--                         <div class="col-md-6 col-sm-6 col-xs-12"> -->
+<!--                           <div class="aa-product-view-content"> -->
+<!--                             <h3>$productList.productName</h3> -->
+<!--                             <div class="aa-price-block"> -->
+<%--                               <span class="aa-product-view-price">${productList.productPrice}</span> --%>
+<!--                               <p class="aa-product-avilability">Avilability: <span>In stock</span></p> -->
+<!--                             </div> -->
+<!--                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis animi, veritatis quae repudiandae quod nulla porro quidem, itaque quis quaerat!</p> -->
                            
-                            <div class="aa-prod-quantity">
-                              <p class="aa-prod-category">
-                                Category: <a href="#">Polo T-Shirt</a>
-                              </p>
-                            </div>
-                            <div class="aa-prod-view-bottom">
-                              <a href="#" class="aa-add-to-cart-btn"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                              <a href="#" class="aa-add-to-cart-btn">View Details</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>                        
-                  </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
+<!--                             <div class="aa-prod-quantity"> -->
+<!--                               <p class="aa-prod-category"> -->
+<!--                                 Category: <a href="#">Polo T-Shirt</a> -->
+<!--                               </p> -->
+<!--                             </div> -->
+<!--                             <div class="aa-prod-view-bottom"> -->
+<!--                               <a href="#" class="aa-add-to-cart-btn"><span class="fa fa-shopping-cart"></span>Add To Cart</a> -->
+<!--                               <a href="#" class="aa-add-to-cart-btn">View Details</a> -->
+<!--                             </div> -->
+<!--                           </div> -->
+<!--                         </div> -->
+<!--                       </div> -->
+<!--                     </div>                         -->
+<!--                   </div>/.modal-content -->
+<!--                 </div>/.modal-dialog -->
               </div>
               <!-- / quick view modal -->   
             </div>  

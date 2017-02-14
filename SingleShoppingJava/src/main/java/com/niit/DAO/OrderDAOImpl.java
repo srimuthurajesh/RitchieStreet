@@ -21,14 +21,17 @@ public class OrderDAOImpl implements OrderDAO {
 	  @Autowired
 	    SessionFactory sessionFactory;
 
-	  public boolean add(ProductModel productModel, User user) {
+	  public boolean add(ProductModel productModel, User user, int quantity, int total) {
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
 		
+			
 			OrderModel orderModel= new OrderModel();
 		orderModel.setUser(user);
 		orderModel.setProductModel(productModel);
-			
+		orderModel.setQuantity(quantity);
+		orderModel.setTotal(total);	
+		
 			session.saveOrUpdate(orderModel);
 
 			session.getTransaction().commit();

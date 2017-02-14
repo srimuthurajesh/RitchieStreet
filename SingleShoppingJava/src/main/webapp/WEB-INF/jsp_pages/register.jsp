@@ -238,7 +238,7 @@ font-size:smaller;
               <div class="col-md-6">
                 <div class="aa-myaccount-register">                 
                  <h4>Register</h4>
-                 <form:form  class="aa-login-form" commandName="userModel"><!-- action="registersuccess" -->
+                 <form:form  class="aa-login-form" commandName="userModel"  action="registersuccess" >
                     <label for="">Enter Your Name</label><br>
                     <form:input type="text" placeholder="First Name" path="firstname" style="width:48%;"/>&nbsp;&nbsp;&nbsp;&nbsp;
                     <form:input type="text" placeholder="Last Name" path="lastname" style="width:48%;"/><br>
@@ -301,7 +301,6 @@ font-size:smaller;
             <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
           
           </form>
-          <input name="_eventId_register" type="submit" value="Edit" /> 
                    </div>
            </div>
               </div>      

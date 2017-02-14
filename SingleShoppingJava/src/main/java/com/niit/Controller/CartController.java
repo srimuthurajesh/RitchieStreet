@@ -34,15 +34,23 @@ public class CartController {
 	    private CategoryDAO categoryDAO;
 	   
 	 @RequestMapping(value="/addtocart",method=RequestMethod.GET)
-	    public String addtocart(@RequestParam("username")String username, @RequestParam("productId")String productId, Model model){
+	    public String addtocart(@RequestParam("username")String username, @RequestParam("productId")String productId, @RequestParam("quantity") int quantity, Model model){
 		 model.addAttribute("categoryList", categoryDAO.getCategoryList());
-			
-		 orderDAO.add(productDAO.getById(productId),userDAO.getbyId(username));
+		 orderDAO.add(productDAO.getById(productId),userDAO.getbyId(username),quantity,quantity*productDAO.getById(productId).getProductPrice());
+		 		 
+		 
+		 
+		 
 		 model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
 		model.addAttribute("cartsize", orderDAO.getOrderListbyname(username).size());
 		 return "cartpage";
 	    }
 	
+	 
+	 
+	 
+	 
+	 
 	 @RequestMapping(value="/cartpage",method=RequestMethod.GET)
 	    public String addtocart(@RequestParam("username")String username,  Model model){
 		 model.addAttribute("categoryList", categoryDAO.getCategoryList());
@@ -67,7 +75,8 @@ public class CartController {
 	 
 	 
 	 @RequestMapping(value="/checkout",method=RequestMethod.GET)
-		 public String checkout(@RequestParam("username")String username, Model model){
+		 public String checkout(@RequestParam("username")String username,Model model){
+		
 		 model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
 		 model.addAttribute("addressModel", new AddressModel());		 
 		 model.addAttribute("categoryList", categoryDAO.getCategoryList());	

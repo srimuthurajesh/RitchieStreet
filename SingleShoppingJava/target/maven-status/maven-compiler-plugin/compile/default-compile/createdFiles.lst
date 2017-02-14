@@ -5,6 +5,7 @@ com\niit\DAO\UserDAO.class
 com\niit\Controller\CartController.class
 com\niit\DAO\ProductDAOImpl.class
 com\niit\DAO\ProductDAO.class
+com\niit\Controller\WebflowHandler.class
 com\niit\Controller\SupplierController.class
 com\niit\entityModel\ProductModel.class
 com\niit\DAO\SupplierDAOImpl.class

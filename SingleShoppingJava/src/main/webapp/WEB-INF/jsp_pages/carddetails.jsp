@@ -108,8 +108,9 @@
                     <label for="">Card Holder's Name:</label>
                     <form:input type="text"  placeholder="Name" path="cardholderName" />    
                   </form:form>  
-                    <a href="paymentsuccess?username=${User}"><button  class="aa-browse-btn">Make Payment</button></a>                    
-                  
+<%--                     <a href="paymentsuccess?username=${User}"><button  class="aa-browse-btn">Make Payment</button></a>                     --%>
+                     <a href="${flowExecutionUrl }&_eventId=submit"><button  class="aa-browse-btn">Make Payment</button></a>                    
+                 
                   <br><br><br>
                   <span style="font-size:14px">* Fields mandatory</span> 
                 </div>
@@ -126,7 +127,9 @@
    </div>
  </section>
  <!-- / Cart view section -->
- 
+    <a href="${flowExecutionUrl }&_eventId=submit?username=${$User}">submit</a>
+                  <a href="${flowExecutionUrl }&_eventId=back">back</a>
+               
 
 <%@ include file="footer.jsp"%>
  

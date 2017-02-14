@@ -66,7 +66,7 @@
               </div>
               <div class="seq-title">
                <span data-seq>Save Up to 75% Off</span>                
-                <h2 data-seq>Men Collection</h2>                
+                <h2 data-seq>Measurement Tools</h2>                
                 <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
                 <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
               </div>

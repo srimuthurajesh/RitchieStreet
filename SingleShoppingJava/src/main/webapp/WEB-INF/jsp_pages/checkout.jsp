@@ -55,7 +55,7 @@
      <div class="row">
        <div class="col-md-12">
         <div class="checkout-area">
-          <form:form action="carddetails" commandName="addressModel" method="GET">
+          <form:form  commandName="user" action="${flowExecutionUrl }"> <!-- action="carddetails" -->
             <div class="row">
               <div class="col-md-8">
                 <div class="checkout-left">
@@ -129,40 +129,47 @@
               </div>
               <div class="col-md-4">
                 <div class="checkout-right">
-                  <h4><strong>Order Summary</strong></h4>
-                  <div class="aa-order-summary-area">
-                    <table class="table table-responsive">
-                      <thead>
-                        <tr>
-                          <th>Product</th>
-                          <th>Total</th>
-                        </tr>
-                      </thead>
-                      <tbody>
+<!--                   <h4><strong>Order Summary</strong></h4> -->
+<!--                   <div class="aa-order-summary-area"> -->
+<!--                     <table class="table table-responsive"> -->
+<!--                       <thead> -->
+<!--                         <tr> -->
+<!--                           <th>Product</th> -->
+<!--                           <th>Total</th> -->
+<!--                         </tr> -->
+<!--                       </thead> -->
+<!--                       <tbody> -->
                        
-                        <c:forEach var="cartList" items="${cartList}">
-                    <tr>
-                          <td>${cartList.productModel.productName} <strong> x 
-<%--                            ${cartList.quantity} --%>
-                           </strong></td>
-                          <td>${cartList.productModel.productPrice}</td>
-                        </tr>
-                        </c:forEach>
-                      </tbody>
-                      <tfoot>
-                         <tr>
-                          <th>Total</th>
-                          <td>$grandtotal</td>
-                        </tr>
-                      </tfoot>
-                    </table>
-                  </div>
+<%--                         <c:forEach var="cartList" items="${cartList}"> --%>
+<!--                     <tr> -->
+<%--                           <td>${cartList.productModel.productName} <strong> x  --%> 
+<!-- <%--                            ${cartList.quantity} --%> -->
+<!--                            </strong></td> -->
+<%--                           <td>${cartList.productModel.productPrice}</td> --%>
+<!--                         </tr> -->
+<%--                         </c:forEach> --%>
+<!--                       </tbody> -->
+<!--                       <tfoot> -->
+<!--                          <tr> -->
+<!--                           <th>Total</th> -->
+<%--                           <td>${grandtotal}</td> --%>
+<!--                         </tr> -->
+<!--                       </tfoot> -->
+<!--                     </table> -->
+<!--                   </div> -->
                   <h4><strong>Payment Method</strong></h4>
                   <div class="aa-payment-method">                    
                    <label for=""><form:radiobutton path="paymentOption" value="Cash on delivery" />Cash on Delivery</label>
                    <label for=""><form:radiobutton path="paymentOption" value="By Card" />Pay by Bank Card</label>
                   <br><br><br>  <img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark">    
-                    <input type="submit" value="Place Order" class="aa-browse-btn">                
+                  
+                    <input type="submit" value="Submit" name="_eventId_submit"  class="aa-browse-btn">                
+                    <input type="submit" value="Cancel" name="_eventId_cancel" class="aa-browse-btn">                
+                  
+                  
+<%--                   <a href="${flowExecutionUrl }&_eventId=submit">submit</a> --%>
+<%--                   <a href="${flowExecutionUrl }&_eventId=cancel">cancel</a> --%>
+                  
                   </div>
                 </div>
               </div>
