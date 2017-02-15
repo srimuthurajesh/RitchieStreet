@@ -53,7 +53,7 @@ log.debug("inside category controller");		//performing a logger debug
 	// ---------------------------------edit---------------------------------
 	@RequestMapping(value = "/editcategory", method = RequestMethod.GET)		//mapping for "/editcategory"
 	public ModelAndView editCategory(@RequestParam("categoryId") String categoryId) {
-		ModelAndView model = new ModelAndView("category", "categoryModel", new CategoryModel());
+		ModelAndView model = new ModelAndView("admin_category", "categoryModel", new CategoryModel());
 		log.debug("inside editcategory Controller");
 		model.addObject("list", categoryDAO.getCategoryList());
 

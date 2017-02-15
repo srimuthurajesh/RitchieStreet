@@ -67,7 +67,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
     @Transactional
     public CategoryModel getByName(String name) {
-	String hql = "from Category where name =" + "'" + name + "'";
+	String hql = "from CategoryModel where name =" + "'" + name + "'";
 	Query query = sessionFactory.getCurrentSession().createQuery(hql);
 	@SuppressWarnings("unchecked")
 	List<CategoryModel> list = (List<CategoryModel>) query.list();

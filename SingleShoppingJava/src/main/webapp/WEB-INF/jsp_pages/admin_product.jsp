@@ -166,8 +166,8 @@
   width: 100%;"/>
 								
 					
-  				<label for="" style="width:49%">Category Id</label><label for="">Supplier Id</label>  
-  						<form:select path="categoryModel.categoryName" items="${categorylist}" itemValue="categoryName" itemLabel="categoryName"  style="border: 1px solid #ccc;  
+  				<label for="" style="width:49%">Category Name</label><label for="">Supplier Name</label>  
+  						<form:select path="categoryId" items="${categorylist}" itemValue="categoryId" itemLabel="categoryName"  style="border: 1px solid #ccc;  
     font-size: 16px;  
     height: 40px;  
     margin-bottom: 15px;  
@@ -175,7 +175,7 @@
     width: 47%;"/>&nbsp;&nbsp;&nbsp;  
 				
 				
-  						<form:select path="supplierModel.supplierName" items="${supplierlist}" itemValue="supplierName" itemLabel="supplierName"  style="border: 1px solid #ccc;  
+  						<form:select path="supplierId" items="${supplierlist}" itemValue="supplierId" itemLabel="supplierName"  style="border: 1px solid #ccc;  
     font-size: 16px;  
     height: 40px;  
     margin-bottom: 15px;  

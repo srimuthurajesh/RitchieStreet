@@ -51,7 +51,7 @@ Logger log= LoggerFactory.getLogger(SupplierController.class);
     // ---------------------------------edit---------------------------------
     @RequestMapping(value = "/editsupplier", method = RequestMethod.GET) //mapping for "/editsupplier"
     public ModelAndView editSupplier(@RequestParam("supplierId") String supplierId) {
-	ModelAndView model = new ModelAndView("supplier", "supplierModel", new SupplierModel());
+	ModelAndView model = new ModelAndView("admin_supplier", "supplierModel", new SupplierModel());
 	log.debug("inside editSupplier Controller");
 	model.addObject("list", supplierDAO.getSupplierList());
 
@@ -60,6 +60,5 @@ Logger log= LoggerFactory.getLogger(SupplierController.class);
 	return model;
     }
 
-//    -----------------------------------------------USER & COMMON---------------------------------------
     
 }

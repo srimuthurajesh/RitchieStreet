@@ -35,22 +35,6 @@
 
 
 
-
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="<c:url value="/resources/js/bootstrap.js"/>"></script>  
-  <!-- SmartMenus jQuery plugin -->
-  <script type="text/javascript" src="<c:url value="/resources/js/jquery.smartmenus.js"/>"></script>
-  <!-- SmartMenus jQuery Bootstrap Addon -->
-  <script type="text/javascript" src="<c:url value="/resources/js/jquery.smartmenus.bootstrap.js"/>"></script>  
-  <!-- Product view slider -->
-  <script type="text/javascript" src="<c:url value="/resources/js/jquery.simpleGallery.js"/>"></script>
-  <script type="text/javascript" src="<c:url value="/resources/js/jquery.simpleLens.js"/>"></script>
-  <!-- slick slider -->
-  <script type="text/javascript" src="<c:url value="/resources/js/slick.js"/>"></script>
-  <!-- Price picker slider -->
-  <script type="text/javascript" src="<c:url value="/resources/js/nouislider.js"/>"></script>
  
     
 </head>
@@ -77,7 +61,7 @@
 					
 						<label for="">category Id:</label>
 						<form:input type="text"
-								value="${values.getCategoryId() }" path="categoryId"   disabled="true" readonly="true" style="border: 1px solid #ccc;
+								value="${values.getCategoryId() }" path="categoryId"    readonly="true" style="border: 1px solid #ccc;
   font-size: 16px;
   height: 40px;
   margin-bottom: 15px;
@@ -95,6 +79,7 @@
 		</form:form>
 				</c:when>
 				<c:otherwise>
+					<h4>Add Category</h4>
 	<c:url var="action" value="/addcategory"></c:url>
 	<form:form action="${action}" method="get" commandName="categoryModel">
 	
@@ -145,8 +130,8 @@
 				<tr>
 					<td>${listValue.categoryId}</td>
 					<td>${listValue.categoryName}</td>
-					<td style="border-right:white"><form action="deletecategory"> <button name="categoryId" type="submit" value=${listValue.categoryId}>Delete</button></form></td>
-					<td><form action="editcategory"><button name="categoryId" type="submit" value=${listValue.categoryId}>Edit</button></form></td>
+					<td style="border-right:white"><form action="deletecategory"> <button class="aa-browse-btn" name="categoryId" type="submit" value=${listValue.categoryId}>Delete</button></form></td>
+					<td><form action="editcategory"><button class="aa-browse-btn" name="categoryId" type="submit" value=${listValue.categoryId}>Edit</button></form></td>
 					</tr>
 					</c:forEach>
 					    </tbody>
@@ -156,5 +141,23 @@
 
 
  <%@ include file="footer.jsp"%>
+ 
+ 
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="<c:url value="/resources/js/bootstrap.js"/>"></script>  
+  <!-- SmartMenus jQuery plugin -->
+  <script type="text/javascript" src="<c:url value="/resources/js/jquery.smartmenus.js"/>"></script>
+  <!-- SmartMenus jQuery Bootstrap Addon -->
+  <script type="text/javascript" src="<c:url value="/resources/js/jquery.smartmenus.bootstrap.js"/>"></script>  
+  <!-- Product view slider -->
+  <script type="text/javascript" src="<c:url value="/resources/js/jquery.simpleGallery.js"/>"></script>
+  <script type="text/javascript" src="<c:url value="/resources/js/jquery.simpleLens.js"/>"></script>
+  <!-- slick slider -->
+  <script type="text/javascript" src="<c:url value="/resources/js/slick.js"/>"></script>
+  <!-- Price picker slider -->
+  <script type="text/javascript" src="<c:url value="/resources/js/nouislider.js"/>"></script>
+ 
  </body>
 </html>

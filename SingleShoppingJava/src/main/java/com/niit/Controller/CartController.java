@@ -52,7 +52,7 @@ public class CartController {
 	 
 	 
 	 @RequestMapping(value="/cartpage",method=RequestMethod.GET)
-	    public String addtocart(@RequestParam("username")String username,  Model model){
+	    public String addtocart(@RequestParam("username")String username, HttpSession session, Model model){
 		 model.addAttribute("categoryList", categoryDAO.getCategoryList());
 			
 		 model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
@@ -97,13 +97,13 @@ public class CartController {
 	}
 		 }
 		 
-	 @RequestMapping(value="paymentsuccess")
+	 @RequestMapping(value="finalindex")
 	 public String cardpaymentsuccess(@RequestParam("username") String username, Model model){
 		 model.addAttribute("categoryList", categoryDAO.getCategoryList());
-		 model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
-		
 		 orderDAO.removeorderbycartid(username);
-		 return "paymentsuccess";
+			model.addAttribute("categoryList", categoryDAO.getCategoryList());
+			
+		 return "index";
 		 
 		 
 	 }

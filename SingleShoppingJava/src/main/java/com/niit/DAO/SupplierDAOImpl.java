@@ -21,7 +21,7 @@ public class SupplierDAOImpl implements SupplierDAO {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 
-		session.save(supplierModel);
+		session.saveOrUpdate(supplierModel);
 
 		session.getTransaction().commit();
 		session.close();
@@ -49,7 +49,7 @@ public class SupplierDAOImpl implements SupplierDAO {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 
-		String hql = "from supplierModel where id =" + "'" + supplierId + "'";
+		String hql = "from SupplierModel where id =" + "'" + supplierId + "'";
 		Query query = session.createQuery(hql);
 
 		List<SupplierModel> list = (List<SupplierModel>) query.list();
@@ -70,13 +70,6 @@ public class SupplierDAOImpl implements SupplierDAO {
 		return list;
 
 	}
-
-    //---------------------------------------------SaveOrUpdate-------------------------------------------------------
-    @Transactional
-    public void saveOrUpdate(SupplierModel supplierModel) {
-	sessionFactory.getCurrentSession().saveOrUpdate(supplierModel);
-
-    }
 
     //--------------------------------------------get by Name-------------------------------------------------------------
     @SuppressWarnings("deprecation")

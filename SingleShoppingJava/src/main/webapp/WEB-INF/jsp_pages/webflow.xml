@@ -10,33 +10,24 @@
 
 <on-start>
 <evaluate expression="webflowHandler.initFlow()" result="flowScope.addressModel"/>
-<evaluate expression="categoryDAO.getCategoryList()" result="flowScope.categoryList"/> 
+<!-- <evaluate expression="categoryDAO.getCategoryList()" result="flowScope.categoryList"/>  -->
 </on-start>
 
-<view-state id="flowExecutor" view="checkout.jsp" model="user">
+<view-state id="flowExecutor" view="checkout.jsp" model="addressModel">
 <transition on="submit" to="carddetailspage"/>
 <transition on="cancel" to="cancel"/>
 </view-state>
+
 
 <view-state id="carddetailspage" view="carddetails.jsp" model="carddetailModel">
 <transition on="submit" to="paymentsuccess"/>
 <transition on="back" to="cancel"/>
 </view-state>
 
-<action-state id="paymentsuccess">
-<evaluate expression="webflowHandler.initFlow4(requestParameters.username)" result="flowScope.cartList"/>
-<transition to="paymentsuccess2"/>
-</action-state>
 
-
-<view-state id="paymentsuccess2" view="paymentsuccess.jsp" model="cartList">
-<transition on="submit" to="index"/>
-<transition on="back" to="carddetails"/>
-</view-state>
-
-
-<end-state id="index" view="index.jsp" >
+<end-state id="paymentsuccess" view="paymentsuccess.jsp" >
 </end-state>
+
 
 
 <global-transitions>

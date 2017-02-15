@@ -25,7 +25,7 @@ import com.niit.entityModel.User;
 
 @Controller
 public class HomeController {
-Logger log=LoggerFactory.getLogger(HomeController.class);
+Logger log=LoggerFactory.getLogger(HomeController.class);  //creating logging object for this class Home controller
 
     @Autowired(required = true)
     private UserDAO userDAO;
@@ -175,6 +175,7 @@ System.out.println("hi am insed method");
 	ModelAndView mv = new ModelAndView("index");
 	session.invalidate();
 	session = request.getSession(true);
+	
 	mv.addObject("logoutMessage", "you are successfully logged out");
 	mv.addObject("loggedOut", "true");
 	mv.addObject("categoryList", categoryDAO.getCategoryList());

@@ -139,9 +139,10 @@ public class ProductController {
     // ---------------------------------add---------------------------------
     @RequestMapping(value = "/addproduct", method = RequestMethod.GET) //mapping for "/addproduct"
     public String addProduct(@ModelAttribute("productModel")ProductModel productModel, HttpServletRequest request,
-	    RedirectAttributes attributes)
+	    RedirectAttributes attributes, BindingResult bindingresult)
 	{
-
+    	if(bindingresult.hasErrors()){
+           System.out.println("hiiiiiiiiiiiiiiiiiiiiiiiiiii"); }else{
 
         //String path = "C:\\Users\\IntelliGEnI\\Documents\\Eclipse Workspace\\SingleShoppingJava\\src\\main\\webapp\\WEB-INF\\resources\\product\\";
     	String path="D:\\PROJECT1\\";
@@ -149,7 +150,7 @@ public class ProductController {
 	    CategoryModel categoryModel = categoryDAO.getByName(productModel.getCategoryModel().getCategoryName());
 	    categoryDAO.saveOrUpdate(categoryModel);
 	    SupplierModel supplierModel = supplierDAO.getByName(productModel.getSupplierModel().getSupplierName());
-	    supplierDAO.saveOrUpdate(supplierModel);
+	    supplierDAO.addsupplier(supplierModel);
 
 	    productModel.setCategoryModel(categoryModel);
 	    productModel.setSupplierModel(supplierModel);
@@ -187,11 +188,11 @@ public class ProductController {
 			System.out.println("File is Empty not Uploaded");
 			
 	}
-	
+           }
 	return "redirect:/product";
 
     }
-
+	
 	// ---------------------------------delete---------------------------------
     @RequestMapping(value = "/deleteproduct", method = RequestMethod.GET) //mapping for "/deleteproduct"
     public String deleteProduct(@RequestParam("productId") String productId) {
@@ -217,7 +218,7 @@ public class ProductController {
 	model.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
 	
 	
-	return "product";
+	return "admin_product";
     }
     
     

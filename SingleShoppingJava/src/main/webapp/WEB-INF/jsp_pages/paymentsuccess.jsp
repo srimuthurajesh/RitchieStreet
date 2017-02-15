@@ -71,112 +71,115 @@
 
   <%@ include file="header.jsp"%>
  
+ <Strong><h2>Payment has been SuccessFully done, Thank you</h2></Strong><br>
+ <a href="finalindex?username=${User}"><button class="aa-browse-btn">Continue Shopping</button></a>
  
  
- <div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-    		<div class="invoice-title">
-    			<h2>Invoice Details</h2><h3 class="pull-right">Order Id: #<strong id="randomNumber"></strong></h3>
-    		</div>
-    		<hr>
-    		<div class="row">
-    			<div class="col-xs-6">
+ 
+<!--  <div class="container"> -->
+<!--     <div class="row"> -->
+<!--         <div class="col-xs-12"> -->
+<!--     		<div class="invoice-title"> -->
+<!--     			<h2>Invoice Details</h2><h3 class="pull-right">Order Id: #<strong id="randomNumber"></strong></h3> -->
+<!--     		</div> -->
+<!--     		<hr> -->
+<!--     		<div class="row"> -->
+<!--     			<div class="col-xs-6"> -->
+<!-- <!--     				<address> --> -->
+<!-- <!--     				<strong>Billed To:</strong><br> --> -->
+<!-- <!--     					$billingFirstname<br> --> -->
+<!-- <!--     					$billingAddress<br> --> -->
+<!-- <!--     					$billingCity<br> --> -->
+<!-- <!--     					$billingPincode --> -->
+<!-- <!--     				</address> --> -->
+<!--     			</div> -->
+<!--     			<div class="col-xs-6 text-right"> -->
 <!--     				<address> -->
-<!--     				<strong>Billed To:</strong><br> -->
-<!--     					$billingFirstname<br> -->
-<!--     					$billingAddress<br> -->
-<!--     					$billingCity<br> -->
-<!--     					$billingPincode -->
-<!--     				</address> -->
-    			</div>
-    			<div class="col-xs-6 text-right">
-    				<address>
-        			<strong>Shipped To:</strong><br>
-    					${addressModel.billingFirstname}<br>
-	${addressModel.billingAddress}<br>
-	${addressModel.billingCity}<br>
-	${addressModel.billingPincode}<br>
+<!--         			<strong>Shipped To:</strong><br> -->
+<%--     					${addressModel.billingFirstname}<br> --%>
+<%-- 	${addressModel.billingAddress}<br> --%>
+<%-- 	${addressModel.billingCity}<br> --%>
+<%-- 	${addressModel.billingPincode}<br> --%>
     
-	Email: ${addressModel.billingEmail}<br>
-	Mobile: ${addressModel.billingPhone};
+<%-- 	Email: ${addressModel.billingEmail}<br> --%>
+<%-- 	Mobile: ${addressModel.billingPhone}; --%>
 						
     					
     					
-    				</address>
-    			</div>
-    		</div>
-    		<div class="row">
-    			<div class="col-xs-6">
-    				<address>
-    					<strong>Payment Method:</strong><br>
-    					${addressModel.paymentOption}<br>
+<!--     				</address> -->
+<!--     			</div> -->
+<!--     		</div> -->
+<!--     		<div class="row"> -->
+<!--     			<div class="col-xs-6"> -->
+<!--     				<address> -->
+<!--     					<strong>Payment Method:</strong><br> -->
+<%--     					${addressModel.paymentOption}<br> --%>
     					
-    				</address>
-    			</div>
-    			<div class="col-xs-6 text-right">
-    				<address>
-    					<strong>Order Date&Time:</strong><br>
-    					${addressModel.billingTime}<br><br>
-    				</address>
-    			</div>
-    		</div>
-    	</div>
-    </div>
+<!--     				</address> -->
+<!--     			</div> -->
+<!--     			<div class="col-xs-6 text-right"> -->
+<!--     				<address> -->
+<!--     					<strong>Order Date&Time:</strong><br> -->
+<%--     					${addressModel.billingTime}<br><br> --%>
+<!--     				</address> -->
+<!--     			</div> -->
+<!--     		</div> -->
+<!--     	</div> -->
+<!--     </div> -->
     
-    <div class="row">
-    	<div class="col-md-12">
-    		<div class="panel panel-default">
-    			<div class="panel-heading">
-    				<h3 class="panel-title"><strong>Order summary</strong></h3>
-    			</div>
-    			<div class="panel-body">
-    				<div class="table-responsive">
-    					<table class="table table-condensed">
-    						<thead>
+<!--     <div class="row"> -->
+<!--     	<div class="col-md-12"> -->
+<!--     		<div class="panel panel-default"> -->
+<!--     			<div class="panel-heading"> -->
+<!--     				<h3 class="panel-title"><strong>Order summary</strong></h3> -->
+<!--     			</div> -->
+<!--     			<div class="panel-body"> -->
+<!--     				<div class="table-responsive"> -->
+<!--     					<table class="table table-condensed"> -->
+<!--     						<thead> -->
                                
-                                <tr>
-        							<td><strong>Item</strong></td>
-        							<td class="text-center"><strong>Price</strong></td>
-        							<td class="text-center"><strong>Quantity</strong></td>
-        							<td class="text-right"><strong>Totals</strong></td>
-                                </tr>
-    						</thead>
-    						<tbody>
-    						  <c:forEach var="cartList" items="${cartList}">
-                   	<tr>
-    								<td>${cartList.productModel.productName }</td>
-    								<td class="text-center">${cartList.productModel.productPrice}</td>
-    								<td class="text-center">$cartList.quantity </td>
-    								<td class="text-right">$totalprice</td>
-    							</tr></c:forEach>
+<!--                                 <tr> -->
+<!--         							<td><strong>Item</strong></td> -->
+<!--         							<td class="text-center"><strong>Price</strong></td> -->
+<!--         							<td class="text-center"><strong>Quantity</strong></td> -->
+<!--         							<td class="text-right"><strong>Totals</strong></td> -->
+<!--                                 </tr> -->
+<!--     						</thead> -->
+<!--     						<tbody> -->
+<%--     						  <c:forEach var="cartList" items="${cartList}"> --%>
+<!--                    	<tr> -->
+<%--     								<td>${cartList.productModel.productName }</td> --%>
+<%--     								<td class="text-center">${cartList.productModel.productPrice}</td> --%>
+<!--     								<td class="text-center">$cartList.quantity </td> -->
+<!--     								<td class="text-right">$totalprice</td> -->
+<%--     							</tr></c:forEach> --%>
                             
                             
-                            	<tr>
-    								<td class="thick-line"></td>
-    								<td class="thick-line"></td>
-    								<td class="thick-line text-center"><strong>subtotal</strong></td>
-    								<td class="thick-line text-right">$subtotal</td>
-    							</tr>
-    							<tr>
-    								<td class="no-line"></td>
-    								<td class="no-line"></td>
-    								<td class="no-line text-center"><strong>Total</strong></td>
-    								<td class="no-line text-right">$grandtotal</td>
-    							</tr>
-    						</tbody>
-    					</table>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </div>
-</div>
+<!--                             	<tr> -->
+<!--     								<td class="thick-line"></td> -->
+<!--     								<td class="thick-line"></td> -->
+<!--     								<td class="thick-line text-center"><strong>subtotal</strong></td> -->
+<!--     								<td class="thick-line text-right">$subtotal</td> -->
+<!--     							</tr> -->
+<!--     							<tr> -->
+<!--     								<td class="no-line"></td> -->
+<!--     								<td class="no-line"></td> -->
+<!--     								<td class="no-line text-center"><strong>Total</strong></td> -->
+<!--     								<td class="no-line text-right">$grandtotal</td> -->
+<!--     							</tr> -->
+<!--     						</tbody> -->
+<!--     					</table> -->
+<!--     				</div> -->
+<!--     			</div> -->
+<!--     		</div> -->
+<!--     	</div> -->
+<!--     </div> -->
+<!-- </div> -->
  
  
  
-    <a href="${flowExecutionUrl }&_eventId=submit">submit</a>
-                  <a href="${flowExecutionUrl }&_eventId=back">back</a>
+<%--     <a href="${flowExecutionUrl }&_eventId=submit">submit</a> --%>
+<%--                   <a href="${flowExecutionUrl }&_eventId=back">back</a> --%>
                
  
  
