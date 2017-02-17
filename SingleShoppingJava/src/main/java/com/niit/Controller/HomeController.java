@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.DAO.CategoryDAO;
 import com.niit.DAO.OrderDAO;
+import com.niit.DAO.ProductDAO;
 import com.niit.DAO.UserDAO;
 import com.niit.entityModel.User;
 
@@ -34,6 +35,9 @@ Logger log=LoggerFactory.getLogger(HomeController.class);  //creating logging ob
     @Autowired
     private OrderDAO orderDAO;
 
+
+    @Autowired
+    private ProductDAO productDAO;
     
     @Autowired(required = true)
     private CategoryDAO categoryDAO;;
@@ -51,7 +55,10 @@ Logger log=LoggerFactory.getLogger(HomeController.class);  //creating logging ob
 	public String indexpage(Model m,HttpServletRequest request, HttpSession session ){
 		session.invalidate();
 		session = request.getSession(true);
-		
+		m.addAttribute("microcontrollerList",productDAO.getProductListbycategory("C1"));
+		m.addAttribute("RoboticsList",productDAO.getProductListbycategory("C2"));
+		m.addAttribute("toolsList",productDAO.getProductListbycategory("C5"));
+		m.addAttribute("testingList",productDAO.getProductListbycategory("C8"));
 		m.addAttribute("categoryList", categoryDAO.getCategoryList());
 		return "index";
 	}
@@ -65,6 +72,12 @@ System.out.println("am inside indexpage controller");
 		String User = (String)session.getAttribute("User");
 		m.addAttribute("cartList", orderDAO.getOrderListbyname(User));
 		m.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
+		m.addAttribute("microcontrollerList",productDAO.getProductListbycategory("C1"));
+		m.addAttribute("RoboticsList",productDAO.getProductListbycategory("C2"));
+		m.addAttribute("toolsList",productDAO.getProductListbycategory("C5"));
+		m.addAttribute("testingList",productDAO.getProductListbycategory("C8"));
+		m.addAttribute("categoryList", categoryDAO.getCategoryList());
+		
 		return "index";
 	}
 

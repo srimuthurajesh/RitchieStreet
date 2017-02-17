@@ -71,7 +71,7 @@
 <c:choose><c:when test="${ not empty values}">
 	spring form
 	<h4>Edit Product</h4>
-	<form:form action="addproduct" method="get" enctype="multipart/form-data" commandName="productModel">
+	<form:form action="addproduct" method="post" enctype="multipart/form-data" commandName="productModel">
 					
 						<label for="" style="width:51%">Product Id: </label> <label for="">Product Name:</label><br>
 						<form:input type="text"
@@ -136,7 +136,7 @@
   				</c:when>  
   				<c:otherwise>  
 	<h4>Add Product</h4>
-	<form:form action="addproduct" method="get"  enctype="multipart/form-data" commandName="productModel">
+	<form:form action="addproduct" method="post"  enctype="multipart/form-data" commandName="productModel">
 	
 						<label for="" style="width:49%">Product Id:</label> <label for="">Product Name:</label><br>
 						<form:input type="text"

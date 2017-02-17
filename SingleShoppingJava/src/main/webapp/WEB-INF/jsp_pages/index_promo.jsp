@@ -58,8 +58,8 @@
                   <div class="aa-promo-banner">                    
                     <img src="<c:url value="/resources/img/promo-banner-1.jpg"/>" alt="img">                    
                     <div class="aa-prom-content">
-                      <span>Cool</span>
-                      <h4><a href="#">Embedded Systems</a></h4>                      
+                    <a href="categorypage?categoryId=C3">  <span>Embedded Systems</span></a>
+<!--                       <h4><a href="#">Embedded Systems</a></h4>                       -->
                     </div>
                   </div>
                 </div>
@@ -71,8 +71,8 @@
                     <div class="aa-promo-banner">                      
                       <img src="<c:url value="/resources/img/promo-banner-3.jpg"/>" alt="img">                      
                       <div class="aa-prom-content">
-                        <span>Exclusive Items</span>
-                        <h4><a href="<c:url value='editproduct/${category}' />">MicroControllers</a></h4>                        
+                        <a href="categorypage?categoryId=C2">  <span>Robotics</span></a>
+<%--                         <h4><a href="<c:url value='editproduct/${category}' />">MicroControllers</a></h4>                         --%>
                       </div>
                     </div>
                   </div>
@@ -80,8 +80,8 @@
                     <div class="aa-promo-banner">                      
                       <img src="<c:url value="/resources/img/promo-banner-2.jpg"/>" alt="img">                      
                       <div class="aa-prom-content">
-                        <span>Sale Off</span>
-                        <h4><a href="#">Robotics</a></h4>                        
+<!--                         <span>Sale Off</span> -->
+                        <a href="categorypage?categoryId=C6">  <span>Applications</span></a>                      
                       </div>
                     </div>
                   </div>
@@ -89,8 +89,8 @@
                     <div class="aa-promo-banner">                      
                       <img src="<c:url value="/resources/img/promo-banner-4.jpg"/>" alt="img">                      
                       <div class="aa-prom-content">
-                        <span>New Arrivals</span>
-                        <h4><a href="#">Tools & Supplies</a></h4>                        
+<!--                         <span>New Arrivals</span> -->
+                        <a  href="categorypage?categoryId=C5"><span>Tools & Supplies</span></a>                     
                       </div>
                     </div>
                   </div>
@@ -99,7 +99,7 @@
                       <img src="<c:url value="/resources/img/promo-banner-5.jpg"/>" alt="img">                      
                       <div class="aa-prom-content">
                         <span>Hot Off</span>
-                        <h4><a href="#">Applications</a></h4>                        
+       <h4>                 <a  href="categorypage?categoryId=C7">Wires & Controllers</a>          </h4>             
                       </div>
                     </div>
                   </div>

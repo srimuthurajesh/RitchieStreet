@@ -45,22 +45,6 @@ public class ProductController {
 //    ---------------------------------------------------ADMIN-------------------------------------------------
 
     // ---------------------------------product---------------------------------
-//    @RequestMapping(value = "/productsgg", method = RequestMethod.GET) //mapping for "/product"
-//    public String productPsdage(Model model) {
-//
-//	model.addAttribute("productModel", new ProductModel());
-//	model.addAttribute("supplierModel", new SupplierModel());
-//	model.addAttribute("categoryModel", new CategoryModel());
-//
-//	model.addAttribute("productlist", productDAO.getProductList()); //object for productList
-//	model.addAttribute("categorylist", categoryDAO.getCategoryList()); //object for categoryList
-//	model.addAttribute("supplierlist", supplierDAO.getSupplierList()); //object for supplierList
-//	model.addAttribute("page_name", "Product");
-//	return "productsgg";
-//
-//	}
-
-    // ---------------------------------product---------------------------------
     @RequestMapping(value = "/product", method = RequestMethod.GET) //mapping for "/product"
     public String productPage(Model model) {
 
@@ -76,88 +60,18 @@ public class ProductController {
 
 	}
 
-//    // ---------------------------------add---------------------------------
-//    @RequestMapping(value = "/addproduct", method = RequestMethod.GET) //mapping for "/addproduct"
-//    public String addProduct(@RequestParam("productId") String productId,
-//    		@RequestParam("productPrice") int productPrice,
-//    		@RequestParam("productName") String productName,
-//    		@RequestParam("productDescription") String productDescription,
-//    		HttpServletRequest request,
-//	    RedirectAttributes attributes)
-//	{
-//System.out.println("am inside controller");
-//
-//        //String path = "C:\\Users\\IntelliGEnI\\Documents\\Eclipse Workspace\\SingleShoppingJava\\src\\main\\webapp\\WEB-INF\\resources\\product\\";
-//    	String path="D:\\PROJECT1\\";
-////
-////	    CategoryModel categoryModel = categoryDAO.getByName(productModel.getCategoryModel().getCategoryName());
-////	    categoryDAO.saveOrUpdate(categoryModel);
-////	    SupplierModel supplierModel = supplierDAO.getByName(productModel.getSupplierModel().getSupplierName());
-////	    supplierDAO.saveOrUpdate(supplierModel);
-////
-////	    productModel.setCategoryModel(categoryModel);
-////	    productModel.setSupplierModel(supplierModel);
-////
-////	    productModel.setCategoryId(categoryModel.getCategoryId());
-////	    productModel.setSupplierId(supplierModel.getSupplierId());
-////
-//	  //  productDAO.saveOrUpdate(productModel);
-//		
-//
-////	    path=path+String.valueOf(productModel.getProductId())+".png";
-////		File f=new File(path);
-////	
-////		MultipartFile filedet=productModel.getImage();
-////		
-////		if(!filedet.isEmpty())
-////		{
-////			try
-////			{
-////			  byte[] bytes=filedet.getBytes();
-////			  System.out.println(bytes.length);
-////			  FileOutputStream fos=new FileOutputStream(f);
-////          			BufferedOutputStream bs=new BufferedOutputStream(fos);
-////          			bs.write(bytes);
-////          			bs.close();
-////         			 System.out.println("File Uploaded Successfully");
-////			}
-////			catch(Exception e)
-////			{
-////				System.out.println("Exception Arised"+e);
-////			}
-////		}
-////		else
-////		{
-////			System.out.println("File is Empty not Uploaded");
-////			
-////	}
-//	
-//	return "redirect:/product";
-//
-//    }
 
     // ---------------------------------add---------------------------------
-    @RequestMapping(value = "/addproduct", method = RequestMethod.GET) //mapping for "/addproduct"
+    @RequestMapping(value = "/addproduct", method = RequestMethod.POST) //mapping for "/addproduct"
     public String addProduct(@ModelAttribute("productModel")ProductModel productModel, HttpServletRequest request,
 	    RedirectAttributes attributes, BindingResult bindingresult)
 	{
     	if(bindingresult.hasErrors()){
-           System.out.println("hiiiiiiiiiiiiiiiiiiiiiiiiiii"); }else{
+           System.out.println("Binding Result got a error"); }
+    	else{
 
-        //String path = "C:\\Users\\IntelliGEnI\\Documents\\Eclipse Workspace\\SingleShoppingJava\\src\\main\\webapp\\WEB-INF\\resources\\product\\";
-    	String path="D:\\PROJECT1\\";
-
-	    CategoryModel categoryModel = categoryDAO.getByName(productModel.getCategoryModel().getCategoryName());
-	    categoryDAO.saveOrUpdate(categoryModel);
-	    SupplierModel supplierModel = supplierDAO.getByName(productModel.getSupplierModel().getSupplierName());
-	    supplierDAO.addsupplier(supplierModel);
-
-	    productModel.setCategoryModel(categoryModel);
-	    productModel.setSupplierModel(supplierModel);
-
-	    productModel.setCategoryId(categoryModel.getCategoryId());
-	    productModel.setSupplierId(supplierModel.getSupplierId());
-
+        String path = "C:\\Users\\IntelliGEnI\\Documents\\Eclipse Workspace\\SingleShoppingJava\\src\\main\\webapp\\WEB-INF\\resources\\product\\";
+    	
 	    productDAO.saveOrUpdate(productModel);
 		
 

@@ -54,8 +54,9 @@
 <%@ include file="carousel.jsp"%>
   
 <%@ include file="index_promo.jsp"%>
-<%@ include file="index_productlist.jsp"%>
+<%-- <%@ include file="index_productlist.jsp"%> --%>
   
+<%@ include file="indexproductlist.jsp"%>
   
   
   <!-- Support section -->
@@ -152,7 +153,7 @@ We are available to service 24/7,Our promise is to delight customers</P>
                <!-- single slide -->
               <li>
                 <div class="aa-testimonial-single">
-                <img class="aa-testimonial-img" src="<c:url value="resources/img/testimonial-img-1.jpg"/>" alt="testimonial img">
+                <img class="aa-testimonial-img" src="<c:url value="resources/img/testimonial-img-3.jpg"/>" alt="testimonial img">
                   <span class="fa fa-quote-left aa-testimonial-quote"></span>
                   <p>Great works does born from scratch works, My delighted wishes to the team for developing this site and for Hilarious works which gonna done in future.  </p>
                   <div class="aa-testimonial-info">

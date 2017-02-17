@@ -83,7 +83,7 @@
 				  </c:if>
 				  
 				  <c:if test="${ isAdmin != true  }">
-                  <li class="hidden-xs"><a href="#"><span class="glyphicon glyphicon-phone"></span> Help Center</a></li>
+                  <li class="hidden-xs"><a href="#"><span class="glyphicon glyphicon-phone-alt"></span> Help Center</a></li>
                   <li class="hidden-xs"><a href="#">Be a Seller</a></li>
                   <li class="hidden-xs"><a href="#">Advertise</a></li>
                 </c:if>

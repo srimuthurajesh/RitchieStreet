@@ -56,51 +56,51 @@
 		<h2 class="page-header">User Profile</h2>
         <div class="col-md-4">
 <!--         <h2>Aqui ira la imagen</h2> -->
-          <div class="col-md-3 col-lg-3 " align="center"> 
-        <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" class="img-circle img-responsive"> </div>
+          <div class="col-md-10 col-lg-10 " align="center"> 
+<!--         <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" style="height:270px;width:100% "class="img-circle img-responsive">  -->
+        </div>
             
         </div>
-        <div class="col-md-8">
-        <h3>${userDetails.username }</h3>
+        <div class="col-md-12">
+        <h3>${userDetails.firstname }&nbsp;&nbsp;${userDetails.lastname }</h3>
                 <div class=" col-md-9 col-lg-9 ">
-                                <table class="table table-user-information">
-                                    <tbody>
+                                <table class="table table-user-information" >
+                                    <tbody><col width="200">
+  <col width="200">
+  
+                                    <tr>
+                                            <td><span class="glyphicon glyphicon-asterisk text-primary"></span>&nbsp;&nbsp;Username </td>
+                                            <td>:&nbsp;&nbsp; ${userDetails.username }</td>
+                                     </tr>  
                                         <tr>
-                                            <td>FirstName :</td>
-                                            <td>${userDetails.firstname }</td>
-                                        </tr>
-                                        <tr>
-                                            <td>SecondName :</td>
-                                            <td>${userDetails.lastname }</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mobile :</td>
-                                            <td>${userDetails.mobile }</td>
+                                            <td> <span class="glyphicon glyphicon-phone text-primary"></span>&nbsp;&nbsp;Mobile </td>
+                                            <td>:&nbsp;&nbsp; ${userDetails.mobile }</td>
                                         </tr>
                                         
                                         <tr>
-                                            <td>Email Id :</td>
-                                            <td>${userDetails.emailid }</td>
+                                            <td> <span class="glyphicon glyphicon-envelope text-primary"></span>&nbsp;&nbsp;Email Id </td>
+                                            <td>:&nbsp;&nbsp; ${userDetails.emailid }</td>
                                         </tr>
 
                                         <tr>
                                             <tr>
-                                                <td>Address 1:</td>
-                                                <td>${userDetails.address }</td>
+                                                <td><span class="glyphicon glyphicon-tag text-primary"></span>&nbsp;&nbsp;Address 1</td>
+                                                <td>:&nbsp;&nbsp; ${userDetails.address }</td>
                                             </tr>
                                             <tr>
-                                                <td>Address 2:</td>
-                                                <td>${userDetails.streetname }</td>
+                                                <td><span class="glyphicon glyphicon-tags text-primary"></span>&nbsp;&nbsp;Address 2</td>
+                                                <td>:&nbsp;&nbsp; ${userDetails.streetname }</td>
                                             </tr>
                                             <tr>
-                                                <td>City :</td>
-                                                <td>${userDetails.cityname }</a></td>
+                                                <td><span class="glyphicon glyphicon-home text-primary"></span>&nbsp;&nbsp;City :</td>
+                                                <td>: &nbsp;&nbsp;${userDetails.cityname }</a></td>
                                             </tr>
-                                            <td>Pincode :/td>
-                                            <td>${userDetails.pincode }
-                                            </td>
+                                            <tr>
+                                            <td><span class="glyphicon glyphicon-send text-primary"></span>&nbsp;&nbsp;Pincode :</td>
+                                            <td>:&nbsp;&nbsp; ${userDetails.pincode }
+                                            </td></tr>
 
-                                        </tr>
+                                        
 
                                     </tbody>
                                 </table>
