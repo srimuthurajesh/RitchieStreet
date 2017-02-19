@@ -7,12 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "ADDRESS_TABLE")
 public class AddressModel implements Serializable{
 
-	
-	
 	@Id
 	private String billingFirstname;
 	private String billingEmail;
@@ -22,7 +21,7 @@ public class AddressModel implements Serializable{
 	private String billingPincode;
 	private String paymentOption;
 
-	private Date billingTime=java.util.Calendar.getInstance().getTime();
+	private Date billingTime=java.util.Calendar.getInstance().getTime(); // get current system time and date
 
 	
 	public Date getBillingTime() {

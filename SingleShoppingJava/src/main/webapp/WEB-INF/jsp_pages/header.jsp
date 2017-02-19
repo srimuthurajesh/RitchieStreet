@@ -108,7 +108,7 @@
                 <!-- Text based logo -->
                 <a href="indexpage">
                   <span class="fa fa-wrench"></span>
-                  <p>Ritchie<strong>Street</strong> <span>A Geeky Shopping Experience</span></p>
+                   <p style="font-family:Comic Sans MS">Ritchie<strong>Street</strong> <span>A Geeky Shopping Experience</span></p>
                 </a> 
                 <!-- img based logo -->
                  <!--<a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->

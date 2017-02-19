@@ -1,21 +1,17 @@
 package com.niit.entityModel;
 
 import java.io.Serializable;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "PRODUCT_TABLE")
 public class ProductModel implements Serializable { //Serializable is a markup interface, implemented to make model class persist

@@ -23,13 +23,13 @@ import com.niit.entityModel.SupplierModel;
 import com.niit.entityModel.User;
 
 
-@Configuration
-@ComponentScan("com.niit")
-@EnableTransactionManagement
-public class AppplicationContextConfig {
-	@Bean(name = "dataSource")
-	public DataSource getDataSource() {
-	    DriverManagerDataSource dataSource = new DriverManagerDataSource();
+@Configuration 						 //Indicates that a class declares one or more @Bean methods and may be processed by the Spring container to generate bean definitions and service requests for those beans at runtime -->
+@ComponentScan("com.niit")  		//Configures component scanning directives for use with @Configuration classes
+@EnableTransactionManagement  		//Enables Spring's annotation-driven transaction management capability, similar to the support found in Spring's <tx:*> XML namespace
+public class AppplicationContextConfig {    
+	@Bean(name = "dataSource")        //@Bean is a method-level annotation and a direct analog of the XML <bean/> element
+	public DataSource getDataSource() {     //Spring obtains a connection to the database through a DataSource
+	    DriverManagerDataSource dataSource = new DriverManagerDataSource();   //Simple implementation of the standard JDBC DataSource interface, configuring the plain old JDBC DriverManager via bean properties, and returning a new Connection from every getConnection call.
 	    dataSource.setDriverClassName("org.h2.Driver");
 	dataSource.setUrl("jdbc:h2:tcp://localhost/~/test3");
 	    dataSource.setUsername("sa");
@@ -37,7 +37,7 @@ public class AppplicationContextConfig {
 	 
 	    return dataSource;
 	}
-	private Properties getHibernateProperties() {
+	private Properties getHibernateProperties() {		// Properties class is a subclass of Hashtable and represents a persistent set of properties
 	    Properties properties = new Properties();
 	    properties.put("hibernate.show_sql", "true");
 	    properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
@@ -46,11 +46,11 @@ public class AppplicationContextConfig {
 	}
 	@Autowired
 	@Bean(name = "sessionFactory")
-	public SessionFactory getSessionFactory(DataSource dataSource) {
+	public SessionFactory getSessionFactory(DataSource dataSource) { //SessinoFactorycreate Session instance, Once it is created this internal state is set. This internal state includes all of the metadata about Object/Relational Mapping. immutable, thread safe
 	 
-	 LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
-	 sessionBuilder.addProperties(getHibernateProperties());
-	sessionBuilder.addAnnotatedClasses(User.class);
+	 LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource); //providing convenient ways to specify a DataSource and an application class loader
+	 sessionBuilder.addProperties(getHibernateProperties());	//Add the given hibernate properties
+	sessionBuilder.addAnnotatedClasses(User.class);     		//Add the given annotated classes in a batch
 	sessionBuilder.addAnnotatedClasses(CategoryModel.class);
 	sessionBuilder.addAnnotatedClasses(SupplierModel.class);
 	sessionBuilder.addAnnotatedClasses(ProductModel.class);
@@ -62,7 +62,7 @@ public class AppplicationContextConfig {
 	}
 	@Autowired
 	@Bean(name = "transactionManager")
-	public HibernateTransactionManager getTransactionManager(
+	public HibernateTransactionManager getTransactionManager(  //This transaction manager is appropriate for applications that use a single Hibernate SessionFactory for transactional data access
 	        SessionFactory sessionFactory) {
 	HibernateTransactionManager transactionManager = new HibernateTransactionManager(
 	            sessionFactory);

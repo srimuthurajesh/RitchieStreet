@@ -13,13 +13,17 @@ import com.niit.entityModel.CarddetailModel;
 public class WebflowHandler {
 	HttpSession session;
 	@Autowired
-	OrderDAO orderDAO;
+	public OrderDAO orderDAO;
 	
 	public AddressModel initFlow(){
 		return new AddressModel();
 	}
 	public CarddetailModel initFlow2(){
 		return new CarddetailModel();
+	}
+	public AddressModel validate(AddressModel addressModel){
+		System.out.println(addressModel.getBillingCity());
+		return addressModel;
 	}
 
 	public void initFlow4(){

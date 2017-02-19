@@ -12,6 +12,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,17 +25,15 @@ import com.niit.DAO.ProductDAO;
 import com.niit.DAO.UserDAO;
 import com.niit.entityModel.User;
 
-@Controller
+@Controller  //The @Controller annotation indicates that a particular class serves the role of a controller. 
 public class HomeController {
 Logger log=LoggerFactory.getLogger(HomeController.class);  //creating logging object for this class Home controller
 
-    @Autowired(required = true)
+    @Autowired(required = true) //@Autowired. Marks a constructor, field, setter method or config method as to be autowired by Spring's dependency injection facilities. 
     private UserDAO userDAO;
-
 
     @Autowired
     private OrderDAO orderDAO;
-
 
     @Autowired
     private ProductDAO productDAO;
@@ -42,7 +41,7 @@ Logger log=LoggerFactory.getLogger(HomeController.class);  //creating logging ob
     @Autowired(required = true)
     private CategoryDAO categoryDAO;;
 
-    
+  //-------------------------------------------------------Admin page----------------------------------------------------------------------------------------------
 	@RequestMapping(value = "/admin")							 //mapping for "/admin"
 	public ModelAndView hello6() {
 	    log.debug("inside controller for /admin");
@@ -50,9 +49,10 @@ Logger log=LoggerFactory.getLogger(HomeController.class);  //creating logging ob
 		return model;
 	}
 
-	
+	//-------------------------------------------------------"/" page----------------------------------------------------------------------------------------------	
 	@RequestMapping(value="/")
 	public String indexpage(Model m,HttpServletRequest request, HttpSession session ){
+		log.debug("inside / controller");
 		session.invalidate();
 		session = request.getSession(true);
 		m.addAttribute("microcontrollerList",productDAO.getProductListbycategory("C1"));
@@ -60,15 +60,16 @@ Logger log=LoggerFactory.getLogger(HomeController.class);  //creating logging ob
 		m.addAttribute("toolsList",productDAO.getProductListbycategory("C5"));
 		m.addAttribute("testingList",productDAO.getProductListbycategory("C8"));
 		m.addAttribute("categoryList", categoryDAO.getCategoryList());
+		log.debug("leaving / controller");
 		return "index";
 	}
 	
 
+	//-------------------------------------------------------index page----------------------------------------------------------------------------------------------
 	@RequestMapping(value="/indexpage")
 	public String index(Model m,HttpSession session){
+		log.debug("inside indexpage controller");
 		m.addAttribute("categoryList", categoryDAO.getCategoryList());
-
-System.out.println("am inside indexpage controller");
 		String User = (String)session.getAttribute("User");
 		m.addAttribute("cartList", orderDAO.getOrderListbyname(User));
 		m.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
@@ -77,51 +78,38 @@ System.out.println("am inside indexpage controller");
 		m.addAttribute("toolsList",productDAO.getProductListbycategory("C5"));
 		m.addAttribute("testingList",productDAO.getProductListbycategory("C8"));
 		m.addAttribute("categoryList", categoryDAO.getCategoryList());
-		
+		log.debug("leaving indexpage controller");
 		return "index";
 	}
 
 	
 	
-	
+	//-------------------------------------------------------Register----------------------------------------------------------------------------------------------
 	@RequestMapping(value = "/register")							//mapping for "/register"
     public ModelAndView registerPage() {
-		System.out.println("inside register controller");
-	    log.debug("inside controller for /register");
+		log.debug("inside controller for /register");
 	ModelAndView model = new ModelAndView("register", "userModel", new User());
 	model.addObject("categoryList", categoryDAO.getCategoryList());	
+	log.debug("leaving register controller");
 	return model;
 	}
 
 	
-	@RequestMapping(value = "/delete")							//mapping for "/delete"
-	public ModelAndView hello5() {
-	    log.debug("inside controller for delete");
-	ModelAndView model = new ModelAndView("delete", "userModel", new User());
-		return model;
-	}
-
-	
-    @RequestMapping(value = "/loginpage") //mapping for "/login"
-	public ModelAndView hello3() {
-	    log.debug("inside controller for /login");
-	ModelAndView model = new ModelAndView("loginpage", "userModel", new User());
-		return model;
-	}
-    
+	//-------------------------------------------------------User profile page----------------------------------------------------------------------------------------------
     @RequestMapping(value="/userpage")
     public ModelAndView userr(@RequestParam("username") String username){
+    	log.debug("inside userpage controller");
     	ModelAndView model= new ModelAndView("userpage");
     	model.addObject("categoryList", categoryDAO.getCategoryList());
     	model.addObject("userDetails", userDAO.getbyId(username));
-		return model;
+    	log.debug("leaving userpage controller");
+    	return model;
     }
 
-	// ---------------------------------registration------------------------------------
+	// ---------------------------------Register User------------------------------------
 	@RequestMapping(value = "/registersuccess", method = RequestMethod.POST)				//mapping for "/registersuccess"
     public ModelAndView hello(@ModelAttribute("userModel") User userModel) {
 	    log.debug("inside controller for /registersuccess");
-
 	if (userDAO.validationRegistration(userModel)) { //chekcing registration process
 		    log.debug("inside if registration is true");
 			ModelAndView model = new ModelAndView("userpage");
@@ -138,25 +126,15 @@ System.out.println("am inside indexpage controller");
 		}
 	}
 	
-
-	// ---------------------------------delete-----------------------------------------
-	@RequestMapping(value = "/deletesuccess")	//mapping for "/deletesuccess"
-	public String deleteSuccess(@RequestParam("username") String username, @RequestParam("password") String password, Model m) {
-	log.debug("inside controller for deletesuccess");
-		m.addAttribute("msg", "Deleted");
-		userDAO.userDelete(username, password);
-		return "success";
-	}
-
+	//-------------------------------------------------------User Login----------------------------------------------------------------------------------------------
     @SuppressWarnings("unchecked")
     @RequestMapping(value = "/loginresult", method = RequestMethod.POST)
     public String login_session_attributes(@RequestParam("username") String username,@RequestParam("password") String password, HttpSession session, Model model) {
-	String userid = SecurityContextHolder.getContext().getAuthentication().getName();
-
+    	log.debug("inside loginresult controller");
+    	String userid = SecurityContextHolder.getContext().getAuthentication().getName();
 	Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>) SecurityContextHolder.getContext()
 		.getAuthentication().getAuthorities();
 	String page = "";
-System.out.println("hi am insed method");
 	String role = "ROLE_USER";
 	for (GrantedAuthority authority : authorities) {
 	    System.out.println(authority.getAuthority());
@@ -182,19 +160,30 @@ System.out.println("hi am insed method");
 	return page;
     }
 
-    
+  //-------------------------------------------------------User Logout----------------------------------------------------------------------------------------------
     @RequestMapping("/logout")
     public ModelAndView logout(HttpServletRequest request, HttpSession session) {
-	ModelAndView mv = new ModelAndView("index");
+    	log.debug("inside logout controller");
+    	ModelAndView mv = new ModelAndView("index");
 	session.invalidate();
 	session = request.getSession(true);
-	
-	mv.addObject("logoutMessage", "you are successfully logged out");
-	mv.addObject("loggedOut", "true");
+		mv.addObject("loggedOut", "true");
+		mv.addObject("microcontrollerList",productDAO.getProductListbycategory("C1"));
+		mv.addObject("RoboticsList",productDAO.getProductListbycategory("C2"));
+		mv.addObject("toolsList",productDAO.getProductListbycategory("C5"));
+		mv.addObject("testingList",productDAO.getProductListbycategory("C8"));
+		
 	mv.addObject("categoryList", categoryDAO.getCategoryList());
-
 	return mv;
     }
+    
+    @ExceptionHandler(Exception.class)
+	public String handleAllException(Exception ex) {
+
+		return "404error";
+
+	}
+
 	}
 
 

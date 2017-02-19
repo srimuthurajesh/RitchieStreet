@@ -6,9 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "CARDDETAIL_TABLE")
-
 public class CarddetailModel implements Serializable {
 @Id
 	private long cardNumber;

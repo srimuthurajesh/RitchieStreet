@@ -18,49 +18,48 @@ public class CategoryController {
     private CategoryDAO categoryDAO;
 
 
-    Logger log = LoggerFactory.getLogger(CategoryController.class); //logger and loogerfactory class declared for this Class
+    Logger log = LoggerFactory.getLogger(CategoryController.class); //logger and logerfactory class declared for this Class
 
-//    ----------------------------------------------------ADMIN----------------------------------------------
     
-	// ---------------------------------category-------------------------------
-	@RequestMapping(value = "/category", method = RequestMethod.GET)	//mapping for "/category"
+	// ---------------------------------category page-------------------------------
+	@RequestMapping(value = "/category", method = RequestMethod.GET)	
 	public ModelAndView categoryPage() {
 log.debug("inside category controller");		//performing a logger debug
-	ModelAndView model = new ModelAndView("admin_category", "categoryModel", new CategoryModel()); //adding a page to ModelAndView with empty constructor
-		model.addObject("list", categoryDAO.getCategoryList());						//adding a Object to value "list"
+	ModelAndView model = new ModelAndView("admin_category", "categoryModel", new CategoryModel()); 	//adding a page to ModelAndView with empty constructor
+		model.addObject("list", categoryDAO.getCategoryList());										//adding a Object to value "list"
 	model.addObject("page_name", "Category");
+	log.debug("leaving category controller");
 		return model;
 		}
 
 	
-    // ---------------------------------add----------------------------------
+    // ---------------------------------add category----------------------------------
 	@RequestMapping(value = "/addcategory", method = RequestMethod.GET)		//mapping for "/addcategory"
 	public String addCategory(CategoryModel categoryModel) {
 		log.debug("inside addcategory Controller");
 		categoryDAO.addCategory(categoryModel);
-	return "redirect:/category";
+		log.debug("leaving addcategorycontroller");
+		return "redirect:/category";
 	}
 
-	// ---------------------------------delete---------------------------------
+	// ---------------------------------delete category---------------------------------
 	@RequestMapping(value = "/deletecategory", method = RequestMethod.GET)		//mapping for "/deletecategory"
 	public String deleteCategory(@RequestParam("categoryId") String categoryId) {
 		log.debug("inside deletecategory Controller");
 		categoryDAO.deleteCategory(categoryId);
+		log.debug("leaving deletecategory controller");
 		return "redirect:/category";
 	}
 
 	
-	// ---------------------------------edit---------------------------------
+	// ---------------------------------edit category---------------------------------
 	@RequestMapping(value = "/editcategory", method = RequestMethod.GET)		//mapping for "/editcategory"
 	public ModelAndView editCategory(@RequestParam("categoryId") String categoryId) {
 		ModelAndView model = new ModelAndView("admin_category", "categoryModel", new CategoryModel());
 		log.debug("inside editcategory Controller");
 		model.addObject("list", categoryDAO.getCategoryList());
-
 	model.addObject("values", categoryDAO.getById(categoryId));
-
+	log.debug("leaving editcategory controller");
 		return model;
 	}
-
-//	-------------------------------------------------------USER COMMON--------------------------------------
 }

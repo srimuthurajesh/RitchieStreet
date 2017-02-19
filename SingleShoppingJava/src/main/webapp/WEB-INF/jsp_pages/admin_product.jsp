@@ -75,7 +75,7 @@
 					
 						<label for="" style="width:51%">Product Id: </label> <label for="">Product Name:</label><br>
 						<form:input type="text"
- 					value="${values.getProductId() }" path="productId"  disabled="true" readonly="true" style="border: 1px solid #ccc; 
+ 					value="${values.getProductId() }" path="productId"   readonly="true" style="border: 1px solid #ccc; 
    font-size: 16px;
    height: 40px;
    margin-bottom: 15px; 

@@ -265,7 +265,7 @@ font-size:smaller;
   width: 100%;"/><span id="resultemail"></span><br>
                     
                     <label for="">Mobile No.</label>
-                    <form:input type="text" id="mobile" placeholder="Mobile" path="mobile" title="Mobile number should starts 7 or 8 or 9"  pattern="[7|8|9][d]{9}"/> <span id="resultmobile"></span><br>
+                    <form:input type="text" id="mobile" placeholder="Mobile" path="mobile" title="Mobile number should starts 7 or 8 or 9"  pattern="[789][0-9]{9}"/> <span id="resultmobile"></span><br>
                     
                     <label for="">Flat / House No. / Floor / Building </label>
                     <form:input type="text" placeholder="Address 1" path="address" />
@@ -276,7 +276,7 @@ font-size:smaller;
                     <label for="" style="width:52%;">Town/City</label><label for="">Pin-Code</label>  <br>
                     <form:input type="text" placeholder="City" path="cityname" style="width:48%;"/>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 
-                    <form:input type="text" placeholder="Pincode" path="pincode" title="Pincode should starts 6, and have 6 numbers: 6xxxxx" style="width:48%;" pattern="[6]{6}" /><br>
+<%--                     <form:input type="text" placeholder="Pincode" path="pincode" title="Pincode should starts 6, and have 6 numbers: 6xxxxx" style="width:48%;" pattern="[6][0-9]{6}" /><br> --%>
                     
                     
                     <button type="submit"  name="_eventId_hui" class="aa-browse-btn">Register</button>                      

@@ -17,46 +17,53 @@ import com.niit.entityModel.SupplierModel;
 public class SupplierController {
 Logger log= LoggerFactory.getLogger(SupplierController.class);
 
+@Autowired
+SupplierDAO supplierDAO;
 
 //------------------------------------------------ADMIN--------------------------------------------------
-    @Autowired
-    SupplierDAO supplierDAO;
-    // ---------------------------------supplier---------------------------------
+
+// ---------------------------------supplier---------------------------------
 	@RequestMapping(value = "/supplier", method = RequestMethod.GET)			//mapping for "/supplier"
 	public ModelAndView supplierPage(Model m) {
+		log.debug("inside supplier controller");
 		ModelAndView model = new ModelAndView("admin_supplier", "supplierModel", new SupplierModel());
 		model.addObject("list", supplierDAO.getSupplierList());
 	model.addObject("page_name", "Supplier");
+	log.debug("leaving supplier controller");
 		return model;
 	}
 
-    // ---------------------------------add---------------------------------
+    // ---------------------------------add supplier---------------------------------
 	@RequestMapping(value = "/addsupplier", method = RequestMethod.GET)			//mapping for "addsupplier"
 	public String addSupplier(SupplierModel supplierModel) {
-
+		log.debug("inside addsupplier controller");
 		supplierDAO.addsupplier(supplierModel);
+		log.debug("leaving addsupplier controller");
 		return "redirect:/supplier";
 
 	}
 
-	// ---------------------------------delete---------------------------------
+	// ---------------------------------delete supplier---------------------------------
 	@RequestMapping(value = "/deletesupplier", method = RequestMethod.GET)				//mapping for "/deletesupplier"
 	public String deletesupplier(@RequestParam("supplierId") String supplierId) {
-
+		log.debug("inside delete supplier controller");
 		supplierDAO.deletesupplier(supplierId);
+		log.debug("leaving delte supplier controller");
 		return "redirect:/supplier";
 
 	}
 
-    // ---------------------------------edit---------------------------------
+    // ---------------------------------edit supplier---------------------------------
     @RequestMapping(value = "/editsupplier", method = RequestMethod.GET) //mapping for "/editsupplier"
     public ModelAndView editSupplier(@RequestParam("supplierId") String supplierId) {
-	ModelAndView model = new ModelAndView("admin_supplier", "supplierModel", new SupplierModel());
+    	log.debug("inside editsupplier controller");
+    	ModelAndView model = new ModelAndView("admin_supplier", "supplierModel", new SupplierModel());
 	log.debug("inside editSupplier Controller");
 	model.addObject("list", supplierDAO.getSupplierList());
 
 	model.addObject("values", supplierDAO.getbyId(supplierId));
 	model.addObject("page_name", "Supplier");
+	log.debug("leacing edit supplier controller");
 	return model;
     }
 

@@ -1,7 +1,6 @@
 package com.niit.entityModel;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,16 +8,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "USER")
-public class User implements Serializable { //Serializable is a markup interface, implemented to make model class persist
+public class User implements Serializable { //Serializable is a markup interface, implemented to make model class persist. makes database to understand
 
 	@Id
 	@Column(name = "username")
@@ -35,20 +31,25 @@ public class User implements Serializable { //Serializable is a markup interface
 
 	@Column(name = "password")
 	private String password;
+	
 	@Column(name = "mobile")
 	private String mobile;
-
+	
     @Column(name = "address")
     private String address;
-
+    
 	@Column(name = "streetname")
 	private String streetname;
+	
 	@Column(name = "cityname")
 	private String cityname;
+	
 	@Column(name = "pincode")
 	private String pincode;
+	
     @Column(name = "role")
     private String role = "ROLE_USER";
+    
     @Column
     private boolean enabled=true;
     

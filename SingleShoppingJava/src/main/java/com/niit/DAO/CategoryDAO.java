@@ -13,7 +13,5 @@ public interface CategoryDAO {
 
 	public CategoryModel getById(String username);
 
-    public void saveOrUpdate(CategoryModel categoryModel);
-
     public CategoryModel getByName(String name);
 }

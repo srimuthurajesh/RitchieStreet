@@ -7,9 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "SUPPLIER_TABLE")
 public class SupplierModel implements Serializable {
+	
 	@Id
 	@Column(name = "supplierid")
 	private String supplierId;

@@ -62,24 +62,24 @@
             <!-- single slide item -->
             <li>
               <div class="seq-model  carousel slide">
-                <img data-seq src="<c:url value="/resources/img/slider/1.jpeg"/>" alt="" />
+                <img data-seq src="<c:url value="/resources/img/slider/2.jpg"/>" alt="" />
               </div>
               <div class="seq-title">
-               <span data-seq>Save Up to 75% Off</span>                
-                <h2 data-seq>Measurement Tools</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+<!--                <span data-seq>Save Up to 35% Off</span>                 -->
+                <h2 data-seq>Electronic Kits</h2>                
+                <p data-seq><strong>Give shape to your innovations</strong></p>
                 <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
               </div>
             </li>
             <!-- single slide item -->
             <li>
               <div class="seq-model">
-                <img data-seq src="<c:url value="/resources/img/slider/2.jpeg"/>" alt="" />
+                <img data-seq src="<c:url value="/resources/img/slider/1.jpeg"/>" alt="" />
               </div>
               <div class="seq-title">
-                <span data-seq>Save Up to 40% Off</span>                
-                <h2 data-seq>Wristwatch Collection</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+<!--                 <span data-seq>Save Up to 40% Off</span>                 -->
+                <h2 data-seq>Measurement Tools</h2>                
+<!--                 <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p> -->
                 <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
               </div>
             </li>
@@ -89,9 +89,9 @@
                 <img data-seq src="<c:url value="/resources/img/slider/3.jpg"/>" alt="" />
               </div>
               <div class="seq-title">
-                <--span data-seq>Save Up to 75% Off</span>                
-                <h2 data-seq>Jeans Collection</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+<!--                 <--span data-seq>Save Up to 75% Off</span>                 -->
+                <h2 data-seq>Products for Geeks</h2>                
+                <p data-seq>Must have geek products, available </p>
                 <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
               </div>
             </li>
@@ -101,9 +101,9 @@
                 <img data-seq src="<c:url value="/resources/img/slider/4.jpg"/>" alt="" />
               </div>
               <div class="seq-title">
-                <span data-seq>Save Up to 75% Off</span>                
-                <h2 data-seq>Exclusive Shoes</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+<!--                 <span data-seq>Save Up to 75% Off</span>                 -->
+                <h2 data-seq>Electronic Components</h2>                
+<!--                 <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p> -->
                 <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
               </div>
             </li>
@@ -114,8 +114,8 @@
               </div>
               <div class="seq-title">
                 <span data-seq>Save Up to 50% Off</span>                
-                <h2 data-seq>Best Collection</h2>                
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+                <h2 data-seq>Wires and Cables</h2>                
+<!--                 <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p> -->
                 <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
               </div>
             </li>                   
