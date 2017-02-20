@@ -144,6 +144,10 @@ Logger log=LoggerFactory.getLogger(HomeController.class);  //creating logging ob
 		session.setAttribute("User", userid);
 		model.addAttribute("cartList", orderDAO.getOrderListbyname(userid));
 		model.addAttribute("cartsize", orderDAO.getOrderListbyname(userid).size());
+		model.addAttribute("microcontrollerList",productDAO.getProductListbycategory("C1"));
+		model.addAttribute("RoboticsList",productDAO.getProductListbycategory("C2"));
+		model.addAttribute("toolsList",productDAO.getProductListbycategory("C5"));
+		model.addAttribute("testingList",productDAO.getProductListbycategory("C8"));
 		
 		page = "index";
 		model.addAttribute("categoryList", categoryDAO.getCategoryList());

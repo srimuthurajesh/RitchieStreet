@@ -69,8 +69,15 @@
                     <label for="">Card Number</label><br>
                     <form:input type="text" placeholder="First Name" path="cardNumber" value=""/>
                     
-                    <label for="">Expiration Month</label>
-                    <form:select path="expDate">
+                    <label for="" style="width:48%">Expiration Month</label>
+                    <label for="" style="width:48%">Year</label><br>
+                    <form:select path="expDate" style="border: 1px solid #ccc;  
+    font-size: 16px;  
+    height: 40px;  
+    margin-bottom: 15px;  
+    padding: 10px;  
+    width: 49%;">
+    
     <option value="01">Jan</option>
     <option value="02">Feb</option>
     <option value="03">Mar</option>
@@ -81,12 +88,16 @@
     <option value="08">Aug</option>
     <option value="09">Sep</option>
     <option value="10">Oct</option>
- <option value="11">Nov</option>
+	 <option value="11">Nov</option>
     <option value="12">Dec</option>
   </form:select>
                     
-                    <label for="">Year</label>
-                   <form:select path="expYear">
+                   <form:select path="expYear" style="border: 1px solid #ccc;  
+    font-size: 16px;  
+    height: 40px;  
+    margin-bottom: 15px;  
+    padding: 10px;  
+    width: 50%;">
     <option value="2017">2017</option>
     <option value="2018">2018</option>
     <option value="2019">2019</option>
@@ -127,8 +138,8 @@
    </div>
  </section>
  <!-- / Cart view section -->
-    <a href="${flowExecutionUrl }&_eventId=submit?username=${$User}">submit</a>
-                  <a href="${flowExecutionUrl }&_eventId=back">back</a>
+<%--     <a href="${flowExecutionUrl }&_eventId=submit?username=${$User}">submit</a> --%>
+<%--                   <a href="${flowExecutionUrl }&_eventId=back">back</a> --%>
                
 
 <%@ include file="footer.jsp"%>
