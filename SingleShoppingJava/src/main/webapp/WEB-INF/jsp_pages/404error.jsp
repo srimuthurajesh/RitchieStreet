@@ -58,8 +58,8 @@
           <div class="aa-error-area">
             <h2>404</h2>
             <span>Sorry! Page Not Found</span>
-            <p>Sorry this content has been moved Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, amet perferendis, nemo facere excepturi quis.</p>
-            <a href="#"> Go to Homepage</a>
+            <p>Sorry this content has been moved or our site under maintainence. Try later</p>
+            <a href="indexpage"> Go to Homepage</a>
           </div>
         </div>
       </div>

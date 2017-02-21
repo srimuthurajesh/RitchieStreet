@@ -101,7 +101,8 @@
                     <div class="aa-prod-view-bottom">
 <%--                       <a class="aa-add-to-cart-btn" href="addtocart?username=${User}&productId=${productbyId.productId}&quantity="quantity">Add To Cart</a> --%>
                    
-  <input class="aa-add-to-cart-btn" type="submit" value="Add to cart">
+  <input class="aa-add-to-cart-btn" type="submit" name="action" value="Add to cart">
+  <input class="aa-add-to-cart-btn" type="submit" name="action" value="BuyNow">
 </form>
 <!--                       <a class="aa-add-to-cart-btn" href="buynow">Buy Now</a> -->
                    </div> </div></div>

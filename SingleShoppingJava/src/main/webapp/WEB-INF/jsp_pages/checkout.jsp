@@ -74,7 +74,7 @@
                           <div class="row">
                             <div class="col-md-12">
                               <div class="aa-checkout-single-bill">
-                                 <form:input type="text" placeholder="Name" path="billingFirstname"/> 
+                                 <form:input type="text" placeholder="Name" path="billingFirstname" title="FirstName should not have any numerical characters" pattern="[a-z A-Z]"/> 
                               </div>                             
                             </div>
                              </div> 
@@ -87,36 +87,27 @@
                             </div>
                             <div class="col-md-6">
                               <div class="aa-checkout-single-bill">
-                                <form:input type="tel" placeholder="Phone*" path="billingPhone" />
+                                <form:input type="tel" placeholder="Phone*" maxlength="10" title="Mobile number should starts 7 or 8 or 9 and have 10 numbers"  pattern="[789][0-9]{9}" path="billingPhone" />
                               </div>
                             </div>
                           </div> 
                           <div class="row">
                             <div class="col-md-12">
                               <div class="aa-checkout-single-bill">
-                                <form:textarea cols="8" rows="3" path="billingAddress"/>Address*</textarea>
+                                <form:textarea cols="8" rows="3" path="billingAddress" placeholder="Address*"/></textarea>
                               </div>                             
                             </div>                            
                           </div>   
                           <div class="row">
                             <div class="col-md-6">
                               <div class="aa-checkout-single-bill">
-                                <form:select path="billingCity">
-                                  <option value="0">Select Your City</option>
-                                  <option value="1">Chennai</option>
-                                  <option value="2">Allahabad</option>
-                                  <option value="3">Bangalore</option>
-                                  <option value="4">Hyderabad</option>
-                                  <option value="5">Mumbai</option>
-                                  <option value="6">Goa</option>
-                                  <option value="7">Kolkata</option>
-                                  <option value="8">Cochin</option>
-                                   </form:select>
+                                <form:input type="text" placeholder="City*" path="billingCity" title="CityName should not have any numerical characters" pattern="[a-z A-Z]"/>
+                                
                               </div>                             
                             </div>
 <div class="col-md-6">
                               <div class="aa-checkout-single-bill">
-                                <form:input type="text" placeholder="Postcode / ZIP*" path="billingPincode"/>
+                                <form:input type="text" placeholder="Postcode / ZIP*" title="Pincode should starts 6, and have 6 numbers: 6xxxxx" pattern="[0-9]{5}" path="billingPincode"/>
                               </div>
                             </div>                            
                           </div>

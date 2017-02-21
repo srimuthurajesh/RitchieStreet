@@ -42,13 +42,14 @@
                 
 						
 		
+		
 		<!-- https://mvnrepository.com/artifact/com.fasterxml/classmate -->
-<dependency>
-    <groupId>com.fasterxml</groupId>
-    <artifactId>classmate</artifactId>
-    <version>1.0.0</version>
-</dependency>
-		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+<!-- <dependency> -->
+<!--     <groupId>com.fasterxml</groupId> -->
+<!--     <artifactId>classmate</artifactId> -->
+<!--     <version>1.0.0</version> -->
+<!-- </dependency> -->
+		
 		<!-- https://mvnrepository.com/artifact/org.jboss.logging/jboss-logging -->
 <dependency>
     <groupId>org.jboss.logging</groupId>

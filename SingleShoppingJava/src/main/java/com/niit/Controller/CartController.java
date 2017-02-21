@@ -35,14 +35,31 @@ public class CartController {
 	   
 //-------------------------------------------------------Add to cart----------------------------------------------------------------------------------------------
 	 @RequestMapping(value="/addtocart",method=RequestMethod.GET)
-	    public String addtocart(@RequestParam("username")String username, @RequestParam("productId")String productId, @RequestParam("quantity") int quantity, Model model){
+	    public String addtocart(@RequestParam("username")String username, @RequestParam("productId")String productId, @RequestParam("quantity") int quantity,@RequestParam("action")String action, HttpSession session,Model model){
 		 log.debug("inside addtocart controller");
+		
+		 if(action.equals("BuyNow")){
 		 model.addAttribute("categoryList", categoryDAO.getCategoryList());
 		 orderDAO.add(productDAO.getById(productId),userDAO.getbyId(username),quantity,quantity*productDAO.getById(productId).getProductPrice());
 		 model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
 		model.addAttribute("cartsize", orderDAO.getOrderListbyname(username).size());
 		log.debug("leaving addtocart controller");
-		return "cartpage";
+		return "cartpage";}
+		 else{
+			 orderDAO.add(productDAO.getById(productId),userDAO.getbyId(username),quantity,quantity*productDAO.getById(productId).getProductPrice());
+			  
+			 model.addAttribute("productbyId", productDAO.getById(productId));
+				model.addAttribute("productId", "productId");
+				model.addAttribute("categoryList", categoryDAO.getCategoryList());
+				model.addAttribute("productList", productDAO.getProductListbycategory(productDAO.getById(productId).getCategoryId()));
+				model.addAttribute("category", categoryDAO.getById(productDAO.getById(productId).getCategoryId()));
+				
+				String User = (String)session.getAttribute("User");
+				model.addAttribute("cartList", orderDAO.getOrderListbyname(User));
+				model.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
+				
+				return "productpage";
+		 }
 	    }
 	
 

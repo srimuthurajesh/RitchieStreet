@@ -16,7 +16,7 @@
                     <li><a href="#">Discounts</a></li>
                     <li><a href="#">Our Products</a></li>
                     <li><a href="#">Hot Deals</a></li>		
-                     <li><a href="#">About Us</a></li>
+                     <li><a href="aboutus">About Us</a></li>
                      </ul>
                 </div>
               </div>

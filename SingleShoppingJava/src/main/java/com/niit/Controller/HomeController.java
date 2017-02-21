@@ -64,6 +64,19 @@ Logger log=LoggerFactory.getLogger(HomeController.class);  //creating logging ob
 		return "index";
 	}
 	
+	@RequestMapping(value="/aboutus")
+	public String aboutus(Model m, HttpSession session){
+		log.debug("inside aboutus controller");
+		m.addAttribute("categoryList", categoryDAO.getCategoryList());
+		
+		String User = (String)session.getAttribute("User");
+		m.addAttribute("cartList", orderDAO.getOrderListbyname(User));
+		m.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
+		
+		log.debug("leaving aboutus controller");
+		return "aboutus";
+	}
+	
 
 	//-------------------------------------------------------index page----------------------------------------------------------------------------------------------
 	@RequestMapping(value="/indexpage")
@@ -116,6 +129,7 @@ Logger log=LoggerFactory.getLogger(HomeController.class);  //creating logging ob
 			model.addObject("categoryList", categoryDAO.getCategoryList());
 			model.addObject("userDetails", userDAO.getbyId(userModel.getUsername()));
 			model.addObject("userModel", userModel);
+			model.addObject("msg","Resgitered Succesfully");
 			return model;
 			
 		} else {

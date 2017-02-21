@@ -73,7 +73,7 @@
                     <c:set var="grandtotal" value="${0}"/>
                     <c:forEach var="cartList" items="${cartList}">
                                <tr>			
-                        <td><a href="productpage?productId=${cartList.productModel.productId}">><img src="<c:url value="/resources/product/${cartList.productModel.productId }.png"/>" alt="img"></a></td>
+                        <td><a href="productpage?productId=${cartList.productModel.productId}"><img src="<c:url value="/resources/product/${cartList.productModel.productId }.png"/>" alt="img"></a></td>
                         <td><a class="aa-cart-title" href="#">${cartList.productModel.productName}</a></td>
                         <td><i class="fa fa-inr" ></i> ${cartList.productModel.productPrice} /-</td>
                         <td>${cartList.quantity}</td>
@@ -101,8 +101,8 @@
                  </tbody>
                </table>
 <%--                <a href="checkout?username=${User}" class="aa-cart-view-btn">Proceed to Checkout</a> --%>
-               <a href="webflow" class="aa-cart-view-btn">Proceed to Checkout</a>
-             
+               <a href="indexpage"><button class="aa-cart-view-btn"> <span class="glyphicon glyphicon-arrow-left"></span> Continue Shopping</button></a>
+             <a href="webflow" class="aa-cart-view-btn">Proceed to Checkout <span class="glyphicon glyphicon-arrow-right"></span></a>
              </div>
            </div>
          </div>

@@ -117,7 +117,7 @@
                <!-- cart box -->
 			    <div class="hidden-xs">
               <div class="aa-cartbox">
-                <a class="aa-cart-link"  href=" " >
+                <a class="aa-cart-link"  href="" >
                   <span class="fa fa-shopping-basket"></span>
                   <span class="aa-cart-title">Cart</span>
                   <c:choose><c:when test="${  empty cartList}">
@@ -210,23 +210,6 @@
   <!-- / menu -->
   
   
-    <c:if test="${ isAdmin == true  }">
-  <!-- catg header banner section -->
-  <section id="aa-catg-head-banner">
-    <img src="<c:url value="/resources/img/admin.jpg"/>" alt="fashion img">
-    <div class="aa-catg-head-banner-area">
-     <div class="container">
-      <div class="aa-catg-head-banner-content">
-        <h2>Admin Page</h2>
-        <ol class="breadcrumb">
-          <li><a href="index.html">Home / </a></li>                   
-          <li class="active">${page_name}</li>
-        </ol>
-      </div>
-     </div>
-   </div>
-  </section></c:if>
-  <!-- / catg header banner section -->
   
   
   

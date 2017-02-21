@@ -41,6 +41,20 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
      </script>
+     
+     <script language="javascript" type="text/javascript">
+
+
+function addHyphen() {
+    var t = document.forms['cardform'].elements['cardnumber'];
+      if (t.value.length > 0) {
+        t.value = t.value.substring(0,4) + "-" +t.value.substring(4,8)+ "-"+ t.value.substring(8,12)+ "-"+t.value.substring(12,16);
+      }
+}
+
+</script>
+     
+     
   </head>
   <body> 
 
@@ -64,10 +78,22 @@
               <div class="col-md-6">
                 <div class="aa-myaccount-register">                 
                  <h4>Enter Your Card Details</h4>
-                 <form:form action="cardpaymentsuccess" class="aa-login-form" commandName="carddetailModel">
-                   
+                 <form:form action="cardpaymentsuccess" class="aa-login-form" commandName="carddetailModel" id="cardform">
+                     <label for="" style="width:48%">Card Type:</label><br>
+                    <form:select path="cardType" style="border: 1px solid #ccc;  
+    font-size: 16px;  
+    height: 40px;  
+    margin-bottom: 15px;  
+    padding: 10px;  
+    width: 100%;">
+    
+    <option value="visa">Visa</option>
+    <option value="mastercard">MasterCard</option>
+    <option value="american">American</option>
+  </form:select>
+    
                     <label for="">Card Number</label><br>
-                    <form:input type="text" placeholder="First Name" path="cardNumber" value=""/>
+                    <form:input type="text" placeholder="Enter Card 16 digit Number" maxlength="16" id="cardnumber" onChange="addHyphen()" path="cardNumber" />
                     
                     <label for="" style="width:48%">Expiration Month</label>
                     <label for="" style="width:48%">Year</label><br>
@@ -113,7 +139,7 @@
   </form:select>  <br>
                     
                     <label for="">CVV/CVC</label>
-                    <form:input type="password"  placeholder="cvv" path="cvv" value=""/>
+                    <form:input type="password"  placeholder="cvv" maxlength="3" path="cvv" value=""/>
              
                        
                     <label for="">Card Holder's Name:</label>

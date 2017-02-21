@@ -55,7 +55,7 @@
 	<div class="row">
 		<h2 class="page-header">User Profile</h2>
         <div class="col-md-4">
-<!--         <h2>Aqui ira la imagen</h2> -->
+        <h2>${msg}</h2>
           <div class="col-md-10 col-lg-10 " align="center"> 
 <!--         <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" style="height:270px;width:100% "class="img-circle img-responsive">  -->
         </div>
