@@ -33,6 +33,24 @@ public class CartController {
 	   @Autowired
 	    private CategoryDAO categoryDAO;
 	   
+
+//-------------------------------------------------------Search Bar----------------------------------------------------------------------------------------------
+		 @RequestMapping(value="/search",method=RequestMethod.GET)
+		    public String search(@RequestParam("tag")String tag, Model model, HttpSession session)
+{
+			 
+			  log.debug("inside categorypage controller");
+	    	  model.addAttribute("values", productDAO.getProductListbytag(tag));
+		model.addAttribute("categoryList", categoryDAO.getCategoryList());
+		
+		String User = (String)session.getAttribute("User");
+		model.addAttribute("cartList", orderDAO.getOrderListbyname(User));
+		model.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
+		model.addAttribute("search","Search results for "+tag);
+		log.debug("leaving categorypage controller");
+		return "categorypage";
+}
+	   
 //-------------------------------------------------------Add to cart----------------------------------------------------------------------------------------------
 	 @RequestMapping(value="/addtocart",method=RequestMethod.GET)
 	    public String addtocart(@RequestParam("username")String username, @RequestParam("productId")String productId, @RequestParam("quantity") int quantity,@RequestParam("action")String action, HttpSession session,Model model){

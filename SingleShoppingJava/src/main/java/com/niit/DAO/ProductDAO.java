@@ -18,5 +18,5 @@ public interface ProductDAO {
 
     public List<ProductModel> getProductListbycategory(String categoryId);
     
-   
+    public List<ProductModel> getProductListbytag(String tag); 
 }

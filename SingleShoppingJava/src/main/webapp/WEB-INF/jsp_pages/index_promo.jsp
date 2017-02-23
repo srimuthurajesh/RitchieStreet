@@ -98,8 +98,8 @@
                     <div class="aa-promo-banner">                      
                       <img src="<c:url value="/resources/img/promo-banner-5.jpg"/>" alt="img">                      
                       <div class="aa-prom-content">
-                        <span>Hot Off</span>
-       <h4>                 <a  href="categorypage?categoryId=C7">Wires & Controllers</a>          </h4>             
+                        <span>Wires & Controllers</span>
+       <h4>                 <a  href="categorypage?categoryId=C7"></a>          </h4>             
                       </div>
                     </div>
                   </div>

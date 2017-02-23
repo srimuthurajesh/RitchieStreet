@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>RitchieStreet| Home</title>
+    <title>RitchieStreet| CategoryPage</title>
     
     <!-- Font awesome -->
     <link href="<c:url value="/resources/css/font-awesome.css"/>" rel="stylesheet">
@@ -88,7 +88,7 @@
               <div class="modal fade" id="quick-view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">                      
-                    <div class="modal-body">
+                    <div class="modal-body">${search }
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                       <div class="row">
                         <!-- Modal view slider -->

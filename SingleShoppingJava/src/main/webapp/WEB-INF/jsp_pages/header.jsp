@@ -154,14 +154,16 @@
               <img src="<c:url value="resources/img/specialoffer.png"/>" style="height:60px;width:100px">
 <%-- <img src="<c:url value="resources/img/2.png"/>" style="height:120px;width:120px"> --%>
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong> <a> Download our App</a></strong>
+              
               <!-- search box -->
 			                 <div class="aa-search-box">
-                <form action="">
-                  <input type="text" name="" id="" placeholder="Search here Products, Brands , names etc "/>  
+                <form action="search">
+                  <input type="text" name="tag" id="" placeholder="Search here Products, Brands , names etc "/>  
 				  <button type="submit"><span class="fa fa-search"></span></button>
                 </form>
               </div>
-              <!-- / search box -->             
+              <!-- / search box -->           
+                
           </div>
         </div>
       </div>

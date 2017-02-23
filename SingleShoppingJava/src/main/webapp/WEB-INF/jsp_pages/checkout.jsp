@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>Daily Shop | Home</title>
+    <title>RitchieStreet|Checkout</title>
     
     <!-- Font awesome -->
     <link href="<c:url value="/resources/css/font-awesome.css"/>" rel="stylesheet">
@@ -74,7 +74,7 @@
                           <div class="row">
                             <div class="col-md-12">
                               <div class="aa-checkout-single-bill">
-                                 <form:input type="text" placeholder="Name" path="billingFirstname" title="FirstName should not have any numerical characters" pattern="[a-z A-Z]"/> 
+                                 <form:input type="text" placeholder="Name" path="billingFirstname" title="FirstName should not have any numerical characters" pattern="[a-zA-Z]+"/> 
                               </div>                             
                             </div>
                              </div> 

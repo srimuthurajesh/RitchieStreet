@@ -49,16 +49,69 @@ public class ProductModel implements Serializable { //Serializable is a markup i
     @Transient
      MultipartFile image;
     
+    @Column
+    String tags1;
+
+
+    @Column
+    String tags2;
+    @Column
+    String tags3;
+    @Column
+    String tags4;
+    @Column
+    String tags5;
 
 
 
+    public String getTags3() {
+		return tags3;
+	}
+
+	public void setTags3(String tags3) {
+		this.tags3 = tags3;
+	}
+
+	public String getTags4() {
+		return tags4;
+	}
+
+	public void setTags4(String tags4) {
+		this.tags4 = tags4;
+	}
+
+	public String getTags5() {
+		return tags5;
+	}
+
+	public void setTags5(String tags5) {
+		this.tags5 = tags5;
+	}
+
+	public String getTags1() {
+		return tags1;
+	}
+
+	public void setTags1(String tags1) {
+		this.tags1 = tags1;
+	}
+
+	public String getTags2() {
+		return tags2;
+	}
+
+	public void setTags2(String tags2) {
+		this.tags2 = tags2;
+	}
+
+    
     //-------------------------getter setter for images------------------------------
 
-    public MultipartFile getImage() {
+	public MultipartFile getImage() {
 	return image;
     }
 
-    public void setImage(MultipartFile image) {
+	public void setImage(MultipartFile image) {
 	this.image = image;
     }
 

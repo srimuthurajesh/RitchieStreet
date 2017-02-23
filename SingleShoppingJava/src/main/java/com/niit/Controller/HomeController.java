@@ -129,7 +129,7 @@ Logger log=LoggerFactory.getLogger(HomeController.class);  //creating logging ob
 			model.addObject("categoryList", categoryDAO.getCategoryList());
 			model.addObject("userDetails", userDAO.getbyId(userModel.getUsername()));
 			model.addObject("userModel", userModel);
-			model.addObject("msg","Resgitered Succesfully");
+			model.addObject("msg","Registered Successfully");
 			return model;
 			
 		} else {

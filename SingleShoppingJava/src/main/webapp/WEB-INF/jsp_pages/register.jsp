@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>RajeshShopping </title>
+<title>RajeshShopping|Register </title>
 
   
     <!-- Font awesome -->
@@ -240,8 +240,8 @@ font-size:smaller;
                  <h4>Register</h4>
                  <form:form  class="aa-login-form" commandName="userModel"  action="registersuccess" >
                     <label for="">Enter Your Name</label><br>
-                    <form:input type="text" placeholder="First Name" path="firstname" style="width:48%;" title="FirstName should not have any numerical characters" pattern="[a-z A-Z]" />&nbsp;&nbsp;&nbsp;&nbsp;
-                    <form:input type="text" placeholder="Last Name" path="lastname" style="width:48%;" title="SecondName should not have any numerical characters" pattern="[a-z A-Z]" /><br>
+                    <form:input type="text" placeholder="First Name" path="firstname" style="width:48%;" title="FirstName should not have any numerical characters" pattern="[a-zA-Z]+" />&nbsp;&nbsp;&nbsp;&nbsp;
+                    <form:input type="text" placeholder="Last Name" path="lastname" style="width:48%;" title="SecondName should not have any numerical characters" pattern="[a-zA-Z]+" /><br>
  
                     
                     <label for="">Choose Your Username<span>*</span></label>
@@ -257,7 +257,7 @@ font-size:smaller;
                   
                     
                     <label for="">Email<span>*</span></label>
-                    <form:input type="email" placeholder="Email Address" id="emailid" path="emailid" required="true" style="border: 1px solid #ccc;
+                    <form:input type="email" placeholder="Email Address" id="emailid" path="emailid" pattern=".+.com" title="include valid email id" required="true" style="border: 1px solid #ccc;
   font-size: 16px;
   height: 40px;
   margin-bottom: 15px;
