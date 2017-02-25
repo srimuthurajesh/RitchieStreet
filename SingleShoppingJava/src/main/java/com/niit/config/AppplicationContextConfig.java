@@ -22,7 +22,6 @@ import com.niit.entityModel.ProductModel;
 import com.niit.entityModel.SupplierModel;
 import com.niit.entityModel.User;
 
-
 @Configuration 						 //Indicates that a class declares one or more @Bean methods and may be processed by the Spring container to generate bean definitions and service requests for those beans at runtime -->
 @ComponentScan("com.niit")  		//Configures component scanning directives for use with @Configuration classes
 @EnableTransactionManagement  		//Enables Spring's annotation-driven transaction management capability, similar to the support found in Spring's <tx:*> XML namespace
@@ -44,6 +43,7 @@ public class AppplicationContextConfig {
 	   properties.put("hibernate.hbm2ddl.auto", "update");
 	    return properties;
 	}
+
 	@Autowired
 	@Bean(name = "sessionFactory")
 	public SessionFactory getSessionFactory(DataSource dataSource) { //SessinoFactorycreate Session instance, Once it is created this internal state is set. This internal state includes all of the metadata about Object/Relational Mapping. immutable, thread safe

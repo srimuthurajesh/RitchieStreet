@@ -104,7 +104,7 @@
   <input class="aa-add-to-cart-btn" type="submit" name="action" value="Add to cart">
   <input class="aa-add-to-cart-btn" type="submit" name="action" value="BuyNow">
 </form>
-<!--                       <a class="aa-add-to-cart-btn" href="buynow">Buy Now</a> -->
+<!--                       <a c-0000000000000000000000000000000000000lass="aa-add-to-cart-btn" href="buynow">Buy Now</a> -->
                    </div> </div></div>
                   </div>
                 </div>

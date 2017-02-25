@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>RajeshShopping </title>
+<title>RajeshShopping|Register </title>
 
   
     <!-- Font awesome -->
@@ -190,7 +190,7 @@ $(document).ready(function() {
 	if (mobile.length ==10) {
 	$('#resultmobile').removeClass()
 	$('#resultmobile').addClass('short')
-	return ''
+	return ' '
 	}}
 	});
 </script>
@@ -240,8 +240,8 @@ font-size:smaller;
                  <h4>Register</h4>
                  <form:form  class="aa-login-form" commandName="userModel"  action="registersuccess" >
                     <label for="">Enter Your Name</label><br>
-                    <form:input type="text" placeholder="First Name" path="firstname" style="width:48%;"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <form:input type="text" placeholder="Last Name" path="lastname" style="width:48%;"/><br>
+                    <form:input type="text" placeholder="First Name" path="firstname" style="width:48%;" title="FirstName should not have any numerical characters" pattern="[a-zA-Z]+" />&nbsp;&nbsp;&nbsp;&nbsp;
+                    <form:input type="text" placeholder="Last Name" path="lastname" style="width:48%;" title="SecondName should not have any numerical characters" pattern="[a-zA-Z]+" /><br>
  
                     
                     <label for="">Choose Your Username<span>*</span></label>
@@ -257,7 +257,7 @@ font-size:smaller;
                   
                     
                     <label for="">Email<span>*</span></label>
-                    <form:input type="email" placeholder="Email Address" id="emailid" path="emailid" required="true" style="border: 1px solid #ccc;
+                    <form:input type="email" placeholder="Email Address" id="emailid" path="emailid" pattern=".+.com" title="include valid email id" required="true" style="border: 1px solid #ccc;
   font-size: 16px;
   height: 40px;
   margin-bottom: 15px;
@@ -265,7 +265,7 @@ font-size:smaller;
   width: 100%;"/><span id="resultemail"></span><br>
                     
                     <label for="">Mobile No.</label>
-<%--                     <form:input type="text" id="mobile" placeholder="Mobile" path="mobile"  pattern="[7|8|9]{10}"/> <span id="resultmobile"></span><br> --%>
+                    <form:input type="text" id="mobile" placeholder="Mobile" path="mobile" maxlength="10" title="Mobile number should starts 7 or 8 or 9 and have 10 numbers"  pattern="[789][0-9]{9}"/> <span id="resultmobile"></span><br>
                     
                     <label for="">Flat / House No. / Floor / Building </label>
                     <form:input type="text" placeholder="Address 1" path="address" />
@@ -274,9 +274,9 @@ font-size:smaller;
                     <form:input type="text" placeholder="Address 2" path="streetname" />
                     
                     <label for="" style="width:52%;">Town/City</label><label for="">Pin-Code</label>  <br>
-                    <form:input type="text" placeholder="City" path="cityname" style="width:47%;"/>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <form:input type="text" placeholder="City" path="cityname" style="width:48%;"/>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 
-                    <form:input type="text" placeholder="Pincode" path="pincode" style="width:47%;" pattern="[6]{6}" /><br>
+                    <form:input type="text" placeholder="Pincode" path="pincode" title="Pincode should starts 6, and have 6 numbers: xxxxxx" maxlength="6" style="width:48%;" pattern="[0-9]{5}" /><br>
                     
                     
                     <button type="submit"  name="_eventId_hui" class="aa-browse-btn">Register</button>                      

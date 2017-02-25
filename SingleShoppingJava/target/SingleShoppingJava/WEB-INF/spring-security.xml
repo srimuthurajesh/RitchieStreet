@@ -17,7 +17,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	<security:intercept-url pattern="/loginresult" access="hasRole('ROLE_ADMIN')"/>	
 <!-- 	<security:intercept-url pattern="/" access="hasRole('ROLE_USER')"/> -->
 <!-- 	<security:intercept-url pattern="/" access="hasRole('ROLE_USER')"/> -->
-	<security:intercept-url pattern="/cartpage" access="hasRole('ROLE_USER')"/>
+	<security:intercept-url pattern="/cartpage**" access="hasRole('ROLE_USER')"/>
 	<security:intercept-url pattern="/checkout" access="hasRole('ROLE_USER')"/>
 	<security:intercept-url pattern="/carddetails" access="hasRole('ROLE_USER')"/>
 	<security:intercept-url pattern="/paymentsuccess" access="hasRole('ROLE_USER')"/>

@@ -97,7 +97,7 @@
    height: 40px;
    margin-bottom: 15px; 
    padding: 10px; 
-   width: 50%;"/> 
+   width: 49%;"/> 
 				
 						
 						<form:input type="text"

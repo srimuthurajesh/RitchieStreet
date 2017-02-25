@@ -101,13 +101,13 @@
                           <div class="row">
                             <div class="col-md-6">
                               <div class="aa-checkout-single-bill">
-                                <form:input type="text" placeholder="City*" path="billingCity" title="CityName should not have any numerical characters" pattern="[a-z A-Z]"/>
+                                <form:input type="text" placeholder="City*" path="billingCity" title="CityName should not have any numerical characters" />
                                 
                               </div>                             
                             </div>
 <div class="col-md-6">
                               <div class="aa-checkout-single-bill">
-                                <form:input type="text" placeholder="Postcode / ZIP*" title="Pincode should starts 6, and have 6 numbers: 6xxxxx" pattern="[0-9]{5}" path="billingPincode"/>
+                                <form:input type="text" placeholder="Postcode / ZIP*" title="Pincode should starts 6, and have 6 numbers: 6xxxxx"  path="billingPincode"/>
                               </div>
                             </div>                            
                           </div>

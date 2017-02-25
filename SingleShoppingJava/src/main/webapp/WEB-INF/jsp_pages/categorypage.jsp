@@ -71,7 +71,7 @@
                 <li>
                   <figure> 
                     <a class="aa-product-img" href="productpage?productId=${productList.productId}"><img src="<c:url value="/resources/product/${productList.productId }.png"/>" style="height:250px;width:250px" alt="${productList.productId }"></a>
-                    <a class="aa-add-card-btn" href="addtocart?username=${User}&productId=${productList.productId}&quantity=1"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                    <a class="aa-add-card-btn" href="addtocart?username=${User}&productId=${productList.productId}&quantity=1&action=addtocart"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                     <figcaption>
                       <h4 class="aa-product-title"><a href="#">${productList.productName }</a></h4>
                       <span class="aa-product-price"><i class="fa fa-inr"></i> ${productList.productPrice }-/</span>
@@ -191,6 +191,36 @@
                 </c:forEach>
     </ul>
             </div>
+             <!-- single sidebar -->
+            <div class="aa-sidebar-widget">
+              <h3>Tags</h3>
+              <div class="tag-cloud">
+                <a href="search?tag=rasperry">rasperry</a>
+                <a href="search?tag=kits">kits</a>
+                <a href="search?tag=electronic kits">Electronic kits</a>
+                <a href="search?tag=hotdeals">hotdeals</a>
+                <a href="search?tag=arduino">arduino</a>
+                
+              </div>
+            </div>
+            <!-- single sidebar -->
+            <!-- single sidebar -->
+            <div class="aa-sidebar-widget">
+              <h3>Shop By Price</h3>              
+              <!-- price range -->
+              <div class="aa-sidebar-price-range">
+               <form action="">
+                  <div id="skipstep" class="noUi-target noUi-ltr noUi-horizontal noUi-background">
+                  </div>
+                  <span id="skip-value-lower" class="example-val">30.00</span>
+                 <span id="skip-value-upper" class="example-val">100.00</span>
+                 <button class="aa-filter-btn" type="submit">Filter</button>
+               </form>
+              </div>              
+
+            </div>
+            
+           
                      </aside>
         </div>
        

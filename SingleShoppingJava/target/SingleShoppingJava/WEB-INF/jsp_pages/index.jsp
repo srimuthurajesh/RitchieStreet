@@ -54,9 +54,27 @@
 <%@ include file="carousel.jsp"%>
   
 <%@ include file="index_promo.jsp"%>
-<%@ include file="index_productlist.jsp"%>
+<%-- <%@ include file="index_productlist.jsp"%> --%>
   
   
+<%@ include file="indexproductlist.jsp"%>
+  
+  
+<!-- banner section -->
+  <section id="aa-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">        
+          <div class="row">
+            <div class="aa-banner-area">
+            <a href="#"><img src="<c:url value="/resources/img/fashion-banner.png"/>" alt="fashion banner img"></a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br>
   
   <!-- Support section -->
   <section id="aa-support">
@@ -98,21 +116,7 @@ We are available to service 24/7,Our promise is to delight customers</P>
   <!-- / Support section -->
 <br><br>
 
-<!-- banner section -->
-  <section id="aa-banner">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">        
-          <div class="row">
-            <div class="aa-banner-area">
-            <a href="#"><img src="<c:url value="/resources/img/fashion-banner.png"/>" alt="fashion banner img"></a>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <br><br>
+
 
 
 
@@ -128,7 +132,7 @@ We are available to service 24/7,Our promise is to delight customers</P>
                 <div class="aa-testimonial-single">
                 <img class="aa-testimonial-img" src="<c:url value="resources/img/testimonial-img-2.jpg"/>" alt="testimonial img">
                   <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                  <p>This site makes the customer to feel like experience a real shopping environment, I specially like it, because this site is for geeks, am a Geek</p>
+                  <strong>This site makes the customer to feel like experience a real shopping environment, I specially like it, because this site is for geeks, am a Geek</strong>
                   <div class="aa-testimonial-info">
                     <p>Linus Torvalds</p>
                     <span>Founder</span>
@@ -141,7 +145,7 @@ We are available to service 24/7,Our promise is to delight customers</P>
                 <div class="aa-testimonial-single">
                 <img class="aa-testimonial-img" src="<c:url value="resources/img/testimonial-img-1.jpg"/>" alt="testimonial img">
                   <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                  <p>Lot of improvements needed, i hope the team will work on that in future. Besides that i love this site.</p>
+                  <strong>Lot of improvements needed, i hope the team will work on that in future. Besides that i love this site.</strong>
                   <div class="aa-testimonial-info">
                     <p>Elon Musk</p>
                     <span>CEO</span>
@@ -152,9 +156,9 @@ We are available to service 24/7,Our promise is to delight customers</P>
                <!-- single slide -->
               <li>
                 <div class="aa-testimonial-single">
-                <img class="aa-testimonial-img" src="<c:url value="resources/img/testimonial-img-1.jpg"/>" alt="testimonial img">
+                <img class="aa-testimonial-img" src="<c:url value="resources/img/testimonial-img-3.jpg"/>" alt="testimonial img">
                   <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                  <p>Great works does born from scratch works, My delighted wishes to the team for developing this site and for Hilarious works which gonna done in future.  </p>
+                  <strong>Great works does born from scratch works, My delighted wishes to the team for developing this site and for Hilarious works which gonna done in future.  </strong>
                   <div class="aa-testimonial-info">
                     <p>Steve wozniak</p>
                     <span>Co-Founder</span>
@@ -173,6 +177,47 @@ We are available to service 24/7,Our promise is to delight customers</P>
 
 
 
+  <!-- Client Brand -->
+  <section id="aa-client-brand">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-client-brand-area">
+            <ul class="aa-client-brand-slider">
+              <li><a href="#"><img src="<c:url value="/resources/img/client-brand2.png"/>" ></a></li>
+              <li><a href="#"><img src="<c:url value="/resources/img/client-brand1.png"/>" alt="java img"></a></li>
+              <li><a href="#"><img src="<c:url value="/resources/img/client-brand3.png"/>"></a></li>
+              <li><a href="#"><img src="<c:url value="/resources/img/client-brand4.png"/>"></a></li>
+              <li><a href="#"><img src="<c:url value="/resources/img/client-brand7.png"/>"></a></li>
+              <li><a href="#"><img src="<c:url value="/resources/img/client-brand6.png"/>"></a></li>
+               </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / Client Brand -->
+
+
+
+  <!-- Subscribe section -->
+  <section id="aa-subscribe">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-subscribe-area">
+            <h3>Subscribe our newsletter </h3>
+            <p>Get latest updates sale, chance to win coupons and amazing prizes</p>
+            <form action="" class="aa-subscribe-form">
+              <input type="email" name="" id="" placeholder="Enter your Email">
+              <input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / Subscribe section -->
 
 
 

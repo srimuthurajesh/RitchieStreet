@@ -276,7 +276,7 @@ font-size:smaller;
                     <label for="" style="width:52%;">Town/City</label><label for="">Pin-Code</label>  <br>
                     <form:input type="text" placeholder="City" path="cityname" style="width:48%;"/>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 
-                    <form:input type="text" placeholder="Pincode" path="pincode" title="Pincode should starts 6, and have 6 numbers: xxxxxx" maxlength="6" style="width:48%;" pattern="[0-9]{5}" /><br>
+                    <form:input type="text" placeholder="Pincode" path="pincode" title="Pincode should starts 6, and have 6 numbers: xxxxxx" maxlength="6" style="width:48%;"  /><br>
                     
                     
                     <button type="submit"  name="_eventId_hui" class="aa-browse-btn">Register</button>                      

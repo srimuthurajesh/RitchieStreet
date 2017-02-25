@@ -151,7 +151,7 @@
               <!-- / cart box -->
               
               
-              <img src="<c:url value="resources/img/specialoffer.png"/>" style="height:60px;width:100px">
+             <a href="search?tag=hotdeals"> <img src="<c:url value="resources/img/specialoffer.png"/>" style="height:60px;width:100px"></a>
 <%-- <img src="<c:url value="resources/img/2.png"/>" style="height:120px;width:120px"> --%>
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong> <a> Download our App</a></strong>
               

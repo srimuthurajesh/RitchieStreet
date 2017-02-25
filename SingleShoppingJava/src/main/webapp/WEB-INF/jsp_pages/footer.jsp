@@ -15,7 +15,7 @@
                     <li><a href="index">Home</a></li>
                     <li><a href="#">Discounts</a></li>
                     <li><a href="#">Our Products</a></li>
-                    <li><a href="#">Hot Deals</a></li>		
+                    <li><a href="search?tag=hotdeals">Hot Deals</a></li>		
                      <li><a href="aboutus">About Us</a></li>
                      </ul>
                 </div>
