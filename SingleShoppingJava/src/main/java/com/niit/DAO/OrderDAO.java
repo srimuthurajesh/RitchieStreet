@@ -11,4 +11,6 @@ public interface OrderDAO {
 	  public List<OrderModel> getOrderListbyname(String username);
 	  public Boolean remove(int orderId);
 	  public void removeorderbycartid(String username);
+		public boolean addingproduct(String username, String productId, int quantity);
+			
 }

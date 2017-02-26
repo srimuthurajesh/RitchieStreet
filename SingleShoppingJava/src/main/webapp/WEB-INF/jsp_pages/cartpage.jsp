@@ -49,7 +49,7 @@
 
 
  <!-- Cart view section -->
- <section id="cart-view">
+ <section id="cart-view" ng-app="addToCartApp"  ng-controller = "addToCartCtrl"  ng-init="retrieveCart('${cartId}')">
    <div class="container">
      <div class="row">
        <div class="col-md-12">
@@ -78,7 +78,7 @@
                         <td><i class="fa fa-inr" ></i> ${cartList.productModel.productPrice} /-</td>
                         <td>${cartList.quantity}</td>
                         <td>${cartList.total}</td>
-						<td><a href="removeorder?orderId=${cartList.orderId}&username=${cartList.user.username}">Remove</a></td>
+						<td><a href="removeorder?orderid=${cartList.orderid}&username=${cartList.user.username}">Remove</a></td>
 			 </tr>
 	
 				     <c:set var="grandtotal" value="${grandtotal + cartList.total}" />
@@ -142,7 +142,7 @@
   
   <!-- Custom js -->
   <script src="<c:url value="/resources/js/custom.js"/>"></script> 
-<script src="<c:url value="/resources/angular.min.js"/>"></script> 
+<script src="<c:url value="/resources/css/angular.min.js"/>"></script> 
 	
 	
 	

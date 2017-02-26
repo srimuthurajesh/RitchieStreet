@@ -18,7 +18,7 @@ public class OrderModel implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int OrderId;
+	private int orderid;
 	
 	@ManyToOne
 	@JoinColumn(name="username")
@@ -62,12 +62,12 @@ public class OrderModel implements Serializable {
 		this.productModel = productModel;
 	}
 
-	public int getOrderId() {
-		return OrderId;
+	public int getOrderid() {
+		return orderid;
 	}
 
-	public void setOrderId(int orderId) {
-		OrderId = orderId;
+	public void setOrderid(int orderid) {
+		this.orderid = orderid;
 	}
 
 	public User getUser() {

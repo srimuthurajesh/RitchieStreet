@@ -55,7 +55,36 @@ public class CartController {
 	 @RequestMapping(value="/addtocart",method=RequestMethod.GET)
 	    public String addtocart(@RequestParam("username")String username, @RequestParam("productId")String productId, @RequestParam("quantity") int quantity,@RequestParam("action")String action, HttpSession session,Model model){
 		 log.debug("inside addtocart controller");
-		
+
+		 if(orderDAO.addingproduct(username, productId,quantity)){
+			 
+
+			 if(action.equals("BuyNow")){
+			 model.addAttribute("categoryList", categoryDAO.getCategoryList());
+			 model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
+			model.addAttribute("cartsize", orderDAO.getOrderListbyname(username).size());
+			log.debug("leaving addtocart controller");
+			return "cartpage";}
+			 else{
+//				 orderDAO.add(productDAO.getById(productId),userDAO.getbyId(username),quantity,quantity*productDAO.getById(productId).getProductPrice());
+				  
+				 model.addAttribute("productbyId", productDAO.getById(productId));
+					model.addAttribute("productId", "productId");
+					model.addAttribute("categoryList", categoryDAO.getCategoryList());
+					model.addAttribute("productList", productDAO.getProductListbycategory(productDAO.getById(productId).getCategoryId()));
+					model.addAttribute("category", categoryDAO.getById(productDAO.getById(productId).getCategoryId()));
+					
+					String User = (String)session.getAttribute("User");
+					model.addAttribute("cartList", orderDAO.getOrderListbyname(User));
+					model.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
+					
+					return "productpage";
+			 }
+		    
+		 }
+		 else{
+		 
+		 
 		 if(action.equals("BuyNow")){
 		 model.addAttribute("categoryList", categoryDAO.getCategoryList());
 		 orderDAO.add(productDAO.getById(productId),userDAO.getbyId(username),quantity,quantity*productDAO.getById(productId).getProductPrice());
@@ -78,7 +107,7 @@ public class CartController {
 				
 				return "productpage";
 		 }
-	    }
+	    }}
 	
 
 	//-------------------------------------------------------Add to cart without quantity----------------------------------------------------------------------------------------------
@@ -96,10 +125,10 @@ public class CartController {
 
 	//-------------------------------------------------------Remove from cart----------------------------------------------------------------------------------------------
 	 @RequestMapping(value="/removeorder",method=RequestMethod.GET)
-	    public String removeorder(@RequestParam("orderId")int orderId, @RequestParam("username")String username, Model model){
+	    public String removeorder(@RequestParam("orderid")int orderid, @RequestParam("username")String username, Model model){
 		 log.debug("inside remove order controller");
 		 model.addAttribute("categoryList", categoryDAO.getCategoryList());
-			 orderDAO.remove(orderId);
+			 orderDAO.remove(orderid);
 			 model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
 			 log.debug("leaving remove order controller");
 			 return "cartpage";

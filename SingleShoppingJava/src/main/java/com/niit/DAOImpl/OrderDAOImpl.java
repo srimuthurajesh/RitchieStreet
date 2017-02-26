@@ -11,15 +11,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.DAO.OrderDAO;
+import com.niit.entityModel.CategoryModel;
 import com.niit.entityModel.OrderModel;
 import com.niit.entityModel.ProductModel;
 import com.niit.entityModel.User;
 
 @Repository("cartDAO")
 public class OrderDAOImpl implements OrderDAO {
-	 Logger log = LoggerFactory.getLogger(UserDAOImpl.class);
+	 Logger log = LoggerFactory.getLogger(OrderDAOImpl.class);
 	
 	  @Autowired
 	    SessionFactory sessionFactory;
@@ -63,7 +65,7 @@ public class OrderDAOImpl implements OrderDAO {
 			session.beginTransaction();
 			
 			OrderModel orderModel= new OrderModel();
-			orderModel.setOrderId(orderId);
+			orderModel.setOrderid(orderId);
 			session.delete(orderModel);
 			session.getTransaction().commit();
 			session.close();
@@ -85,6 +87,42 @@ public class OrderDAOImpl implements OrderDAO {
 			session.close();
 			log.debug("leaving remove orderbyId in OrderDAOImpl");
 	    }
+	    @Transactional
+	    @SuppressWarnings({ "unchecked", "deprecation", "rawtypes" })
+		public boolean addingproduct(String username, String productId, int quantity) {
+	    	log.debug("inside getByName in categoryDAOImpl");
+	    	Session session = sessionFactory.openSession();
+			session.beginTransaction();
+	
+	    	String hql = "from OrderModel where username =" + "'" + username + "'"+" and productId =" + "'" + productId+"'";
+		Query<OrderModel> query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<OrderModel> list = (List<OrderModel>) query.list();
+		if (list != null && !list.isEmpty()) {
+			
+			
+			
+			
+			quantity=query.uniqueResult().getQuantity()+quantity;
+			
+			int orderId=query.uniqueResult().getOrderid();
+			Query query1 = session.createQuery("update OrderModel set quantity = :quantity " +
+    				" where orderid = :orderid");
+		query1.setParameter("quantity", quantity);
+		
+query1.setParameter("orderid", orderId);
+ query1.executeUpdate();
+				session.getTransaction().commit();
+				session.close();
+			
+			return true;
+		}
+			else{
+		   
+			session.getTransaction().commit();
+			session.close();
+		   return false;
+		}	}}
+
+	    
 
 
-}
