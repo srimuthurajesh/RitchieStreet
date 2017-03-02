@@ -81,57 +81,7 @@
   
   
   
-	  
- 
-<!--      Cart view section     -->
-   <section id="cart-view" style="padding-top:0px">  
-     <div class="container" style="padding-top:0px">  
-       <div class="row" style="padding-top:0px">  
-         <div class="col-md-12">  
-           <div class="cart-view-area" style="padding-top:0px">  
-             <div class="cart-view-table" style="padding-top:0px">  
-  			<div class="page-header"><h3><strong>Product List</strong></h3></div>  
-                 <div class="table-responsive">  
-                 
-                    <table class="table">  
-                      <thead>  
-                        <tr>  
-                          <th>Product Id</th>  
-                          <th>Product Name</th>  
-                          <th>Product Description</th>  
-                          <th>Category Id</th>  
-                          <th>Supplier Id</th>  
-  						 <th>Product Price</th>  
-  						 <th>Product Picture</th>  
-  						 <th colspan="2" >Manage Products<th>  
-                        </tr>  
-                      </thead>  
-                      <tbody>  
-                  
-<%--                       <c:forEach var="listValue" items="${productlist}">   --%>
-                      
-                        <tr  ng-repeat="listValue in Product|filter:searchText">  
-  			<td>{{listValue.productId}}</td>  
-                          <td><a class="aa-cart-title" href="#">{{listValue.productName}}</a></td>  
-                         <td>{{listValue.productDescription}}</td>  
-  			<td>{{listValue.categoryId}}</td>  
-  			<td>{{listValue.supplierId}}</td>  
-  			<td><i class="fa fa-inr"></i> {{listValue.productPrice}}</td>  
-  			<td><a href="#"><img src="<c:url value="/resources/product/{{listValue.productId}}.png"/>" alt="{{listValue.productId}}"></a></td>  
-  			<td style="border-right:white">  
-  			<form action="deleteproduct"><button name="productId" class="aa-cart-view-btn"  type="submit"  value={{listValue.productId}} style="heigth:2px;">Delete</button></form></td>  
-  			<td><form action="editproduct"><button name="productId" class="aa-cart-view-btn" type="submit" value={{listValue.productId}} style="heigth:1px">Edit</button></form></td>	  
-  		</tr>		
-<%--   			</c:forEach>		     --%>
-			 
-                        </tbody>  
-                    </table>  
-                  </div>  
-             
-             
-  </div></div></div></div></div></section>  
-
-  
+	    
   
 <section id="aa-myaccount">
    <div class="container">
@@ -289,6 +239,64 @@
   			</c:choose>  
 
 </div></div></div></div></div></div></div></section>
+
+
+
+
+ 
+<!--      Cart view section     -->
+   <section id="cart-view" >  
+     <div class="container" >  
+       <div class="row" >  
+         <div class="col-md-12">  
+           <div class="cart-view-area" >  
+             <div class="cart-view-table" >  
+  			<div class="page-header"><strong><h3>Product List</h3></strong> 
+  			<div style="position:relative;left:570px"><strong> Search Products:&nbsp;&nbsp;&nbsp;</strong> 
+  			<input type="text"  placeholder="&nbsp;&nbsp;&nbsp;Search here Products, Brands , names etc " ng-model="searchText" 
+  			   style=" height: 40px;
+  width: 35%;" class="aa-search-box"/></div>  </div>
+				 
+                 <div class="table-responsive">  
+                 
+                    <table class="table">  
+                      <thead>  
+                        <tr>  
+                          <th>Product Id</th>  
+                          <th>Product Name</th>  
+                          <th>Product Description</th>  
+                          <th>Category Id</th>  
+                          <th>Supplier Id</th>  
+  						 <th>Product Price</th>  
+  						 <th>Product Picture</th>  
+  						 <th colspan="2" >Manage Products<th>  
+                        </tr>  
+                      </thead>  
+                      <tbody>  
+                  
+<%--                       <c:forEach var="listValue" items="${productlist}">   --%>
+                      
+                        <tr  ng-repeat="listValue in Product|filter:searchText">  
+  			<td>{{listValue.productId}}</td>  
+                          <td><a class="aa-cart-title" href="#">{{listValue.productName}}</a></td>  
+                         <td>{{listValue.productDescription}}</td>  
+  			<td>{{listValue.categoryId}}</td>  
+  			<td>{{listValue.supplierId}}</td>  
+  			<td><i class="fa fa-inr"></i> {{listValue.productPrice}}</td>  
+  			<td><a href="#"><img src="<c:url value="/resources/product/{{listValue.productId}}.png"/>" alt="{{listValue.productId}}"></a></td>  
+  			<td style="border-right:white">  
+  			<form action="deleteproduct"><button name="productId" class="aa-cart-view-btn"  type="submit"  value={{listValue.productId}} style="heigth:2px;">Delete</button></form></td>  
+  			<td><form action="editproduct"><button name="productId" class="aa-cart-view-btn" type="submit" value={{listValue.productId}} style="heigth:1px">Edit</button></form></td>	  
+  		</tr>		
+<%--   			</c:forEach>		     --%>
+			 
+                        </tbody>  
+                    </table>  
+                  </div>  
+             
+             
+  </div></div></div></div></div></section>  
+
 
 		
  <%@ include file="footer.jsp"%>

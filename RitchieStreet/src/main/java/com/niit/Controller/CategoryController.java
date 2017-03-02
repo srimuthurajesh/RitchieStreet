@@ -1,5 +1,7 @@
 package com.niit.Controller;
 
+import java.util.ArrayList;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.niit.DAO.CategoryDAO;
 import com.niit.entityModel.CategoryModel;
+import com.niit.entityModel.ProductModel;
 
 @Controller
 public class CategoryController {
@@ -27,7 +31,11 @@ public class CategoryController {
 log.debug("inside category controller");		//performing a logger debug
 	ModelAndView model = new ModelAndView("admin_category", "categoryModel", new CategoryModel()); 	//adding a page to ModelAndView with empty constructor
 		model.addObject("list", categoryDAO.getCategoryList());										//adding a Object to value "list"
-	model.addObject("page_name", "Category");
+
+//		 ArrayList<CategoryModel> list=(ArrayList<CategoryModel>)categoryDAO.getCategoryList();
+//	  		Gson gson= new Gson();
+//	  		model.addObject("list", gson.toJson(list));
+//	  model.addObject("page_name", "Category");
 	log.debug("leaving category controller");
 		return model;
 		}
@@ -57,8 +65,13 @@ log.debug("inside category controller");		//performing a logger debug
 	public ModelAndView editCategory(@RequestParam("categoryId") String categoryId) {
 		ModelAndView model = new ModelAndView("admin_category", "categoryModel", new CategoryModel());
 		log.debug("inside editcategory Controller");
-		model.addObject("list", categoryDAO.getCategoryList());
-	model.addObject("values", categoryDAO.getById(categoryId));
+	//	model.addObject("list", categoryDAO.getCategoryList());
+
+		 ArrayList<CategoryModel> list=(ArrayList<CategoryModel>)categoryDAO.getCategoryList();
+	  		Gson gson= new Gson();
+	  		model.addObject("list", gson.toJson(list));
+
+		model.addObject("values", categoryDAO.getById(categoryId));
 	log.debug("leaving editcategory controller");
 		return model;
 	}

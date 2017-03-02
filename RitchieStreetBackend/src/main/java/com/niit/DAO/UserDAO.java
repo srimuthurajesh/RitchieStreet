@@ -1,5 +1,6 @@
 package com.niit.DAO;
 
+import com.niit.entityModel.CountModel;
 import com.niit.entityModel.User;
 
 public interface UserDAO {
@@ -7,5 +8,6 @@ public interface UserDAO {
 
     public User getbyId(String userName);
 
-
+    public CountModel getcount(int count);
+    public void updatecount(int countvalue);
 }

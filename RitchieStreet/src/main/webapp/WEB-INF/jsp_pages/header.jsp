@@ -114,13 +114,12 @@
                  <!--<a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
               </div>
               <!-- / logo  -->
-               <!-- cart box -->
+                <!-- cart box -->
 			    <div class="hidden-xs">
               <div class="aa-cartbox">
-                <c:if test="${ isAdmin != true  }">
-                <a class="aa-cart-link"  href="" > 
-                <span class="fa fa-shopping-basket"></span>
-                  <span class="aa-cart-title">Cart</span></c:if>
+                <a class="aa-cart-link"  href="" >
+                  <span class="fa fa-shopping-basket"></span>
+                  <span class="aa-cart-title">Cart</span>
                   <c:choose><c:when test="${  empty cartList}">
                   <span class="aa-cart-notify">  &nbsp;</span>
                 </c:when></c:choose>
@@ -151,12 +150,15 @@
                  </div></div>
               <!-- / cart box -->
               
+              
                <c:if test="${ isAdmin != true  }">
                  
              <a href="search?tag=hotdeals"> <img src="<c:url value="resources/img/specialoffer.png"/>" style="height:60px;width:100px"></a>
 <%-- <img src="<c:url value="resources/img/2.png"/>" style="height:120px;width:120px"> --%>
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong> <a href="https://play.google.com/store/apps?hl=en" target="_blank"> Download our App</a></strong>
               </c:if>
+              <c:if test="${ isAdmin != true  }">
+               
               <!-- search box -->
 			                 <div class="aa-search-box">
                 <form action="search">
@@ -165,7 +167,7 @@
                 </form>
               </div>
               <!-- / search box -->           
-                
+                </c:if>
           </div>
         </div>
       </div>

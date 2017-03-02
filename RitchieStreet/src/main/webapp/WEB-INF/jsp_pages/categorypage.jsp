@@ -70,7 +70,7 @@
                  
                 <li ng-repeat="productList in Product|filter:searchText">
                   <figure> 
-                    <a class="aa-product-img" href="productpage?productId={{productList.productId}"><img src="<c:url value="/resources/product/{{productList.productId }}.png"/>" style="height:250px;width:250px" alt="{{productList.productId }}"></a>
+                    <a class="aa-product-img" href="productpage?productId={{productList.productId}}"><img src="<c:url value="/resources/product/{{productList.productId }}.png"/>" style="height:250px;width:250px" alt="{{productList.productId }}"></a>
                     <a class="aa-add-card-btn" href="addtocart?username=${User}&productId={{productList.productId}}&quantity=1&action=addtocart"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                     <figcaption>
                       <h4 class="aa-product-title"><a href="#">{{productList.productName }}</a></h4>

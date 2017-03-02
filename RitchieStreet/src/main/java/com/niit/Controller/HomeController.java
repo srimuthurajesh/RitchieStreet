@@ -55,6 +55,9 @@ Logger log=LoggerFactory.getLogger(HomeController.class);  //creating logging ob
 		log.debug("inside / controller");
 		session.invalidate();
 		session = request.getSession(true);
+		System.out.println("hiiiam sinsi");
+		userDAO.updatecount(userDAO.getcount(1).getCountvalue()+1);
+		
 		m.addAttribute("microcontrollerList",productDAO.getProductListbycategory("C1"));
 		m.addAttribute("RoboticsList",productDAO.getProductListbycategory("C2"));
 		m.addAttribute("toolsList",productDAO.getProductListbycategory("C5"));

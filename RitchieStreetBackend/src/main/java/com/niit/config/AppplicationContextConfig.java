@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.niit.entityModel.AddressModel;
 import com.niit.entityModel.CarddetailModel;
 import com.niit.entityModel.CategoryModel;
+import com.niit.entityModel.CountModel;
 import com.niit.entityModel.OrderModel;
 import com.niit.entityModel.ProductModel;
 import com.niit.entityModel.SupplierModel;
@@ -57,6 +58,7 @@ public class AppplicationContextConfig {
 	sessionBuilder.addAnnotatedClasses(OrderModel.class);
 	sessionBuilder.addAnnotatedClasses(AddressModel.class);
 	sessionBuilder.addAnnotatedClasses(CarddetailModel.class);
+	sessionBuilder.addAnnotatedClasses(CountModel.class);
 	
      return sessionBuilder.buildSessionFactory();
 	}

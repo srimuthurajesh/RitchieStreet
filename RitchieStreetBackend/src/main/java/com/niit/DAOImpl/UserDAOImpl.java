@@ -8,16 +8,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.niit.DAO.UserDAO;
+import com.niit.entityModel.CountModel;
 import com.niit.entityModel.User;
 
 @Repository("userDAO")
 public class UserDAOImpl implements UserDAO {
     Logger log = LoggerFactory.getLogger(UserDAOImpl.class);
 
-/*  @Component – generic and can be used across application.
-    @Service – annotate classes at service layer level.
-    @Controller – annotate classes at presentation layers level, mainly used in Spring MVC.
-    @Repository – annotate classes at persistence layer, which will act as database repository.
+/*  @Component ï¿½ generic and can be used across application.
+    @Service ï¿½ annotate classes at service layer level.
+    @Controller ï¿½ annotate classes at presentation layers level, mainly used in Spring MVC.
+    @Repository ï¿½ annotate classes at persistence layer, which will act as database repository.
     */
     
     @Autowired(required = true)
@@ -49,4 +50,24 @@ public class UserDAOImpl implements UserDAO {
     }
 
 
+    public CountModel getcount(int count) {
+    	log.debug("inside getbyID in UserDAOImpl");
+	Session session = sessionFactory.openSession();
+	log.debug("leaving getbyID in UserDAOImpl");
+	return (CountModel) session.get(CountModel.class, count);
+    }
+
+    public void updatecount(int countvalue){
+    	System.out.println("hii am inside update");
+    	Session session = sessionFactory.openSession();				//	The main function of the Session is to offer create, read and delete operations for instances of mapped entity classes. Instances may exist in one of three states:
+    session.beginTransaction();
+  
+	
+CountModel countModel=new CountModel();
+countModel.setCount(1);
+countModel.setCountvalue(countvalue);
+System.out.println(countvalue);
+session.saveOrUpdate(countModel);
+
+    }
 }

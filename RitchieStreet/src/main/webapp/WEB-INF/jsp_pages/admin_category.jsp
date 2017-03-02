@@ -38,7 +38,7 @@
  
     
 </head>
-<body>
+<body  ng-app="productTable" ng-controller="ProductController">
   
  
  
@@ -138,7 +138,13 @@
        <div class="col-md-12">
          <div class="cart-view-area">
            <div class="cart-view-table">
-			<div class="page-header"><h3><strong>Category List</strong></h3></div>
+			<div class="page-header"><h3><strong>Category List</strong></h3>
+			<div style="position:relative;left:570px">
+<!-- 			<strong> Search Category:&nbsp;&nbsp;&nbsp;</strong>  -->
+<!--   			<input type="text"  placeholder="&nbsp;&nbsp;&nbsp;Search here Products, Brands , names etc " ng-model="searchText"  -->
+<!--   			   style=" height: 40px; -->
+<!--   width: 35%;" class="aa-search-box"/></div>  </div> -->
+			</div>
                <div class="table-responsive">
                   <table class="table">
                     <thead>
@@ -149,7 +155,8 @@
 			</tr></thead>
 			<tbody>
 			<c:forEach var="listValue" items="${list}">
-				<tr>
+			<tr>
+<!-- 				  <tr  ng-repeat="listValue in Category|filter:searchText"> -->
 					<td>${listValue.categoryId}</td>
 					<td>${listValue.categoryName}</td>
 					<td style="border-right:white"><form action="deletecategory"> <button class="aa-browse-btn" name="categoryId" type="submit" value=${listValue.categoryId}>Delete</button></form></td>
@@ -163,6 +170,15 @@
 
 
  <%@ include file="footer.jsp"%>
+ 
+<!--  <script> -->
+//   var category = ${list}; 
+//   angular.module('productTable',[]).controller('ProductController', function($scope)  
+//    {
+//           $scope.Category=category;  
+                  
+//     });
+<!-- </script> -->
  
  
   <!-- jQuery library -->
@@ -180,6 +196,7 @@
   <script type="text/javascript" src="<c:url value="/resources/js/slick.js"/>"></script>
   <!-- Price picker slider -->
   <script type="text/javascript" src="<c:url value="/resources/js/nouislider.js"/>"></script>
+  <script src="<c:url value="/resources/js/angular.min.js"/>"></script> 
  
  </body>
 </html>
