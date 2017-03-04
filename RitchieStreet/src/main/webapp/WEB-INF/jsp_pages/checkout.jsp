@@ -107,7 +107,7 @@
                             </div>
 <div class="col-md-6">
                               <div class="aa-checkout-single-bill">
-                                <form:input type="text" placeholder="Postcode / ZIP*" title="Pincode should starts 6, and have 6 numbers: 6xxxxx"  path="billingPincode"/>
+                                <form:input type="text" placeholder="Postcode / ZIP*" title="Pincode should  6 numbers" minlength="6" maxlength="6"  path="billingPincode"/>
                               </div>
                             </div>                            
                           </div>

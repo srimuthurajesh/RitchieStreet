@@ -13,9 +13,10 @@
                   <h3>Main Menu</h3>
                   <ul class="aa-footer-nav">
                     <li><a href="index">Home</a></li>
-                    <li><a href="#">Discounts</a></li>
-                    <li><a href="#">Our Products</a></li>
-                    <li><a href="search?tag=hotdeals">Hot Deals</a></li>		
+                  <li><a href="search?tag=hotdeals">Hot Deals</a></li>	
+                  
+                  <li><a href="allproducts">Our products</a></li>		
+                    <li><a href="#">Contact us</a></li>
                      <li><a href="aboutus">About Us</a></li>
                      </ul>
                 </div>

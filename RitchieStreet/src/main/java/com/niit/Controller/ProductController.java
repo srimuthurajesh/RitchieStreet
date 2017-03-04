@@ -171,6 +171,27 @@ public class ProductController {
 	return "categorypage";
 
     }
+      
+//    -------------------------------------------------USER COMMMON----------------------------------------------
+      @RequestMapping(value = "/allproducts", method = RequestMethod.GET) //mapping for "/product"
+    public String allproductUser(Model model, HttpSession session) {
+    	  log.debug("inside categorypage controller");
+    	  //model.addAttribute("values", productDAO.getProductListbycategory(categoryId));
+	model.addAttribute("categoryList", categoryDAO.getCategoryList());
+	
+	String User = (String)session.getAttribute("User");
+	model.addAttribute("cartList", orderDAO.getOrderListbyname(User));
+	model.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
+
+
+	  ArrayList<ProductModel> list=(ArrayList<ProductModel>)productDAO.getProductList();
+		Gson gson= new Gson();
+		String jsonString= gson.toJson(list);
+	model.addAttribute("productList", jsonString);
+	log.debug("leaving categorypage controller");
+	return "categorypage";
+
+    }
 
        
     

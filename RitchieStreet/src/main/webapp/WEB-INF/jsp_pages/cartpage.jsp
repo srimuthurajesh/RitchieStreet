@@ -55,7 +55,8 @@
        <div class="col-md-12">
          <div class="cart-view-area">
            <div class="cart-view-table">
-             <form action="">
+            <c:if test="${ cartList  !empty  }">
+                 <form action="">
                <div class="table-responsive">
                   <table class="table">
                     <thead>
@@ -103,7 +104,7 @@
 <%--                <a href="checkout?username=${User}" class="aa-cart-view-btn">Proceed to Checkout</a> --%>
                <a href="indexpage"><button class="aa-cart-view-btn"> <span class="glyphicon glyphicon-arrow-left"></span> Continue Shopping</button></a>
              <a href="webflow" class="aa-cart-view-btn">Proceed to Checkout <span class="glyphicon glyphicon-arrow-right"></span></a>
-             </div>
+             </div></c:if>
            </div>
          </div>
        </div>

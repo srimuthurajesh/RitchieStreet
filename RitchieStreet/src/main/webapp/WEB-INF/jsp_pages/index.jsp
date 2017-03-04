@@ -61,7 +61,7 @@
   
   
 <!-- banner section -->
-  <section id="aa-banner">
+  <section id="aa-banner" >
     <div class="container">
       <div class="row">
         <div class="col-md-12">        
@@ -74,8 +74,9 @@
       </div>
     </div>
   </section>
-  <br><br>
   
+     <a class="aa-browse-btn" href="allproducts" style="position:relative;left:800px;margin-top:50px;margin-bottom:50px">Browse all Product <span class="fa fa-long-arrow-right"></span></a>
+                   <br>
   <!-- Support section -->
   <section id="aa-support">
     <div class="container">

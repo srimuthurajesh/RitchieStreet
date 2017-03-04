@@ -36,7 +36,7 @@
  
     
 </head>
-<body>
+<body ng-app="supplierTable" ng-controller="SupplierController">
 
  
  <%@ include file="header.jsp"%>
@@ -157,6 +157,11 @@
          <div class="cart-view-area">
            <div class="cart-view-table">
 			<div class="page-header"><h3><strong>Supplier List</strong></h3></div>
+			<div style="position:relative;left:570px"><strong> Search Products:&nbsp;&nbsp;&nbsp;</strong> 
+  			<input type="text"  placeholder="Search here Products, Brands , names etc " ng-model="searchText" 
+  			   style=" height: 40px;
+  width: 35%;padding:10px" class="aa-search-box"/></div>  <br>
+			
                <div class="table-responsive">
                   <table class="table">
                     <thead>
@@ -167,18 +172,16 @@
 				<th colspan="2">Options</th>
 			</tr></thead>
 			<tbody>
-	<c:forEach var="listValue" items="${list}">
-			
+<%-- 	<c:forEach var="listValue" items="${list}"> --%>
+		     <tr  ng-repeat="listValue in Supplier|filter:searchText">	
 
-
-<tr>
-					<td>${listValue.supplierId}</td>
-					<td>${listValue.supplierName}</td>
-					<td>${listValue.supplierDetails}</td>
-					<td style="border-right:white"><form action="deletesupplier"> <button class="aa-browse-btn" name="supplierId" type="submit" value=${listValue.supplierId}>Delete</button></form></td>
-					<td><form action="editsupplier"><button class="aa-browse-btn" name="supplierId" type="submit" value=${listValue.supplierId}>Edit</button></form></td>
+					<td>{{listValue.supplierId}}</td>
+					<td>{{listValue.supplierName}}</td>
+					<td>{{listValue.supplierDetails}}</td>
+					<td style="border-right:white"><form action="deletesupplier"> <button class="aa-browse-btn" name="supplierId" type="submit" value={{listValue.supplierId}}>Delete</button></form></td>
+					<td><form action="editsupplier"><button class="aa-browse-btn" name="supplierId" type="submit" value={{listValue.supplierId}}>Edit</button></form></td>
 					</tr>
-					</c:forEach>
+<%-- 					</c:forEach> --%>
 					    </tbody>
                   </table>
                 </div>
@@ -189,6 +192,17 @@
  <%@ include file="footer.jsp"%>
  
 
+<script>
+  var prod = ${supplierList}; 
+  angular.module('supplierTable',[]).controller('SupplierController', function($scope)  
+   {
+          $scope.Supplier=prod;  
+       
+   
+              
+    });
+</script>
+ 
 
 
   <!-- jQuery library -->
@@ -206,6 +220,7 @@
   <script type="text/javascript" src="<c:url value="/resources/js/slick.js"/>"></script>
   <!-- Price picker slider -->
   <script type="text/javascript" src="<c:url value="/resources/js/nouislider.js"/>"></script>
+  <script src="<c:url value="/resources/js/angular.min.js"/>"></script> 
  
  </body>
 </html>

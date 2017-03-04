@@ -30,12 +30,12 @@ public class CategoryController {
 	public ModelAndView categoryPage() {
 log.debug("inside category controller");		//performing a logger debug
 	ModelAndView model = new ModelAndView("admin_category", "categoryModel", new CategoryModel()); 	//adding a page to ModelAndView with empty constructor
-		model.addObject("list", categoryDAO.getCategoryList());										//adding a Object to value "list"
+//		model.addObject("list", categoryDAO.getCategoryList());										//adding a Object to value "list"
 
-//		 ArrayList<CategoryModel> list=(ArrayList<CategoryModel>)categoryDAO.getCategoryList();
-//	  		Gson gson= new Gson();
-//	  		model.addObject("list", gson.toJson(list));
-//	  model.addObject("page_name", "Category");
+		 ArrayList<CategoryModel> list=(ArrayList<CategoryModel>)categoryDAO.getCategoryList();
+	  		Gson gson= new Gson();
+	  		model.addObject("supplierList", gson.toJson(list));
+	  model.addObject("page_name", "Category");
 	log.debug("leaving category controller");
 		return model;
 		}

@@ -1,5 +1,7 @@
 package com.niit.Controller;
 
+import java.util.ArrayList;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.niit.DAO.SupplierDAO;
+import com.niit.entityModel.CategoryModel;
 import com.niit.entityModel.SupplierModel;
 
 @Controller
@@ -27,8 +31,11 @@ SupplierDAO supplierDAO;
 	public ModelAndView supplierPage(Model m) {
 		log.debug("inside supplier controller");
 		ModelAndView model = new ModelAndView("admin_supplier", "supplierModel", new SupplierModel());
-		model.addObject("list", supplierDAO.getSupplierList());
-	model.addObject("page_name", "Supplier");
+//		model.addObject("list", supplierDAO.getSupplierList());
+		 ArrayList<SupplierModel> list=(ArrayList<SupplierModel>)supplierDAO.getSupplierList();
+	  		Gson gson= new Gson();
+	  		model.addObject("supplierList", gson.toJson(list));
+	  			model.addObject("page_name", "Supplier");
 	log.debug("leaving supplier controller");
 		return model;
 	}
@@ -59,7 +66,11 @@ SupplierDAO supplierDAO;
     	log.debug("inside editsupplier controller");
     	ModelAndView model = new ModelAndView("admin_supplier", "supplierModel", new SupplierModel());
 	log.debug("inside editSupplier Controller");
-	model.addObject("list", supplierDAO.getSupplierList());
+//	model.addObject("list", supplierDAO.getSupplierList());
+
+	 ArrayList<SupplierModel> list=(ArrayList<SupplierModel>)supplierDAO.getSupplierList();
+		Gson gson= new Gson();
+		model.addObject("supplierList", gson.toJson(list));
 
 	model.addObject("values", supplierDAO.getbyId(supplierId));
 	model.addObject("page_name", "Supplier");

@@ -42,6 +42,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   
+  
 
   </head>
   <body> 
@@ -83,9 +84,8 @@
 				  </c:if>
 				  
 				  <c:if test="${ isAdmin != true  }">
-                  <li class="hidden-xs"><a href="#"><span class="glyphicon glyphicon-phone-alt"></span> Help Center</a></li>
-                  <li class="hidden-xs"><a href="#">Be a Seller</a></li>
-                  <li class="hidden-xs"><a href="#">Advertise</a></li>
+                  <li class="hidden-xs"><a href="contactus"><span class="glyphicon glyphicon-phone-alt"></span> Help Center</a></li>
+                  <li class="hidden-xs"><a href="aboutus">About us</a></li>
                 </c:if>
                 
                       </ul>
@@ -114,6 +114,8 @@
                  <!--<a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
               </div>
               <!-- / logo  -->
+                <c:if test="${ isAdmin != true  }">
+             
                 <!-- cart box -->
 			    <div class="hidden-xs">
               <div class="aa-cartbox">
@@ -149,7 +151,7 @@
                </c:choose>
                  </div></div>
               <!-- / cart box -->
-              
+              </c:if>
               
                <c:if test="${ isAdmin != true  }">
                  
@@ -194,8 +196,7 @@
             <ul class="nav navbar-nav"><c:if test="${ isAdmin != true  }">
                  <c:forEach var="categoryList" items="${categoryList}">
                     
-              <li><a href="categorypage?categoryId=${categoryList.categoryId}">${categoryList.categoryName} </a></li>
-    
+              <li><a  href="categorypage?categoryId=${categoryList.categoryId}">${categoryList.categoryName} </a></li>
                 </c:forEach>
                 </c:if>
                 
@@ -233,14 +234,12 @@
   
   
   
-  
-  
-  
   <!-- Login Modal -->  
-  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-show="true">
     <div class="modal-dialog">
       <div class="modal-content">                      
         <div class="modal-body">
+        
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         
           <h4>Login or Register</h4>

@@ -26,7 +26,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	<security:intercept-url pattern="/index" access="permitAll"/>
 	<security:intercept-url pattern="/loginpage" access="permitAll"/>
 	<security:intercept-url pattern="/register" access="permitAll"/>
-	<security:form-login default-target-url="/loginresult" login-page="/register" login-processing-url="/loginresult" authentication-failure-url="/index" authentication-success-forward-url="/loginresult"/>
+	<security:form-login default-target-url="/loginresult" login-page="/register" login-processing-url="/loginresult" authentication-failure-url="/register" authentication-success-forward-url="/loginresult"/>
 	<security:logout logout-url="/index" invalidate-session="true" logout-success-url="/"/>
 	<access-denied-handler error-page="/register" />
 	<security:csrf disabled="true"/>

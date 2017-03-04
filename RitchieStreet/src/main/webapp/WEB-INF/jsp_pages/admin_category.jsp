@@ -38,7 +38,7 @@
  
     
 </head>
-<body  ng-app="productTable" ng-controller="ProductController">
+<body  ng-app="categoryTable" ng-controller="CategoryController">
   
  
  
@@ -138,14 +138,12 @@
        <div class="col-md-12">
          <div class="cart-view-area">
            <div class="cart-view-table">
-			<div class="page-header"><h3><strong>Category List</strong></h3>
-			<div style="position:relative;left:570px">
-<!-- 			<strong> Search Category:&nbsp;&nbsp;&nbsp;</strong>  -->
-<!--   			<input type="text"  placeholder="&nbsp;&nbsp;&nbsp;Search here Products, Brands , names etc " ng-model="searchText"  -->
-<!--   			   style=" height: 40px; -->
-<!--   width: 35%;" class="aa-search-box"/></div>  </div> -->
-			</div>
-               <div class="table-responsive">
+			<div class="page-header"><h3><strong>Category List</strong></h3></div>
+			<div style="position:relative;left:570px"><strong> Search Categories:&nbsp;&nbsp;&nbsp;</strong> 
+  			<input type="text"  placeholder="Search here Categories " ng-model="searchText" 
+  			   style=" height: 40px;
+  width: 35%;padding:10px" class="aa-search-box"/></div> <br>
+		   <div class="table-responsive">
                   <table class="table">
                     <thead>
                       <tr>
@@ -154,15 +152,15 @@
 				<th colspan="2">Options</th>
 			</tr></thead>
 			<tbody>
-			<c:forEach var="listValue" items="${list}">
-			<tr>
-<!-- 				  <tr  ng-repeat="listValue in Category|filter:searchText"> -->
-					<td>${listValue.categoryId}</td>
-					<td>${listValue.categoryName}</td>
-					<td style="border-right:white"><form action="deletecategory"> <button class="aa-browse-btn" name="categoryId" type="submit" value=${listValue.categoryId}>Delete</button></form></td>
-					<td><form action="editcategory"><button class="aa-browse-btn" name="categoryId" type="submit" value=${listValue.categoryId}>Edit</button></form></td>
+<%-- 			<c:forEach var="listValue" items="${list}"> --%>
+			
+				  <tr  ng-repeat="listValue in Category|filter:searchText">
+					<td>{{listValue.categoryId}}</td>
+					<td>{{listValue.categoryName}}</td>
+					<td style="border-right:white"><form action="deletecategory"> <button class="aa-browse-btn" name="categoryId" type="submit" value={{listValue.categoryId}}>Delete</button></form></td>
+					<td><form action="editcategory"><button class="aa-browse-btn" name="categoryId" type="submit" value={{listValue.categoryId}}>Edit</button></form></td>
 					</tr>
-					</c:forEach>
+<%-- 					</c:forEach> --%>
 					    </tbody>
                   </table>
                 </div>
@@ -171,14 +169,14 @@
 
  <%@ include file="footer.jsp"%>
  
-<!--  <script> -->
-//   var category = ${list}; 
-//   angular.module('productTable',[]).controller('ProductController', function($scope)  
-//    {
-//           $scope.Category=category;  
+ <script>
+  var category = ${list}; 
+  angular.module('categoryTable',[]).controller('CategoryController', function($scope)  
+   {
+          $scope.Category=category;  
                   
-//     });
-<!-- </script> -->
+    });
+ </script> 
  
  
   <!-- jQuery library -->

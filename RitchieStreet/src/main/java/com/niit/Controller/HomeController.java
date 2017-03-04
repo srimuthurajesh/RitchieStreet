@@ -12,7 +12,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -79,6 +78,20 @@ Logger log=LoggerFactory.getLogger(HomeController.class);  //creating logging ob
 		log.debug("leaving aboutus controller");
 		return "aboutus";
 	}
+
+	@RequestMapping(value="/contactus")
+	public String contactus(Model m, HttpSession session){
+		log.debug("inside contactus controller");
+		m.addAttribute("categoryList", categoryDAO.getCategoryList());
+		
+		String User = (String)session.getAttribute("User");
+		m.addAttribute("cartList", orderDAO.getOrderListbyname(User));
+		m.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
+		
+		log.debug("leaving aboutus controller");
+		return "contactus";
+	}
+
 	
 
 	//-------------------------------------------------------index page----------------------------------------------------------------------------------------------
@@ -126,7 +139,15 @@ Logger log=LoggerFactory.getLogger(HomeController.class);  //creating logging ob
 	@RequestMapping(value = "/registersuccess", method = RequestMethod.POST)				//mapping for "/registersuccess"
     public ModelAndView hello(@ModelAttribute("userModel") User userModel) {
 	    log.debug("inside controller for /registersuccess");
-	if (userDAO.validationRegistration(userModel)) { //chekcing registration process
+	if(userDAO.getbyId(userModel.getUsername()) != null){
+		ModelAndView model = new ModelAndView("register");
+		model.addObject("msg", "Username already existed, please try another username");
+		model.addObject("categoryList", categoryDAO.getCategoryList());
+		
+		return model;
+	}
+	else{
+	    userDAO.validationRegistration(userModel);  //chekcing registration process
 		    log.debug("inside if registration is true");
 			ModelAndView model = new ModelAndView("userpage");
 			model.addObject("categoryList", categoryDAO.getCategoryList());
@@ -134,14 +155,8 @@ Logger log=LoggerFactory.getLogger(HomeController.class);  //creating logging ob
 			model.addObject("userModel", userModel);
 			model.addObject("msg","Registered Successfully");
 			return model;
-			
-		} else {
-		    log.debug("inside if registration is false");
-			ModelAndView model = new ModelAndView("login");
-			return model;
-
+	}	
 		}
-	}
 	
 	//-------------------------------------------------------User Login----------------------------------------------------------------------------------------------
     @SuppressWarnings("unchecked")
@@ -197,14 +212,6 @@ Logger log=LoggerFactory.getLogger(HomeController.class);  //creating logging ob
 	mv.addObject("categoryList", categoryDAO.getCategoryList());
 	return mv;
     }
-    
-    @ExceptionHandler(Exception.class)
-	public String handleAllException(Exception ex) {
-
-		return "404error";
-
-	}
-
 	}
 
 

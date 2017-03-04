@@ -83,7 +83,7 @@
   
 	    
   
-<section id="aa-myaccount">
+<section id="aa-myaccount" >
    <div class="container">
      <div class="row">
        <div class="col-md-12">
@@ -131,20 +131,20 @@
     padding: 10px;  
     width: 100%;"/>  
 					
-					<label for="">Category Id</label>
+						<label for="" style="width:49%">Category Name</label><label for="">Supplier Name</label>  
+  			
 						<form:select path="CategoryModel.categoryName" items="${categorylist}"  itemValue="categoryName" itemLabel="categoryName" style="border: 1px solid #ccc;
       font-size: 16px;    
       height: 40px;    
       margin-bottom: 15px;    
       padding: 10px;    
-      width: 100%;" />    
-    					<label for="">Supplier Id</label>    
+      width: 48%;" />    &nbsp;&nbsp;&nbsp;&nbsp;
     					<form:select path="SupplierModel.supplierName" items="${supplierlist}" itemValue="supplierName" itemLabel="supplierName" style="border: 1px solid #ccc;    
       font-size: 16px;    
     height: 40px;  
     margin-bottom: 15px;  
     padding: 10px;  
-    width: 100%;" />  
+    width: 49%;" />  
 					
    						<label for="">image:</label>   
    						 <form:input type="file"  path="image" style="border: 1px solid #ccc;
@@ -245,17 +245,21 @@
 
  
 <!--      Cart view section     -->
-   <section id="cart-view" >  
-     <div class="container" >  
-       <div class="row" >  
-         <div class="col-md-12">  
-           <div class="cart-view-area" >  
-             <div class="cart-view-table" >  
-  			<div class="page-header"><strong><h3>Product List</h3></strong> 
+  			
+  			<section id="cart-view">
+   <div class="container">
+     <div class="row">
+       <div class="col-md-12">
+         <div class="cart-view-area">
+           <div class="cart-view-table">
+			<div class="page-header"><h3><strong>Product List</strong></h3></div>
+  			      
+  			      
+  			      
   			<div style="position:relative;left:570px"><strong> Search Products:&nbsp;&nbsp;&nbsp;</strong> 
-  			<input type="text"  placeholder="&nbsp;&nbsp;&nbsp;Search here Products, Brands , names etc " ng-model="searchText" 
+  			<input type="text"  placeholder="Search here Products, Brands , names etc " ng-model="searchText" 
   			   style=" height: 40px;
-  width: 35%;" class="aa-search-box"/></div>  </div>
+  width: 35%;padding:10px" class="aa-search-box"/></div>  <br>
 				 
                  <div class="table-responsive">  
                  

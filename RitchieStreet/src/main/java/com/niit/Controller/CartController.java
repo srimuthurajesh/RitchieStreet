@@ -142,10 +142,16 @@ public class CartController {
 	    public String removeorder(@RequestParam("orderid")int orderid, @RequestParam("username")String username, Model model){
 		 log.debug("inside remove order controller");
 		 model.addAttribute("categoryList", categoryDAO.getCategoryList());
-			 orderDAO.remove(orderid);
-			 model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
+			model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
 			 log.debug("leaving remove order controller");
-			 return "cartpage";
+					
+		 try{ orderDAO.remove(orderid);
+		 return "cartpage";
+				}
+			catch(Exception e){
+				 return "cartpage";
+						
+			}
 		 }
 	
 	

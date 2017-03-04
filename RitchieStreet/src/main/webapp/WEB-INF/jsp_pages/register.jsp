@@ -245,7 +245,7 @@ font-size:smaller;
  
                     
                     <label for="">Choose Your Username<span>*</span></label>
-                    <form:input type="text" id="username" placeholder="Username" path="username" required="true"/><span id="resultusername"></span><br>
+                    <form:input type="text" id="username" placeholder="Username" path="username" required="true"/><span id="resultusername"></span><div style="color:red">${msg }</div><br>
                     
                     <label for="">Create Your Password<span>*</span></label>
                     <form:input id="password" type="password" placeholder="Password" path="password" required="true" /><span id="result"></span><br>
@@ -276,7 +276,7 @@ font-size:smaller;
                     <label for="" style="width:52%;">Town/City</label><label for="">Pin-Code</label>  <br>
                     <form:input type="text" placeholder="City" path="cityname" style="width:48%;"/>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 
-                    <form:input type="text" placeholder="Pincode" path="pincode" title="Pincode should starts 6, and have 6 numbers: xxxxxx" maxlength="6" style="width:48%;"  /><br>
+                    <form:input type="text" placeholder="Pincode" path="pincode" title="Pincode should have six numbers" minlength="6" maxlength="6" style="width:48%;"  /><br>
                     
                     
                     <button type="submit"  name="_eventId_hui" class="aa-browse-btn">Register</button>                      
