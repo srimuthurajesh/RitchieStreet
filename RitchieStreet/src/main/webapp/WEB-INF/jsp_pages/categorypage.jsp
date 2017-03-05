@@ -79,13 +79,12 @@
                     </figcaption>
                   </figure>                         
                   <div class="aa-product-hvr-content">
-                    <a href="#" data-toggle2="tooltip" data-placement="top" style="width:50px;" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>                            
+                    <a href="#" data-toggle2="tooltip" data-placement="top" style="width:50px;" title="Quick View" data-toggle="modal" data-target="#quick-view-modal{{productList.productId}}"><span class="fa fa-search"></span></a>                            
                   </div>
-                  </li>         
-<%--                 </c:forEach>                                  --%>
-              </ul>
+                  
+                  
               <!-- quick view modal -->                  
-              <div class="modal fade" id="quick-view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal fade" id="quick-view-modal{{productList.productId}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">                      
                     <div class="modal-body">${search }
@@ -102,50 +101,42 @@
                                       </a>
                                   </div>
                               </div>
-                              <div class="simpleLens-thumbnails-container">
-                                  <a href="#" class="simpleLens-thumbnail-wrapper"
-                                     data-lens-image="<c:url value="/resources/product/{{productList.productId }.png"/>"
-                                     data-big-image="<c:url value="/resources/product/{{productList.productId }.png"/>">
-                                      <img src="<c:url value="/resources/product/{{productList.productId }.png"/>">
-                                  </a>                               </div>
+<!--                               <div class="simpleLens-thumbnails-container"> -->
+<!--                                   <a href="#" class="simpleLens-thumbnail-wrapper" -->
+<%--                                      data-lens-image="<c:url value="/resources/product/{{productList.productId }}.png"/>" --%>
+<%--                                      data-big-image="<c:url value="/resources/product/{{productList.productId }}.png"/>"> --%>
+<%--                                       <img src="<c:url value="/resources/product/{{productList.productId }}.png"/>"> --%>
+<!--                                   </a>                               </div> -->
                             </div>
                           </div>
                         </div>
                         <!-- Modal view content -->
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div class="aa-product-view-content">
-                            <h3>T-Shirt</h3>
+                            <h3><a href="productpage?productId={{productList.productId}}">{{productList.productName}}</a></h3>
                             <div class="aa-price-block">
-                              <span class="aa-product-view-price">$34.99</span>
+                              <span class="aa-product-view-price"><i class="fa fa-inr"></i> {{productList.productPrice }}-/</span>
                               <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis animi, veritatis quae repudiandae quod nulla porro quidem, itaque quis quaerat!</p>
-                            <h4>Size</h4>
-                            <div class="aa-prod-view-size">
-                              <a href="#">S</a>
-                              <a href="#">M</a>
-                              <a href="#">L</a>
-                              <a href="#">XL</a>
-                            </div>
+                            <p>{{productList.productDescription }}</p>
+                             <form action="addtocart">
+                 
                             <div class="aa-prod-quantity">
-                              <form action="">
-                                <select name="" id="">
-                                  <option value="0" selected="1">1</option>
-                                  <option value="1">2</option>
-                                  <option value="2">3</option>
-                                  <option value="3">4</option>
-                                  <option value="4">5</option>
-                                  <option value="5">6</option>
-                                </select>
-                              </form>
-                              <p class="aa-prod-category">
-                                Category: <a href="#">Polo T-Shirt</a>
+            Quantity:
+  <input type="number" name="quantity" value="1" min="1" max="5"><br>
+<input type="hidden" name="username" value="${User}">
+<input type="hidden" name="productId" value="${productbyId.productId }">      
+    <p class="aa-prod-category">
+ <p class="aa-prod-category">
+                                Category: <a href="categorypage?categoryId=${categoryId}">${categoryName}</a>
                               </p>
                             </div>
-                            <div class="aa-prod-view-bottom">
-                              <a href="#" class="aa-add-to-cart-btn"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                              <a href="#" class="aa-add-to-cart-btn">View Details</a>
-                            </div>
+                              <div class="aa-prod-view-bottom">
+<%--                       <a class="aa-add-to-cart-btn" href="addtocart?username=${User}&productId=${productbyId.productId}&quantity="quantity">Add To Cart</a> --%>
+                   
+  <input class="aa-add-to-cart-btn" type="submit" name="action" value="Add to cart">
+  <input class="aa-add-to-cart-btn" type="submit" name="action" value="BuyNow"></div>
+</form>
                           </div>
                         </div>
                       </div>
@@ -154,6 +145,11 @@
                 </div><!-- /.modal-dialog -->
               </div>
               <!-- / quick view modal -->   
+                  
+                  
+                  </li>         
+<%--                 </c:forEach>                                  --%>
+              </ul>
             </div>
             <div class="aa-product-catg-pagination">
               <nav>

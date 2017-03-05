@@ -142,18 +142,35 @@ public class CartController {
 	    public String removeorder(@RequestParam("orderid")int orderid, @RequestParam("username")String username, Model model){
 		 log.debug("inside remove order controller");
 		 model.addAttribute("categoryList", categoryDAO.getCategoryList());
-			model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
 			 log.debug("leaving remove order controller");
 					
 		 try{ orderDAO.remove(orderid);
+		 model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
 		 return "cartpage";
 				}
 			catch(Exception e){
-				 return "cartpage";
+				model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
+				return "cartpage";
 						
 			}
 		 }
-	
+	//-------------------------------------------------------Remove from cart----------------------------------------------------------------------------------------------
+		 @RequestMapping(value="/removeall",method=RequestMethod.GET)
+		    public String removeall(@RequestParam("username")String username, Model model){
+			 log.debug("inside remove all order controller");
+			 model.addAttribute("categoryList", categoryDAO.getCategoryList());
+				 log.debug("leaving remove order controller");
+						
+			 try{ orderDAO.removeorderbycartid(username);
+			 model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
+			 return "cartpage";
+					}
+				catch(Exception e){
+					model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
+					return "cartpage";
+							
+				}
+			 }
 	
 	 
 

@@ -157,6 +157,8 @@ public class ProductController {
     	  log.debug("inside categorypage controller");
     	  //model.addAttribute("values", productDAO.getProductListbycategory(categoryId));
 	model.addAttribute("categoryList", categoryDAO.getCategoryList());
+	model.addAttribute("categoryName",categoryDAO.getById(categoryId).getCategoryName());
+	model.addAttribute("categoryId",categoryDAO.getById(categoryId).getCategoryId());
 	
 	String User = (String)session.getAttribute("User");
 	model.addAttribute("cartList", orderDAO.getOrderListbyname(User));

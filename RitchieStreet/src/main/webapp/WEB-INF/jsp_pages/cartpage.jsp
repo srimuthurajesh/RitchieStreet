@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>RitchieStreet| Home</title>
+    <title>RitchieStreet| Cart</title>
     
     <!-- Font awesome -->
     <link href="<c:url value="/resources/css/font-awesome.css"/>" rel="stylesheet">
@@ -55,7 +55,7 @@
        <div class="col-md-12">
          <div class="cart-view-area">
            <div class="cart-view-table">
-            <c:if test="${ cartList  !empty  }">
+            <c:if test="${ not empty cartList  }">
                  <form action="">
                <div class="table-responsive">
                   <table class="table">
@@ -79,8 +79,7 @@
                         <td><i class="fa fa-inr" ></i> ${cartList.productModel.productPrice} /-</td>
                         <td>${cartList.quantity}</td>
                         <td>${cartList.total}</td>
-						<td><a href="removeorder?orderid=${cartList.orderid}&username=${cartList.user.username}">Remove</a></td>
-			 </tr>
+						<td><a class="aa-cart-view-btn" style="margin-right:80px" href="removeorder?orderid=${cartList.orderid}&username=${cartList.user.username}"> Remove</a> 		 </tr>
 	
 				     <c:set var="grandtotal" value="${grandtotal + cartList.total}" />
 				      
@@ -100,11 +99,24 @@
                      <td><strong id="total"><span id="sum"><i class="fa fa-inr" ></i> ${grandtotal} /-</span></strong></td>
                    </tr>
                  </tbody>
-               </table>
+               </table><a href="removeall?username={User}">Remove all products</a>
 <%--                <a href="checkout?username=${User}" class="aa-cart-view-btn">Proceed to Checkout</a> --%>
                <a href="indexpage"><button class="aa-cart-view-btn"> <span class="glyphicon glyphicon-arrow-left"></span> Continue Shopping</button></a>
              <a href="webflow" class="aa-cart-view-btn">Proceed to Checkout <span class="glyphicon glyphicon-arrow-right"></span></a>
              </div></c:if>
+               <c:if test="${  empty cartList  }">
+          <div class="page-header"><h2>Your cart is empty</h2></div><br>
+             <div class="cart-view-total">
+             
+             
+             
+<%--                <a href="checkout?username=${User}" class="aa-cart-view-btn">Proceed to Checkout</a> --%>
+               <a href="indexpage"><button class="aa-cart-view-btn"> <span class="glyphicon glyphicon-arrow-left"></span> Continue Shopping</button></a>
+             </div>
+             
+             
+             
+          </c:if>
            </div>
          </div>
        </div>

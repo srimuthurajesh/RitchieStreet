@@ -119,7 +119,7 @@
                 <!-- cart box -->
 			    <div class="hidden-xs">
               <div class="aa-cartbox">
-                <a class="aa-cart-link"  href="" >
+                <a class="aa-cart-link"  href="cartpage?username=${User }" >
                   <span class="fa fa-shopping-basket"></span>
                   <span class="aa-cart-title">Cart</span>
                   <c:choose><c:when test="${  empty cartList}">
