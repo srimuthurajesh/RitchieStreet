@@ -6,6 +6,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <link rel="icon" type="image/png"  href="<c:url value="/resources/img/logo1.png"/>" sizes="16x16">
+  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
@@ -56,7 +58,7 @@
          <div class="cart-view-area">
            <div class="cart-view-table">
             <c:if test="${ not empty cartList  }">
-                 <form action="">
+                 <form action="addingquantity">
                <div class="table-responsive">
                   <table class="table">
                     <thead>
@@ -68,18 +70,26 @@
                         <th>Quantity</th>
                         <th>Total</th>
 						<th>Remove</th>
+						<th>Update</th>
+					
 					  </tr>
                     </thead>
                     <tbody >
                     <c:set var="grandtotal" value="${0}"/>
                     <c:forEach var="cartList" items="${cartList}">
+                    
+<input type="hidden" name="username" value="${User}">
+<input type="hidden" name="productId" value="${cartList.productModel.productId }">      
+                    
                                <tr>			
-                        <td><a href="productpage?productId=${cartList.productModel.productId}"><img src="<c:url value="/resources/product/${cartList.productModel.productId }.png"/>" alt="img"></a></td>
+                        <td><a href="productpage?productId=${cartList.productModel.productId}">
+                        <img src="<c:url value="/resources/product/${cartList.productModel.productId }.png"/>" alt="img"></a></td>
                         <td><a class="aa-cart-title" href="#">${cartList.productModel.productName}</a></td>
                         <td><i class="fa fa-inr" ></i> ${cartList.productModel.productPrice} /-</td>
-                        <td>${cartList.quantity}</td>
+                        <td>  <input type="number" name="quantity" value="${cartList.quantity}" min="1" max="50" style="padding:10px"></td>
                         <td>${cartList.total}</td>
-						<td><a class="aa-cart-view-btn" style="margin-right:80px" href="removeorder?orderid=${cartList.orderid}&username=${cartList.user.username}"> Remove</a> 		 </tr>
+						<td><a class="aa-cart-view-btn" style="margin-right:55px" href="removeorder?orderid=${cartList.orderid}&username=${cartList.user.username}"> Remove</a> </td>
+						<td> <input class="aa-cart-view-btn" type="submit" value="update" style="margin-right:55px"></td>		 </tr>
 	
 				     <c:set var="grandtotal" value="${grandtotal + cartList.total}" />
 				      
@@ -101,8 +111,9 @@
                  </tbody>
                </table><a href="removeall?username={User}">Remove all products</a>
 <%--                <a href="checkout?username=${User}" class="aa-cart-view-btn">Proceed to Checkout</a> --%>
-               <a href="indexpage"><button class="aa-cart-view-btn"> <span class="glyphicon glyphicon-arrow-left"></span> Continue Shopping</button></a>
              <a href="webflow" class="aa-cart-view-btn">Proceed to Checkout <span class="glyphicon glyphicon-arrow-right"></span></a>
+               <a href="indexpage"><button class="aa-cart-view-btn"> <span class="glyphicon glyphicon-arrow-left"></span> Continue Shopping</button></a>
+         
              </div></c:if>
                <c:if test="${  empty cartList  }">
           <div class="page-header"><h2>Your cart is empty</h2></div><br>

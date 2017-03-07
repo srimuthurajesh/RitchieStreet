@@ -130,8 +130,40 @@ query2.executeUpdate();
 			session.getTransaction().commit();
 			session.close();
 		   return false;
-		}	}}
+		}	}
 
 	    
 
+@Transactional
+@SuppressWarnings({ "unchecked", "deprecation", "rawtypes" })
+public boolean updatequantity(String username, String productId, int quantity) {
 
+
+log.debug("inside getByName in categoryDAOImpl");
+Session session = sessionFactory.openSession();
+session.beginTransaction();
+
+String hql = "from OrderModel where username =" + "'" + username + "'"+" and productId =" + "'" + productId+"'";
+Query<OrderModel> query = sessionFactory.getCurrentSession().createQuery(hql);
+
+
+int total=quantity*query.uniqueResult().getProductModel().getProductPrice();
+System.out.println("total"+total);
+int orderId=query.uniqueResult().getOrderid();
+Query query1 = session.createQuery("update OrderModel set quantity = :quantity " +
+		" where orderid = :orderid");
+query1.setParameter("quantity", quantity);
+
+query1.setParameter("orderid", orderId);
+query1.executeUpdate();
+Query query2 = session.createQuery("update OrderModel set total = :total " +
+" where orderid = :orderid");
+query2.setParameter("total", total);
+
+query2.setParameter("orderid", orderId);
+query2.executeUpdate();
+
+session.getTransaction().commit();
+	session.close();
+return true;
+}}

@@ -1,5 +1,6 @@
 package com.niit.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
 import com.niit.DAO.CategoryDAO;
 import com.niit.DAO.OrderDAO;
 import com.niit.DAO.ProductDAO;
@@ -22,6 +24,7 @@ import com.niit.DAO.UserDAO;
 import com.niit.entityModel.AddressModel;
 import com.niit.entityModel.CarddetailModel;
 import com.niit.entityModel.OrderModel;
+import com.niit.entityModel.ProductModel;
 @Controller
 public class CartController {
 	Logger log = LoggerFactory.getLogger(CategoryController.class);
@@ -45,10 +48,18 @@ public class CartController {
 {
 			 
 			  log.debug("inside categorypage controller");
-	    	  model.addAttribute("values", productDAO.getProductListbytag(tag));
+//	    	  model.addAttribute("values", productDAO.getProductListbytag(tag));
 		model.addAttribute("categoryList", categoryDAO.getCategoryList());
 		
 		String User = (String)session.getAttribute("User");
+		
+
+
+		  ArrayList<ProductModel> list=(ArrayList<ProductModel>)productDAO.getProductListbytag(tag);
+			Gson gson= new Gson();
+			String jsonString= gson.toJson(list);
+		model.addAttribute("productList", jsonString);
+		
 		model.addAttribute("cartList", orderDAO.getOrderListbyname(User));
 		model.addAttribute("cartsize", orderDAO.getOrderListbyname(User).size());
 		model.addAttribute("search","Search results for "+tag);
@@ -122,8 +133,27 @@ public class CartController {
 				return "productpage";
 		 }
 	    }}
-	
 
+	 
+	 
+	 @RequestMapping(value="/addingquantity",method=RequestMethod.GET)
+	    public String addtoquantityu(@RequestParam("username")String username, @RequestParam("productId")String productId, @RequestParam("quantity") int quantity, HttpSession session,Model model){
+
+		 orderDAO.updatequantity(username, productId, quantity);
+		 model.addAttribute("categoryList", categoryDAO.getCategoryList());
+		 model.addAttribute("cartList", orderDAO.getOrderListbyname(username));
+		model.addAttribute("cartsize", orderDAO.getOrderListbyname(username).size());
+		model.addAttribute("cartId", "ganesh");
+			 log.debug("leaving addtocart controller");
+		return "cartpage";
+		}
+			 
+	 
+	 
+	 
+	 
+	 
+	 
 	//-------------------------------------------------------Add to cart without quantity----------------------------------------------------------------------------------------------
 	 @RequestMapping(value="/cartpage",method=RequestMethod.GET)
 	    public String addtocart(@RequestParam("username")String username, HttpSession session, Model model){

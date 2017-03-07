@@ -7,6 +7,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <link rel="icon" type="image/png"  href="<c:url value="/resources/img/logo1.png"/>" sizes="16x16">
+  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
@@ -185,12 +187,12 @@ We are available to service 24/7,Our promise is to delight customers</P>
         <div class="col-md-12">
           <div class="aa-client-brand-area">
             <ul class="aa-client-brand-slider">
-              <li><a href="#"><img src="<c:url value="/resources/img/client-brand2.png"/>" ></a></li>
-              <li><a href="#"><img src="<c:url value="/resources/img/client-brand1.png"/>" alt="java img"></a></li>
-              <li><a href="#"><img src="<c:url value="/resources/img/client-brand3.png"/>"></a></li>
-              <li><a href="#"><img src="<c:url value="/resources/img/client-brand4.png"/>"></a></li>
-              <li><a href="#"><img src="<c:url value="/resources/img/client-brand7.png"/>"></a></li>
-              <li><a href="#"><img src="<c:url value="/resources/img/client-brand6.png"/>"></a></li>
+              <li><a href="#"><img src="<c:url value="/resources/img/client-brand2.png"/>" style="width:140px"></a></li>
+              <li><a href="#"><img src="<c:url value="/resources/img/client-brand1.png"/>" style="width:140px" alt="java img"></a></li>
+              <li><a href="#"><img src="<c:url value="/resources/img/client-brand3.png"/>" style="width:140px"></a></li>
+              <li><a href="#"><img src="<c:url value="/resources/img/client-brand4.png"/>" style="width:140px"></a></li>
+              <li><a href="#"><img src="<c:url value="/resources/img/client-brand7.png"/>" style="width:140px"></a></li>
+              <li><a href="#"><img src="<c:url value="/resources/img/client-brand6.png"/>" style="width:140px"></a></li>
                </ul>
           </div>
         </div>
@@ -209,7 +211,7 @@ We are available to service 24/7,Our promise is to delight customers</P>
           <div class="aa-subscribe-area">
             <h3>Subscribe our newsletter </h3>
             <p>Get latest updates sale, chance to win coupons and amazing prizes</p>
-            <form action="" class="aa-subscribe-form">
+            <form action="indexpage" class="aa-subscribe-form">
               <input type="email" name="" id="" placeholder="Enter your Email">
               <input type="submit" value="Subscribe">
             </form>

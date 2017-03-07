@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@SuppressWarnings("serial")
+@SuppressWarnings("serial") //Indicates that the named compiler warnings should be suppressed in the annotated element 
 @Entity
 @Table(name = "USER")
 public class User implements Serializable { //Serializable is a markup interface, implemented to make model class persist. makes database to understand

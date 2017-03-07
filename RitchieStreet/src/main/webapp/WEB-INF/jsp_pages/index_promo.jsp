@@ -53,56 +53,61 @@
           <div class="aa-promo-area">
             <div class="row">
               <!-- promo left -->
-              <div class="col-md-5 no-padding">                
+              <div class="col-md-5 no-padding"> 
+               <a href="categorypage?categoryId=C3">                
                 <div class="aa-promo-left">
                   <div class="aa-promo-banner">                    
                     <img src="<c:url value="/resources/img/promo-banner-1.jpg"/>" alt="img">                    
                     <div class="aa-prom-content">
-                    <a href="categorypage?categoryId=C3">  <span>Embedded Systems</span></a>
+<!--                      <span>Embedded Systems</span> -->
 <!--                       <h4><a href="#">Embedded Systems</a></h4>                       -->
                     </div>
                   </div>
                 </div>
-              </div>
+              </div></a>
               <!-- promo right -->
               <div class="col-md-7 no-padding">
                 <div class="aa-promo-right">
+                 <a href="categorypage?categoryId=C2">
                   <div class="aa-single-promo-right">
                     <div class="aa-promo-banner">                      
                       <img src="<c:url value="/resources/img/promo-banner-3.jpg"/>" alt="img">                      
                       <div class="aa-prom-content">
-                        <a href="categorypage?categoryId=C2">  <span>Robotics</span></a>
+<!--                         <a href="categorypage?categoryId=C2">  <span>Robotics</span></a> -->
 <%--                         <h4><a href="<c:url value='editproduct/${category}' />">MicroControllers</a></h4>                         --%>
                       </div>
                     </div>
-                  </div>
+                  </div></a>
+                  <a href="categorypage?categoryId=C6">
                   <div class="aa-single-promo-right">
                     <div class="aa-promo-banner">                      
                       <img src="<c:url value="/resources/img/promo-banner-2.jpg"/>" alt="img">                      
                       <div class="aa-prom-content">
 <!--                         <span>Sale Off</span> -->
-                        <a href="categorypage?categoryId=C6">  <span>Applications</span></a>                      
+<!--                         <a href="categorypage?categoryId=C6">  <span>Applications</span></a>                       -->
                       </div>
                     </div>
-                  </div>
+                  </div></a>
+                  <a href="categorypage?categoryId=C5">
                   <div class="aa-single-promo-right">
                     <div class="aa-promo-banner">                      
                       <img src="<c:url value="/resources/img/promo-banner-4.jpg"/>" alt="img">                      
                       <div class="aa-prom-content">
 <!--                         <span>New Arrivals</span> -->
-                        <a  href="categorypage?categoryId=C5"><span>Tools & Supplies</span></a>                     
+<!--                         <a  href="categorypage?categoryId=C5"><span>Tools & Supplies</span></a>                      -->
                       </div>
                     </div>
-                  </div>
+                  </div></a>
+                  <a href="categorypage?categoryId=C7">
                   <div class="aa-single-promo-right">
                     <div class="aa-promo-banner">                      
                       <img src="<c:url value="/resources/img/promo-banner-5.jpg"/>" alt="img">                      
                       <div class="aa-prom-content">
-                        <span>Wires & Controllers</span>
-       <h4>                 <a  href="categorypage?categoryId=C7"></a>          </h4>             
+<!--                         <span>Wires & Controllers</span> -->
+<!--        <h4>                 <a  href="categorypage?categoryId=C7"></a>          </h4>              -->
                       </div>
                     </div>
-                  </div>
+                  </div></a>
                 </div>
               </div>
             </div>

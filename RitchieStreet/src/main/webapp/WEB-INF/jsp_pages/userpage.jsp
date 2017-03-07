@@ -5,11 +5,14 @@
 
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
+  <link rel="icon" type="image/png"  href="<c:url value="/resources/img/logo1.png"/>" sizes="16x16">
+  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>RitchieStreet| Home</title>
+    <title>RitchieStreet| Profile</title>
     
     <!-- Font awesome -->
     <link href="<c:url value="/resources/css/font-awesome.css"/>" rel="stylesheet">
@@ -67,9 +70,12 @@
                                 <table class="table table-user-information" >
                                     <tbody><col width="200">
   <col width="200">
+
+       
+       
   
                                     <tr>
-                                            <td><span class="glyphicon glyphicon-asterisk text-primary"></span>&nbsp;&nbsp;Username </td>
+                                            <td><span class="glyphicon glyphicon-user text-primary"></span>&nbsp;&nbsp;Username </td>
                                             <td>:&nbsp;&nbsp; ${userDetails.username }</td>
                                      </tr>  
                                         <tr>
@@ -104,7 +110,15 @@
 
                                     </tbody>
                                 </table>
-     <a href="register"><button href="loginpage"class="aa-browse-btn">Login here</button></a>   </div>
+                                   <c:if test="${ Loggedin != true }">
+             
+     <a href="register"><button href="loginpage"class="aa-browse-btn">Login here</button></a> </c:if>
+     
+<%--          <c:if test="${ Loggedin = true }"> --%>
+<%--              <a href="edituser?username=${User}"><button href="loginpage"class="aa-browse-btn">Edit Profile</button></a> --%>
+<%--               </c:if> --%>
+     
+       </div>
 	</div>
 </div>
  

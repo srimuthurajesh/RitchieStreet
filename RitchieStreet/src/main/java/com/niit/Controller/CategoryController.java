@@ -34,7 +34,7 @@ log.debug("inside category controller");		//performing a logger debug
 
 		 ArrayList<CategoryModel> list=(ArrayList<CategoryModel>)categoryDAO.getCategoryList();
 	  		Gson gson= new Gson();
-	  		model.addObject("supplierList", gson.toJson(list));
+	  		model.addObject("categoryList", gson.toJson(list));
 	  model.addObject("page_name", "Category");
 	log.debug("leaving category controller");
 		return model;

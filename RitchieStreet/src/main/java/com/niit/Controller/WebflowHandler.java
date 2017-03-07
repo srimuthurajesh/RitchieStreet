@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.niit.DAO.OrderDAO;
+import com.niit.DAO.UserDAO;
 import com.niit.entityModel.AddressModel;
 import com.niit.entityModel.CarddetailModel;
 
@@ -15,12 +16,17 @@ public class WebflowHandler {
 	@Autowired
 	public OrderDAO orderDAO;
 	
+	@Autowired
+	public UserDAO userDAO;
+	
 	public AddressModel initFlow(){
 		return new AddressModel();
 	}
+	
 	public CarddetailModel initFlow2(){
 		return new CarddetailModel();
 	}
+	
 	public AddressModel validate(AddressModel addressModel){
 		System.out.println(addressModel.getBillingCity());
 		return addressModel;
@@ -28,5 +34,10 @@ public class WebflowHandler {
 
 	public void initFlow4(){
 		orderDAO.removeorderbycartid((String) session.getAttribute("User"));
+	}
+	
+	public AddressModel addAddress(AddressModel addressModel){
+		userDAO.addAddress(addressModel);
+		return addressModel;
 	}
 }

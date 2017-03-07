@@ -6,6 +6,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="icon" type="image/png"  href="<c:url value="/resources/img/logo1.png"/>" sizes="16x16">
+  
 <title>RitchieStreet|Admin_home </title>
 
   
@@ -67,7 +69,7 @@
       <div class="aa-catg-head-banner-content">
         <h2>Admin Page</h2>
         <ol class="breadcrumb">
-          <li><a href="index.html">Home / </a></li>                   
+          <li><a href="index.html">Home  </a></li>                   
           <li class="active">${page_name}</li>
         </ol>
       </div>

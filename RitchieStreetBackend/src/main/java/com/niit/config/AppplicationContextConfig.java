@@ -23,25 +23,25 @@ import com.niit.entityModel.ProductModel;
 import com.niit.entityModel.SupplierModel;
 import com.niit.entityModel.User;
 
-@Configuration 						 //Indicates that a class declares one or more @Bean methods and may be processed by the Spring container to generate bean definitions and service requests for those beans at runtime -->
+@Configuration 						//Indicates that a class declares one or more @Bean methods and may be processed by the Spring container to generate bean definitions and service requests for those beans at runtime -->
 @ComponentScan("com.niit")  		//Configures component scanning directives for use with @Configuration classes
 @EnableTransactionManagement  		//Enables Spring's annotation-driven transaction management capability, similar to the support found in Spring's <tx:*> XML namespace
 public class AppplicationContextConfig {    
-	@Bean(name = "dataSource")        //@Bean is a method-level annotation and a direct analog of the XML <bean/> element
-	public DataSource getDataSource() {     //Spring obtains a connection to the database through a DataSource
+	@Bean(name = "dataSource")        							//@Bean is a method-level annotation and a direct analog of the XML <bean/> element
+	public DataSource getDataSource() {     					//Spring obtains a connection to the database through a DataSource
 	    DriverManagerDataSource dataSource = new DriverManagerDataSource();   //Simple implementation of the standard JDBC DataSource interface, configuring the plain old JDBC DriverManager via bean properties, and returning a new Connection from every getConnection call.
-	    dataSource.setDriverClassName("org.h2.Driver");
-	dataSource.setUrl("jdbc:h2:tcp://localhost/~/test3");
+	    dataSource.setDriverClassName("org.h2.Driver");			//software component enabling a Java application to interact with a database.
+	dataSource.setUrl("jdbc:h2:tcp://localhost/~/test3");		//address used to locate database
 	    dataSource.setUsername("sa");
 	dataSource.setPassword("sa");
 	 
 	    return dataSource;
 	}
-	private Properties getHibernateProperties() {		// Properties class is a subclass of Hashtable and represents a persistent set of properties
+	private Properties getHibernateProperties() {									// Properties class is a subclass of Hashtable and represents a persistent set of properties
 	    Properties properties = new Properties();
-	    properties.put("hibernate.show_sql", "true");
-	    properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-	   properties.put("hibernate.hbm2ddl.auto", "update");
+	    properties.put("hibernate.show_sql", "true");								// Display Hibernate SQL to console
+	    properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");		//This property makes Hibernate generate the appropriate SQL for the chosen database. 
+	   properties.put("hibernate.hbm2ddl.auto", "update");							//validates or exports schema DDL to the database when the SessionFactory is created, create | update | validate | create-drop
 	    return properties;
 	}
 
@@ -50,8 +50,8 @@ public class AppplicationContextConfig {
 	public SessionFactory getSessionFactory(DataSource dataSource) { //SessinoFactorycreate Session instance, Once it is created this internal state is set. This internal state includes all of the metadata about Object/Relational Mapping. immutable, thread safe
 	 
 	 LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource); //providing convenient ways to specify a DataSource and an application class loader
-	 sessionBuilder.addProperties(getHibernateProperties());	//Add the given hibernate properties
-	sessionBuilder.addAnnotatedClasses(User.class);     		//Add the given annotated classes in a batch
+	 sessionBuilder.addProperties(getHibernateProperties());								//Add the given hibernate properties
+	sessionBuilder.addAnnotatedClasses(User.class);     									//Add the given annotated classes in a batch
 	sessionBuilder.addAnnotatedClasses(CategoryModel.class);
 	sessionBuilder.addAnnotatedClasses(SupplierModel.class);
 	sessionBuilder.addAnnotatedClasses(ProductModel.class);

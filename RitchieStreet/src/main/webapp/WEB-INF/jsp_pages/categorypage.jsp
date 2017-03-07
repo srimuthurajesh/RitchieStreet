@@ -1,5 +1,3 @@
-
-
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -7,6 +5,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="icon" type="image/png"  href="<c:url value="/resources/img/logo1.png"/>" sizes="16x16">
+  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
@@ -42,12 +42,19 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   
+  
+  
+  
 
   </head>
-  <body ng-app="productTable" ng-controller="ProductController">  
-  
-  
+   <body  ng-app="productTable" ng-controller="ProductController">
+   
       <%@ include file="header.jsp"%>
+      
+      
+      
+      
+      
       
       
      <!-- product category -->
@@ -200,21 +207,21 @@
               </div>
             </div>
             <!-- single sidebar -->
-            <div class="aa-sidebar-widget">
-              <h3>Shop By Price</h3>              
-              <!-- price range -->
-              <div class="aa-sidebar-price-range">
-               <form action="">
-                  <div id="skipstep" class="noUi-target noUi-ltr noUi-horizontal noUi-background"  >
-                  </div>
-                  <span id="skip-value-lower" class="example-val">30.00</span>
-                 <span id="skip-value-upper" class="example-val">100.00</span>
-                 <button class="aa-filter-btn" type="submit">Filter</button>
-               </form>
-              </div>              
+<!--             <div class="aa-sidebar-widget"> -->
+<!--               <h3>Shop By Price</h3>               -->
+<!--               price range -->
+<!--               <div class="aa-sidebar-price-range"> -->
+<%--                <form action=""> --%>
+<!--                   <div id="skipstep" class="noUi-target noUi-ltr noUi-horizontal noUi-background"  > -->
+<!--                   </div> -->
+<!--                   <span id="skip-value-lower" class="example-val">30.00</span> -->
+<!--                  <span id="skip-value-upper" class="example-val">100.00</span> -->
+<!--                  <button class="aa-filter-btn" type="submit">Filter</button> -->
+<%--                </form> --%>
+<!--               </div>               -->
 
 
-            </div>
+<!--             </div> -->
             
            
                      </aside>
@@ -237,13 +244,8 @@
    {
           $scope.Product=prod;  
        
-   
-          $scope.sort = function(keyname)
-          {
-              $scope.sortKey = keyname;   
-              $scope.reverse = !$scope.reverse; 
-          }
-              
+                 
+          
     });
 </script>
  

@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.niit.DAO.UserDAO;
+import com.niit.entityModel.AddressModel;
 import com.niit.entityModel.CountModel;
 import com.niit.entityModel.User;
 
@@ -70,4 +71,20 @@ System.out.println(countvalue);
 session.saveOrUpdate(countModel);
 
     }
+
+    public void addAddress(AddressModel addressModel){
+    	log.debug("inside getbyID in UserDAOImpl");
+    	Session session = sessionFactory.openSession();
+    	session.beginTransaction();
+    	session.save(addressModel);
+    	session.getTransaction().commit();
+		session.close();
+		
+    	
+
+    	
+    }
+
+
+
 }

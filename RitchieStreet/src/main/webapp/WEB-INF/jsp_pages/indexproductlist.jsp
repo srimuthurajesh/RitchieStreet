@@ -95,7 +95,7 @@
                         <li>
                           <figure>
                             <a class="aa-product-img" href="productpage?productId=${RoboticsList.productId}"><img src="<c:url value="/resources/product/${RoboticsList.productId}.png"/>" style="height:250px;width:250px"></a>
-                            <a class="aa-add-card-btn"href="addtocart?username=${User}&productId=${RoboticsList.productId}&quantity=1"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                            <a class="aa-add-card-btn"href="addtocart?username=${User}&productId=${RoboticsList.productId}&quantity=1&action=addtocart"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                             <figcaption>
                               <h4 class="aa-product-title"><a href="#">${RoboticsList.productName}</a></h4>
                               <span class="aa-product-price"><i class="fa fa-inr"></i> ${RoboticsList.productPrice} /-</span>
@@ -114,7 +114,7 @@
                         <li>
                           <figure>
                             <a class="aa-product-img" href="productpage?productId=${toolsList.productId}"><img src="<c:url value="/resources/product/${toolsList.productId}.png"/>" style="height:250px;width:250px"></a>
-                            <a class="aa-add-card-btn"href="addtocart?username=${User}&productId=${toolsList.productId}&quantity=1"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                            <a class="aa-add-card-btn"href="addtocart?username=${User}&productId=${toolsList.productId}&quantity=1&action=addtocart"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                             <figcaption>
                               <h4 class="aa-product-title"><a href="#">${toolsList.productName}</a></h4>
                               <span class="aa-product-price"><i class="fa fa-inr"></i>${toolsList.productPrice }/-</span> </figcaption>
@@ -134,7 +134,7 @@
                         <li>
                           <figure>
                             <a class="aa-product-img" href="productpage?productId=${testingList.productId}"><img src="<c:url value="/resources/product/${testingList.productId}.png"/>" style="height:250px;width:250px"></a>
-                            <a class="aa-add-card-btn"href="addtocart?username=${User}&productId=${testingList.productId}&quantity=1"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                            <a class="aa-add-card-btn"href="addtocart?username=${User}&productId=${testingList.productId}&quantity=1&action=addtocart"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
                             <figcaption>
                               <h4 class="aa-product-title"><a href="#">${testingList.productName}</a></h4>
                               <span class="aa-product-price"><i class="fa fa-inr"></i>${testingList.productPrice}/-</span></figcaption>

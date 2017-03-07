@@ -6,6 +6,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <link rel="icon" type="image/png"  href="<c:url value="/resources/img/logo1.png"/>" sizes="16x16">
+  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
@@ -101,8 +103,8 @@
                     <div class="aa-prod-view-bottom">
 <%--                       <a class="aa-add-to-cart-btn" href="addtocart?username=${User}&productId=${productbyId.productId}&quantity="quantity">Add To Cart</a> --%>
                    
-  <input class="aa-add-to-cart-btn" type="submit" name="action" value="Add to cart">
-  <input class="aa-add-to-cart-btn" type="submit" name="action" value="BuyNow">
+  <input class="aa-add-to-cart-btn" type="submit" name="action"  style="margin-left:0px" value="Add to cart">
+  <input class="aa-add-to-cart-btn" type="submit" name="action" style="margin-left:40px" value="BuyNow">
 </form>
 <!--                       <a class="aa-add-to-cart-btn" href="buynow">Buy Now</a> -->
                    </div> </div></div>

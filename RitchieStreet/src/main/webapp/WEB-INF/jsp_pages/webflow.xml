@@ -18,7 +18,6 @@
 <transition on="cancel" to="cancel"/>
 </view-state>
 
-
 <view-state id="carddetailspage" view="carddetails.jsp" model="carddetailModel">
 <transition on="submit" to="paymentsuccess"/>
 <transition on="back" to="cancel"/>
