@@ -9,7 +9,7 @@ Tomcat 8.0<br>
 
 <br><br>
 <h3>Project Description</h3>
-  This is an e-commerce project, domain-name as ritchiestreet.com, developed using flowwing technologies<br>
+  This is an e-commerce project, domain-name as ritchiestreet.com, developed using following technologies<br>
   FrontEnd- Html Css Bootstrap3, Javascript, jquery<br>
   Middle ware- Java8 javaEE Spring4 Framework<br>
   BackEnd- Hibernate5, H2 Database<br>
